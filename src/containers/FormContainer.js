@@ -21,10 +21,10 @@ class FormContainer extends Component {
 
   handleValueChange(event) {
     let newValue = event.target.value;
-    let key = event.target.className;
+    let target = event.target.className;
 
     this.setState({
-      [key]: newValue
+      [target]: newValue
     })
   }
 

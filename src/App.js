@@ -5,17 +5,23 @@ import FormContainer from './containers/FormContainer'
 import NavBar from './components/NavBar'
 import HomePage from './containers/HomePage'
 
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      deck: []
+      deck: [],
+      firstName: "",
+      lastName: "",
+      title: ""
     }
 
     this.addToJSON = this.addToJSON.bind(this)
+
+    this.fetchFullDeck = this.fetchFullDeck.bind(this)
   }
 
-  componentDidMount() {
+  fetchFullDeck() {
     fetch('http://localhost:4567/api/v1/cards')
     .then(response => response.json())
     .then(body => {
@@ -54,10 +60,13 @@ class App extends Component {
   render() {
     let handleAddCard = (formPayload) => this.addToJSON(formPayload)
 
+
     return (
       <Router history={browserHistory}>
         <Route path='/' component={NavBar}>
-          <IndexRoute component={HomePage} />
+          <IndexRoute
+            component={HomePage}
+          />
           <Route
             path='/cardapp/designer'
             component={FormContainer}
