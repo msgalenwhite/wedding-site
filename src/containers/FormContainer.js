@@ -37,7 +37,7 @@ class FormContainer extends Component {
       cardCost: this.state.cardCost,
       cardImageUrl: this.state.cardImageUrl
     }
-    this.props.addToJSON(formPayload);
+    this.props.route.addToJSON(formPayload);
     this.handleClearForm();
   }
 

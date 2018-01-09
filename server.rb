@@ -50,10 +50,6 @@ post "/api/v1/cards" do
   json card
 end
 
-# get "/" do
-#   erb :home
-# end
-
 get '*' do
   erb :home
 end
