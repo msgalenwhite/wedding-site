@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import { Router } from 'react-router'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 
 import FormContainer from './containers/FormContainer'
+import NavBar from './components/NavBar'
+import HomePage from './containers/HomePage'
 
 class App extends Component {
   constructor(props) {
@@ -23,15 +25,6 @@ class App extends Component {
   }
 
   addToJSON(formPayload){
-    //something is wrong here:
-
-    /*
-
-App.js?a673:35 POST http://localhost:4567/api/v1/cards 500 (Internal Server Error)
-
-localhost/:1 Uncaught (in promise) SyntaxError: Unexpected token < in JSON at position 0
-
-    */
 
     fetch("/api/v1/cards", {
       method: 'POST',
@@ -50,7 +43,6 @@ localhost/:1 Uncaught (in promise) SyntaxError: Unexpected token < in JSON at po
       return response.json()
     })
     .then(body => {
-      console.log(body)
       let newDeck = this.state.deck.concat(body)
       this.setState({ deck: newDeck })
     })
@@ -63,9 +55,16 @@ localhost/:1 Uncaught (in promise) SyntaxError: Unexpected token < in JSON at po
     let handleAddCard = (formPayload) => this.addToJSON(formPayload)
 
     return (
-      <FormContainer
-        addToJSON={handleAddCard}
-      />
+      <Router history={browserHistory}>
+        <Route path='/' component={NavBar}>
+          <IndexRoute component={HomePage} />
+          <Route
+            path='/cardapp/designer'
+            component={FormContainer}
+            addToJSON={handleAddCard}
+          />
+        </Route>
+      </Router>
     )
   }
 }

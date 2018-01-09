@@ -24,17 +24,23 @@ Navigate to `localhost:4567`.
 
 ## NEXT
 
-- look into columns to make form prettier
-- implement react router
-- verify inputs?
+- Edit form to include fields other than type="text"
+- Look into Regular Expressions to verify user input
+- Spend time with Foundation to feel more comfortable using columns to help with design
+- Create HomePage to ask for/store name (and verify it)
 
-
-- create page with mock-up of card from information just entered
+- DONE: Implement React Router
 
 ## Page-Goals
 
-'/cardapp'
-  ***Stateful***
+App.js <-- IN PROGRESS
+**STATEFUL**
+  * Stores:
+    - greeting info <--TODO
+    - current deck
+    - addToJSON function
+
+'/' <-- IN PROGRESS AS "HomePage"
   * BUTTONS:
     - "New Designer"
     - "Returning Designer"
@@ -50,11 +56,11 @@ Navigate to `localhost:4567`.
   * BUTTON: "Returning Designer"
 
 Every page:
-  * NavBar
-    1. Link to Deck
+  * NavBar <-- IN PROGRESS
+    1. Link to Deck <--TODO
     2. Link to New Card Designer
-    3. Greeting from '/cardapp'
-  * Footer (with disclaimer)
+    3. Greeting from '/cardapp' <--TODO
+  * Footer (with disclaimer) <-- HOW TO?
 
 '/cardapp/home'
   * buttons:
@@ -62,15 +68,15 @@ Every page:
     2. Design a New Card
     3. What is Dominion?
 
-'/cardapp/designer'
+'/cardapp/designer' <-- IN PROGRESS
   * FORM:
     1. Name of card
     2. TextField
     3. Cost
-      - Gold (with icon?) <--STAR
-      - Checkbox: Potion? <--STAR
+      - Gold (with icon?) <--TODO
+      - Checkbox: Potion? <--TODO
     4. Use image?
-    5. BUTTON: fetch random images?
+    5. BUTTON: fetch random images? <--TODO
       - need component to hold images
     6. Submit Button
 
@@ -83,7 +89,7 @@ Every page:
     - save
 
 '/cardapp/designer/verify'
-  * same as '/cardapp/home', but with message - maybe a popup?
+  * same as '/cardapp/home', but with message - maybe a popup? to say "Your new card is now a part of your deck!"
 
 '/cardapp/yourdeck'
   * Images
@@ -92,4 +98,4 @@ Every page:
   * Display Option for if Deck is empty
 
 '/cardapp/yourdeck/:cardName'
-  * view card info, NOT just image
+  * view card info, NOT just image of card
