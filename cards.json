@@ -1,0 +1,18 @@
+{
+  "cards": [
+    {
+      "cardName": "Sample Card",
+      "cardText": "Unicorn Oasis is THE place to be!",
+      "cardCost": "5",
+      "cardImageUrl": "https://i.pinimg.com/736x/f1/03/c3/f103c3c8b80e7a8cc77958c0811f8853--team-unicorn-unicorns-art-drawing.jpg",
+      "id": 1
+    },
+    {
+      "cardName": "Test Card",
+      "cardText": "This is a test.",
+      "cardCost": "3",
+      "cardImageUrl": "https://i.pinimg.com/736x/1d/2c/f8/1d2cf8a3bbafbe1e527c55f538a624e5--baby-princess-little-princess.jpg",
+      "id": 2
+    }
+  ]
+}

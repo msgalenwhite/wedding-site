@@ -1,0 +1,16 @@
+# Please change the name of this lesson (and, then, delete this comment).
+# All of the following should have the same name
+#   - The lesson folder.
+#   - The lesson markdown file, and the ignored file, below.
+#   - The title, below.
+---
+title: "React Router Challenge"
+type: "challenge"  # challenge, exercise, article, video
+description: "React Router Challenge."
+tags: "react"
+behaviors:
+  - sinatra
+  - react_on_node
+  - react_router
+ignore:
+- "react-router-challenge.md"
