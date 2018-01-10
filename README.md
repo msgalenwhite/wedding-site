@@ -4,6 +4,8 @@ This is a practice project app to design new cards for the game Dominion.
 
 NOTE: I do not own Dominion!  I am using a game that I love to help me learn more about programming
 
+ALSO NOTE: This is a practice project, and as such will contain comments/notes for my own knowledge. If I submit a finished/final version of this project, I will of course clean out my note-taking
+
 ## Setup
 
 From your project directory, run the following:
