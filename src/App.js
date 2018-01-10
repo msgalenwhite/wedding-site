@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 
-import FormContainer from './containers/FormContainer'
 import NavBar from './components/NavBar'
+
+import FormContainer from './containers/FormContainer'
 import HomePage from './containers/HomePage'
+import DeckContainer from './containers/DeckContainer'
 
 
 class App extends Component {
@@ -71,6 +73,10 @@ class App extends Component {
             path='/cardapp/designer'
             component={FormContainer}
             addToJSON={handleAddCard}
+          />
+          <Route
+            path='/cardapp/yourdeck'
+            component={DeckContainer}
           />
         </Route>
       </Router>

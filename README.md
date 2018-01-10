@@ -57,7 +57,7 @@ App.js <-- IN PROGRESS
 
 Every page:
   * NavBar <-- IN PROGRESS
-    1. Link to Deck <--TODO
+    1. Link to Deck
     2. Link to New Card Designer
     3. Greeting from '/cardapp' <--TODO
   * Footer (with disclaimer) <-- HOW TO?
@@ -91,11 +91,11 @@ Every page:
 '/cardapp/designer/verify'
   * same as '/cardapp/home', but with message - maybe a popup? to say "Your new card is now a part of your deck!"
 
-'/cardapp/yourdeck'
-  * Images
-  * Names
+'/cardapp/yourdeck'<-- IN PROGRESS
+  * Images <--TODO
+  * Names <--TODO
     - link to specific page
-  * Display Option for if Deck is empty
+  * Display Option for if Deck is empty <--TODO
 
 '/cardapp/yourdeck/:cardName'
   * view card info, NOT just image of card

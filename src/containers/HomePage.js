@@ -1,13 +1,25 @@
-import React from 'react'
+import React, {Component} from 'react'
 
-const HomePage = props => {
+class HomePage extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
 
-  return(
+    }
+    this.handleChange = this.handleChange.bind(this);
+  }
 
-    <h1>Welcome to the Card Designer!</h1>
+  handleChange() {
 
 
-  )
+  }
+  
+  render() {
+    return(
+      <h1>Welcome to the Card Designer!</h1>
+    )
+  }
+
 }
 
 export default HomePage

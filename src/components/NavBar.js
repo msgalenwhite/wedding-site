@@ -1,20 +1,23 @@
 import React from 'react'
-import {Link, browserHistory} from 'react-router'
+import {browserHistory} from 'react-router'
+
+import ViewDeckButton from './ViewDeckButton'
+import DesignCardButton from './DesignCardButton'
 
 const NavBar = props => {
 
   return(
     <div>
-      <input
-        className='button'
-        type='button'
-        onClick={browserHistory.goBack}
-        value='Back'
-      />
-      <Link to='/cardapp/designer'>
-        Design a New Card
-      </Link>
-
+      <span className="navBarButtons">
+        <DesignCardButton />
+        <input
+          className='button'
+          type='button'
+          onClick={browserHistory.goBack}
+          value='Back'
+        />
+        <ViewDeckButton />
+      </span>
       {props.children}
     </div>
   )
