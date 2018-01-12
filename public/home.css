@@ -1,1 +1,69 @@
+/* Dropdown Button Styling */
 
+.dropbtn{
+  background-color: blue;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container div for dropdown - to position the dropdown content */
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+  /* --> Dropdown uses position:relative so that the dropdown content is placed right below the dropdown button (which is why the button uses position:absolute) */
+
+
+/* Dropdown content (hidden by default) */
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: yellow;
+  /* min-width: 160px; */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  /* overflow: auto; */
+  width: 100%;
+
+}
+
+  /* --> If we wanted the width of the dropdown content to be as wide as the dropdown button, set width to 100%, and overflow:auto to enable scrolling on small screens
+
+  --> instead of a border, the box-shadow makes the dropdown menu look like a "card"
+
+  --> "z-index" makes sure the dropdown is in front of other elements */
+
+/* Links inside dropdown */
+
+.dropdown-content a{
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+
+.dropdown-content a:hover {
+  background-color: green;
+}
+
+  /* --> :hover is called a "selector" - here it is used to show the dropdown menu when the user mouses over the button */
+
+/* Show the dropdown menu on hover */
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+
+.dropdown:hover .dropbtn {
+  background-color: pink;
+}

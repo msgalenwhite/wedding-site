@@ -6,10 +6,11 @@ class FormContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      cardName: "",
-      cardText: "",
-      cardCost: "",
-      cardImageUrl: ""
+      cardName: '',
+      cardText: '',
+      cardCost: '',
+      cardImageUrl: '',
+      potions:''
     }
 
   this.handleValueChange = this.handleValueChange.bind(this);
@@ -17,7 +18,18 @@ class FormContainer extends Component {
   this.handleFormSubmit = this.handleFormSubmit.bind(this);
 
   this.handleClearForm = this.handleClearForm.bind(this);
+
+  this.handlePotionSelect = this.handlePotionSelect.bind(this);
   }
+
+  /*
+  Note on radio buttons:
+  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio
+
+  Good site for info
+
+  Goal: Have user select if their card requires potions
+  */
 
   handleValueChange(event) {
     let newValue = event.target.value;
@@ -35,18 +47,34 @@ class FormContainer extends Component {
       cardName: this.state.cardName,
       cardText: this.state.cardText,
       cardCost: this.state.cardCost,
-      cardImageUrl: this.state.cardImageUrl
+      cardImageUrl: this.state.cardImageUrl,
+      potions: this.state.potions
     }
+
     this.props.route.addToJSON(formPayload);
     this.handleClearForm();
   }
 
   handleClearForm() {
     this.setState({
-      cardName: "",
-      cardText: "",
-      cardCost: "",
-      cardImageUrl: ""
+      cardName: '',
+      cardText: '',
+      cardCost: '',
+      cardImageUrl: '',
+      potions: ''
+    })
+  }
+
+  handlePotionSelect(event) {
+    let booleanPotions;
+    if (event.target.value === "yes"){
+      booleanPotions = true;
+    } else {
+      booleanPotions = false;
+    }
+
+    this.setState({
+      potions: booleanPotions
     })
   }
 
@@ -57,26 +85,46 @@ class FormContainer extends Component {
         <TextInputField
           onChange={this.handleValueChange}
           value={this.state.cardName}
-          name="cardName"
-          label="Name: "
+          name='cardName'
+          label='Name: '
         />
         <TextInputField
           onChange={this.handleValueChange}
           value={this.state.cardText}
-          name="cardText"
-          label="Text: "
+          name='cardText'
+          label='Text: '
         />
         <TextInputField
           onChange={this.handleValueChange}
           value={this.state.cardCost}
-          name="cardCost"
-          label="Cost: "
+          name='cardCost'
+          label='Cost: '
         />
+        <p>Require Potions?</p>
+        <div>
+          <input
+            type='radio'
+            id='potionChoice1'
+            name='potion'
+            value='yes'
+            onChange={this.handlePotionSelect}
+          />
+          <label htmlFor='potionChoice1'>Yes</label>
+          <input
+            type='radio'
+            id='potionChoice2'
+            name='potion'
+            value='no'
+            onChange={this.handlePotionSelect}
+          />
+          <label htmlFor='potionChoice2'>No</label>
+        </div>
+
         <TextInputField
           onChange={this.handleValueChange}
           value={this.state.cardImageUrl}
-          name="cardImageUrl"
-          label="Image URL: "
+          name='cardImageUrl'
+          label='Image URL: '
         />
 
         <input

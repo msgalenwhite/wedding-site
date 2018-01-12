@@ -13,14 +13,13 @@ class App extends Component {
     super(props);
     this.state = {
       deck: [],
-      firstName: "",
-      lastName: "",
-      title: ""
+      userName: ""
     }
+    this.fetchFullDeck = this.fetchFullDeck.bind(this)
 
     this.addToJSON = this.addToJSON.bind(this)
 
-    this.fetchFullDeck = this.fetchFullDeck.bind(this)
+    this.setUserName = this.setUserName.bind(this)
   }
 
   fetchFullDeck() {
@@ -33,7 +32,7 @@ class App extends Component {
   }
 
   addToJSON(formPayload){
-
+    console.log(formPayload)
     fetch("/api/v1/cards", {
       method: 'POST',
       body: JSON.stringify(formPayload)
@@ -59,8 +58,19 @@ class App extends Component {
     })
   }
 
+  setUserName (name) {
+    this.setState({
+      userName: name
+    })
+  }
+
   render() {
+
     let handleAddCard = (formPayload) => this.addToJSON(formPayload)
+
+    let handleNameSubmit = (name) => {
+      this.setUserName(name)
+    }
 
 
     return (
@@ -68,6 +78,7 @@ class App extends Component {
         <Route path='/' component={NavBar}>
           <IndexRoute
             component={HomePage}
+            handleNameSubmit={handleNameSubmit}
           />
           <Route
             path='/cardapp/designer'
