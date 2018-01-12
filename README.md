@@ -26,19 +26,15 @@ Navigate to `localhost:4567`.
 
 ## NEXT
 
-- Edit form to include fields other than type="text"
 - Look into Regular Expressions to verify user input
 - Spend time with Foundation to feel more comfortable using columns to help with design
-- Create HomePage to ask for/store name (and verify it)
-
-- DONE: Implement React Router
 
 ## Page-Goals
 
 App.js <-- IN PROGRESS
 **STATEFUL**
   * Stores:
-    - greeting info <--TODO
+    - greeting info
     - current deck
     - addToJSON function
 
@@ -46,10 +42,11 @@ App.js <-- IN PROGRESS
   * BUTTONS:
     - "New Designer"
     - "Returning Designer"
+  * Currently: contains name field which will end up on welcome site
 
 '/cardapp/welcome'
   * Title
-  FORM:
+  FORM: <-- IN PROGRESS: no verification
     * DropDown
       1. Sir
       2. Lady
@@ -76,11 +73,12 @@ Every page:
     2. TextField
     3. Cost
       - Gold (with icon?) <--TODO
-      - Checkbox: Potion? <--TODO
+      - Checkbox: Potion?
     4. Use image?
     5. BUTTON: fetch random images? <--TODO
       - need component to hold images
     6. Submit Button
+  TODO: VERIFY INPUT!
 
 '/cardapp/designer/preview'
   * preview of card
@@ -93,10 +91,10 @@ Every page:
 '/cardapp/designer/verify'
   * same as '/cardapp/home', but with message - maybe a popup? to say "Your new card is now a part of your deck!"
 
-'/cardapp/yourdeck'<-- IN PROGRESS
+'/cardapp/yourdeck'<-- IN PROGRESS as DeckContainer
   * Images <--TODO
   * Names <--TODO
-    - link to specific page
+    - link to specific page <--TODO
   * Display Option for if Deck is empty <--TODO
 
 '/cardapp/yourdeck/:cardName'
