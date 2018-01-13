@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
 import TextInputField from '../components/TextInputField'
+import SubmitButton from '../components/SubmitButton'
+import ErrorMessages from '../constants/ErrorMessages'
+
 
 class FormContainer extends Component {
   constructor(props){
@@ -10,38 +13,40 @@ class FormContainer extends Component {
       cardText: '',
       cardCost: '',
       cardImageUrl: '',
-      potions:''
+      potions:'',
+      errors: {
+        cardName: '',
+        cardText: '',
+        cardCost: '',
+        cardImageUrl: '',
+        potions:''
+      }
     }
 
-  this.handleValueChange = this.handleValueChange.bind(this);
-
-  this.handleFormSubmit = this.handleFormSubmit.bind(this);
-
-  this.handleClearForm = this.handleClearForm.bind(this);
-
-  this.handlePotionSelect = this.handlePotionSelect.bind(this);
+    this.handleValueChange = this.handleValueChange.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.handleClearForm = this.handleClearForm.bind(this);
+    this.handlePotionSelect = this.handlePotionSelect.bind(this);
+    this.validateInput = this.validateInput.bind(this);
+    this.writeErrors = this.writeErrors.bind(this);
+    this.foundNoErrors = this.foundNoErrors.bind(this);
   }
-
-  /*
-  Note on radio buttons:
-  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio
-
-  Good site for info
-
-  Goal: Have user select if their card requires potions
-  */
 
   handleValueChange(event) {
     let newValue = event.target.value;
     let target = event.target.className;
 
+    this.validateInput(target);
+
     this.setState({
       [target]: newValue
     })
+
   }
 
   handleFormSubmit(event) {
     event.preventDefault();
+    //needs to validateInput before passing it to app
 
     let formPayload = {
       cardName: this.state.cardName,
@@ -51,8 +56,14 @@ class FormContainer extends Component {
       potions: this.state.potions
     }
 
-    this.props.route.addToJSON(formPayload);
-    this.handleClearForm();
+    Object.keys(formPayload).forEach ((name) => {
+      this.validateInput(name)
+    })
+
+    if (this.foundNoErrors()) {
+      this.props.route.addToJSON(formPayload);
+      this.handleClearForm();
+    }
   }
 
   handleClearForm() {
@@ -78,8 +89,48 @@ class FormContainer extends Component {
     })
   }
 
-  //NOTE: on label creation - could isolate the capitalized portion of name
+  validateInput(name){
+    let valueToCheck;
+    let copyOfState = this.state
+
+    Object.entries(copyOfState).forEach((miniArray) => {
+      let targetName = miniArray[0]
+      let targetValue = miniArray[1]
+
+      if (targetName === name) {
+        valueToCheck = targetValue
+      }
+    })
+
+    if (valueToCheck === ""){
+      this.writeErrors(name)
+    }
+  }
+
+  writeErrors(name){
+    let currentErrors = this.state.errors
+
+    currentErrors.name = ErrorMessages.name
+
+    this.setState({
+      errors: currentErrors
+    })
+  }
+
+  foundNoErrors() {
+    Object.values(this.state.errors).forEach ((value) => {
+      if (value !== "") {
+        return false
+      }
+    })
+    return true
+  }
+
+
   render() {
+    console.log(this.state)
+    //Challenge: How could I access these values inside of a map function?
+
     return(
       <form onSubmit={this.handleFormSubmit} >
         <TextInputField
@@ -100,6 +151,14 @@ class FormContainer extends Component {
           name='cardCost'
           label='Cost: '
         />
+
+        <TextInputField
+          onChange={this.handleValueChange}
+          value={this.state.cardImageUrl}
+          name='cardImageUrl'
+          label='Image URL: '
+        />
+
         <p>Require Potions?</p>
         <div>
           <input
@@ -120,23 +179,10 @@ class FormContainer extends Component {
           <label htmlFor='potionChoice2'>No</label>
         </div>
 
-        <TextInputField
-          onChange={this.handleValueChange}
-          value={this.state.cardImageUrl}
-          name='cardImageUrl'
-          label='Image URL: '
-        />
-
-        <input
-          className='button'
-          type='submit'
-          value='Submit'
-        />
+        <SubmitButton />
       </form>
     )
-
   }
-
 }
 
 export default FormContainer

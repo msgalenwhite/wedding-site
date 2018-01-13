@@ -16,9 +16,7 @@ class App extends Component {
       userName: ""
     }
     this.fetchFullDeck = this.fetchFullDeck.bind(this)
-
     this.addToJSON = this.addToJSON.bind(this)
-
     this.setUserName = this.setUserName.bind(this)
   }
 
@@ -27,12 +25,13 @@ class App extends Component {
     .then(response => response.json())
     .then(body => {
       let fullDeck = body.cards
+
+      //conditional here to return image representing empty deck if there is no deck present
       this.setState({ deck: fullDeck })
     })
   }
 
   addToJSON(formPayload){
-    console.log(formPayload)
     fetch("/api/v1/cards", {
       method: 'POST',
       body: JSON.stringify(formPayload)
@@ -65,6 +64,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state)
 
     let handleAddCard = (formPayload) => this.addToJSON(formPayload)
 

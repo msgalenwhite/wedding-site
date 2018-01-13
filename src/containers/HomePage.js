@@ -11,12 +11,10 @@ class HomePage extends Component {
       title: ""
     }
     this.handleChange = this.handleChange.bind(this);
-
     this.handleSubmit = this.handleSubmit.bind(this);
-
-    this.handleTitleClick = this.handleTitleClick.bind(this);
-
     this.formatName = this.formatName.bind(this);
+    this.handleTitleClick = this.handleTitleClick.bind(this);
+    this.validateInput = this.validateInput.bind(this);
   }
 
   handleChange(event) {
@@ -30,25 +28,36 @@ class HomePage extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    //need to validate that all sections have been completed
 
     let userName = this.formatName();
 
     this.props.route.handleNameSubmit(userName);
-
-
-    //we want to use props.onSubmit to send the name to app
   }
 
   formatName() {
     let title = this.state.title
-    let fullName = `${this.state.firstName} ${this.state.lastName}`
-    let userName = `${title} ${fullName}`
+    let firstName = this.capitalize(this.state.firstName)
+    let lastName = this.capitalize(this.state.lastName)
+
+    let userName = `${title} ${firstName} ${lastName}`
 
     return userName
   }
 
+  capitalize(string) {
+    let capital = string[0].toUpperCase()
+    let newString = string.slice(1,string.length-1)
+
+    return `${capital}${newString}`
+  }
+
   handleTitleClick(chosenTitle) {
     this.setState({ title: chosenTitle })
+  }
+
+  validateInput(){
+
   }
 
   render() {
