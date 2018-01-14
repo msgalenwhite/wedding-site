@@ -9,11 +9,10 @@ class HomePage extends Component {
       firstName: "",
       lastName: "",
       title: "",
-      errors: {}
+      genericError: ''
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.formatName = this.formatName.bind(this);
     this.handleTitleClick = this.handleTitleClick.bind(this);
     this.somethingIsEmpty = this.somethingIsEmpty.bind(this);
   }
@@ -29,28 +28,47 @@ class HomePage extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    //need to validate that all sections have been completed
 
-    let userName = this.formatName();
+    let formPayload = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      title: this.state.title
+    }
 
-    this.props.route.handleNameSubmit(userName);
+    if (this.formIsComplete(formPayload)) {
+      let userName = this.formatName(formPayload);
+      this.props.route.handleNameSubmit(userName);
+    } else {
+      this.setState({
+        genericError: "Please enter your name."
+      })
+    }
   }
 
-  formatName() {
-    let title = this.state.title
-    let firstName = this.capitalize(this.state.firstName)
-    let lastName = this.capitalize(this.state.lastName)
+  formIsComplete(formPayload) {
+    let formIsFull = true;
+    Object.values(formPayload).forEach ((userInputField) => {
+      if (userInputField === "") {
+        formIsFull = false;
+      }
+    })
+    return formIsFull
+  }
 
-    let userName = `${title} ${firstName} ${lastName}`
+  formatName(formPayload) {
+    let capitalizedValues = Object.values(formPayload).map((value) => {
+      return (
+        this.capitalize(value)
+      )
+    })
+
+    let userName = `${capitalizedValues[2]} ${capitalizedValues[0]} ${capitalizedValues[1]}`
 
     return userName
   }
 
   capitalize(string) {
-    let capital = string[0].toUpperCase()
-    let newString = string.slice(1,string.length-1)
-
-    return `${capital}${newString}`
+    return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
   handleTitleClick(chosenTitle) {
@@ -72,10 +90,12 @@ class HomePage extends Component {
   }
 
   render() {
+    console.log(this.state)
     return(
       <div>
         <h1>Welcome to the Card Designer!</h1>
         <NameContainer
+          error={this.state.genericError}
           handleTitleClick={this.handleTitleClick}
           handleChange={this.handleChange}
           firstName={this.state.firstName}
