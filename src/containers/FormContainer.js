@@ -27,32 +27,9 @@ class FormContainer extends Component {
     let newValue = event.target.value;
     let target = event.target.className;
 
-    let cardInfo = {
-      cardName: this.state.cardName,
-      cardText: this.state.cardText,
-      cardCost: this.state.cardCost,
-      cardImageUrl: this.state.cardImageUrl,
-      potions: this.state.potions
-    }
-
-    let somethingIsEmpty = false;
-
-    Object.values(cardInfo).forEach ((userInputField) => {
-      if (userInputField === "") {
-        somethingIsEmpty = true
-      }
+    this.setState({
+      [target]: newValue
     })
-
-    if (somethingIsEmpty) {
-      this.setState({
-        genericError: ErrorMessages.generic,
-        [target]: newValue
-      })
-    } else {
-      this.setState({
-        [target]: newValue
-      })
-    }
   }
 
   handleFormSubmit(event) {
@@ -66,17 +43,24 @@ class FormContainer extends Component {
       potions: this.state.potions
     }
 
-    let somethingIsEmpty = false;
+    if (this.formIsComplete(formPayload)) {
+      this.fullFormSubmit(formPayload)
+    } else {
+      this.setState({
+        genericError: ErrorMessages.generic
+      })
+    }
+  }
+
+  formIsComplete(formPayload) {
+    let formIsFull = true;
     Object.values(formPayload).forEach ((userInputField) => {
       if (userInputField === "") {
-        somethingIsEmpty = true;
+        formIsFull = false;
 
       }
     })
-
-    if (!somethingIsEmpty) {
-      this.fullFormSubmit(formPayload)
-    }
+    return formIsFull
   }
 
   fullFormSubmit(formPayload) {
