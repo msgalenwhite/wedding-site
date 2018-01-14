@@ -1,4 +1,5 @@
 let errorMessages = {
+  generic: "Please complete the form.",
   cardName: "What is the name of your card?",
   cardText: "Draw a card? Double your gold? You could do anything!",
   cardCost: "Nothing is free.",

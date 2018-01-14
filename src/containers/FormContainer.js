@@ -14,39 +14,49 @@ class FormContainer extends Component {
       cardCost: '',
       cardImageUrl: '',
       potions:'',
-      errors: {
-        cardName: '',
-        cardText: '',
-        cardCost: '',
-        cardImageUrl: '',
-        potions:''
-      }
+      genericError: ""
     }
 
     this.handleValueChange = this.handleValueChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleClearForm = this.handleClearForm.bind(this);
     this.handlePotionSelect = this.handlePotionSelect.bind(this);
-    this.validateInput = this.validateInput.bind(this);
-    this.writeErrors = this.writeErrors.bind(this);
-    this.foundNoErrors = this.foundNoErrors.bind(this);
   }
 
   handleValueChange(event) {
     let newValue = event.target.value;
     let target = event.target.className;
 
-    this.validateInput(target);
+    let cardInfo = {
+      cardName: this.state.cardName,
+      cardText: this.state.cardText,
+      cardCost: this.state.cardCost,
+      cardImageUrl: this.state.cardImageUrl,
+      potions: this.state.potions
+    }
 
-    this.setState({
-      [target]: newValue
+    let somethingIsEmpty = false;
+
+    Object.values(cardInfo).forEach ((userInputField) => {
+      if (userInputField === "") {
+        somethingIsEmpty = true
+      }
     })
 
+    if (somethingIsEmpty) {
+      this.setState({
+        genericError: ErrorMessages.generic,
+        [target]: newValue
+      })
+    } else {
+      this.setState({
+        [target]: newValue
+      })
+    }
   }
 
   handleFormSubmit(event) {
     event.preventDefault();
-    //needs to validateInput before passing it to app
 
     let formPayload = {
       cardName: this.state.cardName,
@@ -56,14 +66,22 @@ class FormContainer extends Component {
       potions: this.state.potions
     }
 
-    Object.keys(formPayload).forEach ((name) => {
-      this.validateInput(name)
+    let somethingIsEmpty = false;
+    Object.values(formPayload).forEach ((userInputField) => {
+      if (userInputField === "") {
+        somethingIsEmpty = true;
+
+      }
     })
 
-    if (this.foundNoErrors()) {
-      this.props.route.addToJSON(formPayload);
-      this.handleClearForm();
+    if (!somethingIsEmpty) {
+      this.fullFormSubmit(formPayload)
     }
+  }
+
+  fullFormSubmit(formPayload) {
+    this.props.route.addToJSON(formPayload);
+    this.handleClearForm();
   }
 
   handleClearForm() {
@@ -72,7 +90,8 @@ class FormContainer extends Component {
       cardText: '',
       cardCost: '',
       cardImageUrl: '',
-      potions: ''
+      potions: '',
+      genericError: ''
     })
   }
 
@@ -89,42 +108,45 @@ class FormContainer extends Component {
     })
   }
 
-  validateInput(name){
-    let valueToCheck;
-    let copyOfState = this.state
+  // validateInput(name){
+  //   let valueToCheck;
+  //   let copyOfState = this.state
+  //
+  //   Object.entries(copyOfState).forEach((miniArray) => {
+  //     let targetName = miniArray[0]
+  //     let targetValue = miniArray[1]
+  //
+  //     if (targetName === name) {
+  //       if (targetValue === ""){
+  //         this.writeErrors(targetName)
+  //       }
+  //     }
+  //   })
+  // }
 
-    Object.entries(copyOfState).forEach((miniArray) => {
-      let targetName = miniArray[0]
-      let targetValue = miniArray[1]
+  // writeErrors(name){
+  //   let currentErrors = this.state.errors
+  //
+  //   currentErrors.name = ErrorMessages.name
+  //
+  //   this.setState({
+  //     errors: currentErrors
+  //   })
+  // }
 
-      if (targetName === name) {
-        valueToCheck = targetValue
-      }
-    })
-
-    if (valueToCheck === ""){
-      this.writeErrors(name)
-    }
-  }
-
-  writeErrors(name){
-    let currentErrors = this.state.errors
-
-    currentErrors.name = ErrorMessages.name
-
-    this.setState({
-      errors: currentErrors
-    })
-  }
-
-  foundNoErrors() {
-    Object.values(this.state.errors).forEach ((value) => {
-      if (value !== "") {
-        return false
-      }
-    })
-    return true
-  }
+  // foundNoErrors() {
+  //   Object.entries(this.state).forEach ((miniArray) => {
+  //     let targetKey = miniArray[0]
+  //     let targetValue = miniArray[1]
+  //
+  //     if (targetKey !== "errors") {
+  //       if (targetValue !== "") {
+  //         return false
+  //       }
+  //     }
+  //   })
+  //   return true;
+  // }
 
 
   render() {
@@ -133,6 +155,9 @@ class FormContainer extends Component {
 
     return(
       <form onSubmit={this.handleFormSubmit} >
+        <div className="genericError">
+          {this.state.genericError}
+        </div>
         <TextInputField
           onChange={this.handleValueChange}
           value={this.state.cardName}

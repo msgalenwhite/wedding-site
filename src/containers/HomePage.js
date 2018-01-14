@@ -8,13 +8,14 @@ class HomePage extends Component {
     this.state = {
       firstName: "",
       lastName: "",
-      title: ""
+      title: "",
+      errors: {}
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.formatName = this.formatName.bind(this);
     this.handleTitleClick = this.handleTitleClick.bind(this);
-    this.validateInput = this.validateInput.bind(this);
+    this.somethingIsEmpty = this.somethingIsEmpty.bind(this);
   }
 
   handleChange(event) {
@@ -56,8 +57,18 @@ class HomePage extends Component {
     this.setState({ title: chosenTitle })
   }
 
-  validateInput(){
+  somethingIsEmpty(){
+    Object.entries(this.state).forEach((miniArray) => {
+      let targetKey = miniArray[0]
+      let targetValue = miniArray[1]
 
+      if (targetKey !== "errors"){
+        if (targetValue === ""){
+          return true;
+        }
+      }
+    })
+    return false;
   }
 
   render() {
