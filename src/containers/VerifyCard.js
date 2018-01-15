@@ -1,20 +1,36 @@
 import React from 'react'
+import {Link} from 'react-router'
 
 import Card from '../components/Card'
+import SubmitButton from '../components/SubmitButton'
 
 const VerifyCard = (props) => {
-
+  debugger 
+  let onClickFunc = () => {
+    props.addToJSON(props.cardData)
+  }
   return(
     <div>
-      <h3>Is this the card you wanted?</h3>
+      <h2>Card Preview:</h2>
       <Card
-        cardName={props.cardName}
-        cardText={props.cardText}
-        cardCost={props.cardText}
-        cardImageUrl={props.cardImageUrl}
-        potions={props.potions}
-        id={props.id}
+        cardName={props.cardData.cardName}
+        cardText={props.cardData.cardText}
+        cardCost={props.cardData.cardCost}
+        cardImageUrl={props.cardData.cardImageUrl}
+        potions={props.cardData.potions}
+        id={props.cardData.id}
       />
+
+      <h2>Looks Good?</h2>
+      <div onClick={onClickFunc}>
+
+        <Link
+          to='/cardapp/yourdeck'
+        >
+          <SubmitButton
+          />
+        </Link>
+      </div>
     </div>
   )
 }

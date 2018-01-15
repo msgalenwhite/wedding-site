@@ -3,11 +3,11 @@ import { Router, Route, Redirect, IndexRoute, browserHistory } from 'react-route
 
 import NavBar from './components/NavBar'
 
-import FormContainer from './containers/FormContainer'
+import CardDesignPage from './containers/CardDesignPage'
 import HomePage from './containers/HomePage'
 import DeckContainer from './containers/DeckContainer'
 import VerifyCard from './containers/VerifyCard'
-import WelcomePage from './containers/WelcomePage'
+
 
 
 class App extends Component {
@@ -15,13 +15,11 @@ class App extends Component {
     super(props);
     this.state = {
       deck: [],
-      userName: "",
-      cardData: {}
+      userName: ""
     }
     this.fetchFullDeck = this.fetchFullDeck.bind(this)
     this.addToJSON = this.addToJSON.bind(this)
     this.setUserName = this.setUserName.bind(this)
-    this.setCardData = this.setCardData.bind(this)
   }
   //maybe if we passed the fetch full deck function down to the name container so it could be triggered on a successful submit?
 
@@ -34,12 +32,6 @@ class App extends Component {
 
       //conditional here to return image representing empty deck if there is no deck present
       this.setState({ deck: fullDeck })
-    })
-  }
-
-  setCardData(cardData) {
-    this.setState({
-      cardData: cardData
     })
   }
 
@@ -81,44 +73,29 @@ class App extends Component {
 
   render() {
     console.log(this.state)
-
+    
     let handleAddCard = (formPayload) => this.addToJSON(formPayload)
 
     let handleNameSubmit = (name) => {
       this.setUserName(name)
     }
 
-    let setCardData = (data) => {
-      this.setCardData(data)
-    }
-
-
     return (
       <Router history={browserHistory}>
         <Route path='/' component={NavBar}>
           <IndexRoute
-            component={WelcomePage}
-          />
-          <Route
-            path='/cardapp/welcome'
             component={HomePage}
             handleNameSubmit={handleNameSubmit}
           />
           <Route
             path='/cardapp/designer'
-            component={FormContainer}
-            setCardData={setCardData}
-            cardData={this.state.cardData}
-          />
-          <Route
-            path='/cardapp/designer/verify'
-            component={VerifyCard}
-            cardData={this.state.cardData}
+            component={CardDesignPage}
             addToJSON={handleAddCard}
           />
           <Route
             path='/cardapp/yourdeck'
             component={DeckContainer}
+            getDeck={this.fetchFullDeck}
           />
         </Route>
       </Router>

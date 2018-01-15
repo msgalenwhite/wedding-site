@@ -80,6 +80,10 @@ class HomePage extends Component {
     this.setState({ title: chosenTitle })
   }
 
+  ComponentWillMount(){
+    this.props.route.fetchFullDeck()
+  }
+
   render() {
     console.log(this.state)
 
