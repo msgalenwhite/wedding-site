@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Redirect, Link } from 'react-router';
+//https://stackoverflow.com/questions/29244731/react-router-how-to-manually-invoke-link
 
 import TextInputField from '../components/TextInputField'
 import SubmitButton from '../components/SubmitButton'
@@ -21,7 +23,12 @@ class FormContainer extends Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleClearForm = this.handleClearForm.bind(this);
     this.handlePotionSelect = this.handlePotionSelect.bind(this);
+    this.formIsComplete = this.formIsComplete.bind(this);
+    this.fullFormSubmit = this.fullFormSubmit.bind(this);
   }
+
+  //needed - a way to load the form with the old data in it.  If we pass props of cardData down, then populate the form with it - otherwise, it's blank.
+  //set it in ComponentDidMount?
 
   handleValueChange(event) {
     let newValue = event.target.value;
@@ -57,15 +64,18 @@ class FormContainer extends Component {
     Object.values(formPayload).forEach ((userInputField) => {
       if (userInputField === "") {
         formIsFull = false;
-
+        //this is where I could set a more specific error
       }
     })
     return formIsFull
   }
 
   fullFormSubmit(formPayload) {
-    this.props.route.addToJSON(formPayload);
-    this.handleClearForm();
+    //send the formpayload to app to save it
+    this.props.route.setCardData(formPayload);
+
+    //clear the form
+    this.handleClearForm()
   }
 
   handleClearForm() {
@@ -92,49 +102,13 @@ class FormContainer extends Component {
     })
   }
 
-  // validateInput(name){
-  //   let valueToCheck;
-  //   let copyOfState = this.state
-  //
-  //   Object.entries(copyOfState).forEach((miniArray) => {
-  //     let targetName = miniArray[0]
-  //     let targetValue = miniArray[1]
-  //
-  //     if (targetName === name) {
-  //       if (targetValue === ""){
-  //         this.writeErrors(targetName)
-  //       }
-  //     }
-  //   })
-  // }
-
-  // writeErrors(name){
-  //   let currentErrors = this.state.errors
-  //
-  //   currentErrors.name = ErrorMessages.name
-  //
-  //   this.setState({
-  //     errors: currentErrors
-  //   })
-  // }
-
-  // foundNoErrors() {
-  //   Object.entries(this.state).forEach ((miniArray) => {
-  //     let targetKey = miniArray[0]
-  //     let targetValue = miniArray[1]
-  //
-  //     if (targetKey !== "errors") {
-  //       if (targetValue !== "") {
-  //         return false
-  //       }
-  //     }
-  //   })
-  //   return true;
-  // }
-
-
   render() {
-    console.log(this.state)
+
+    // let redirectHandleSubmit = () => {
+    //   this.props.route.addToJSON(formPayload);
+    //   this.handleClearForm();
+    // }
+
     //Challenge: How could I access these values inside of a map function?
 
     return(
@@ -160,7 +134,6 @@ class FormContainer extends Component {
           name='cardCost'
           label='Cost: '
         />
-
         <TextInputField
           onChange={this.handleValueChange}
           value={this.state.cardImageUrl}

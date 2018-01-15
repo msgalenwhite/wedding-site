@@ -14,12 +14,17 @@ class HomePage extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleTitleClick = this.handleTitleClick.bind(this);
-    this.somethingIsEmpty = this.somethingIsEmpty.bind(this);
   }
 
   handleChange(event) {
     let value = event.target.value;
     let target = event.target.className;
+
+    let fullPayload = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      title: this.state.title
+    }
 
     this.setState({
       [target]: value
@@ -75,22 +80,9 @@ class HomePage extends Component {
     this.setState({ title: chosenTitle })
   }
 
-  somethingIsEmpty(){
-    Object.entries(this.state).forEach((miniArray) => {
-      let targetKey = miniArray[0]
-      let targetValue = miniArray[1]
-
-      if (targetKey !== "errors"){
-        if (targetValue === ""){
-          return true;
-        }
-      }
-    })
-    return false;
-  }
-
   render() {
     console.log(this.state)
+
     return(
       <div>
         <h1>Welcome to the Card Designer!</h1>
