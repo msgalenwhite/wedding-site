@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 
 import NameContainer from './NameContainer'
+import WelcomeContainer from './WelcomeContainer'
 
 class HomePage extends Component {
   constructor(props){
@@ -9,7 +10,8 @@ class HomePage extends Component {
       firstName: "",
       lastName: "",
       title: "",
-      genericError: ''
+      genericError: '',
+      formattedName: ""
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -42,7 +44,9 @@ class HomePage extends Component {
 
     if (this.formIsComplete(formPayload)) {
       let userName = this.formatName(formPayload);
-      this.props.route.handleNameSubmit(userName);
+      this.setState({
+        formattedName: userName
+      });
     } else {
       this.setState({
         genericError: "Please enter your name."
@@ -80,16 +84,12 @@ class HomePage extends Component {
     this.setState({ title: chosenTitle })
   }
 
-  ComponentWillMount(){
-    this.props.route.fetchFullDeck()
-  }
-
   render() {
     console.log(this.state)
 
-    return(
-      <div>
-        <h1>Welcome to the Card Designer!</h1>
+    let renderedComponent;
+    if (this.state.formattedName === ""){
+      renderedComponent =
         <NameContainer
           error={this.state.genericError}
           handleTitleClick={this.handleTitleClick}
@@ -98,7 +98,15 @@ class HomePage extends Component {
           lastName={this.state.lastName}
           onSubmit={this.handleSubmit}
         />
-      </div>
+    } else {
+      renderedComponent =
+        <WelcomeContainer
+          userName={this.state.formattedName}
+        />
+    }
+
+    return(
+      renderedComponent
     )
   }
 

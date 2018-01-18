@@ -5,10 +5,10 @@ import Card from '../components/Card'
 import SubmitButton from '../components/SubmitButton'
 
 const VerifyCard = (props) => {
-  debugger 
   let onClickFunc = () => {
     props.addToJSON(props.cardData)
   }
+  
   return(
     <div>
       <h2>Card Preview:</h2>
