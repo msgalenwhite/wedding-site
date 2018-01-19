@@ -3,9 +3,9 @@ import { Router, Route, Redirect, IndexRoute, browserHistory } from 'react-route
 
 import NavBar from './components/NavBar'
 
-import CardDesignPage from './containers/CardDesignPage'
-import HomePage from './containers/HomePage'
-import DeckContainer from './containers/DeckContainer'
+import CardDesignPage from './pages/CardDesignPage'
+import HomePage from './pages/HomePage'
+import ViewDeckPage from './pages/ViewDeckPage'
 
 import '../public/home.css'
 
@@ -96,7 +96,7 @@ const App = props => {
         />
         <Route
           path='/cardapp/yourdeck'
-          component={DeckContainer}
+          component={ViewDeckPage}
         />
       </Route>
     </Router>
