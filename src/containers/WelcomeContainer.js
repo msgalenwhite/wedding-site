@@ -1,6 +1,8 @@
 import React from "react"
 import {Link} from "react-router"
 
+//Goal: Clicking "View the Deck" will load the deck, THEN pass you along to Deck Container along with all the cards
+
 const WelcomeContainer = props => {
   return(
     <div>

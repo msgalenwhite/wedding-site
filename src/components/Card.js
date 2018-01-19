@@ -9,7 +9,7 @@ const Card = (props) => {
 
   return(
     <div className='card'>
-      <h3 className='cardTitle'>{props.cardName}</h3>
+      <div className='cardTitle'>{props.cardName}</div>
       <p>{props.cardText}</p>
       <p>Cost: {props.cardCost}</p>
       {potions}

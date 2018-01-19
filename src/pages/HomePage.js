@@ -45,9 +45,9 @@ class HomePage extends Component {
     if (this.formIsComplete(formPayload)) {
       let userName = this.formatName(formPayload);
       this.props.route.addNameToJSON(userName);
-      // this.setState({
-      //   formattedName: userName
-      // });
+      this.setState({
+        formattedName: userName
+      });
     } else {
       this.setState({
         genericError: "Please enter your name."
