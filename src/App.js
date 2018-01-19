@@ -9,7 +9,7 @@ import DeckContainer from './containers/DeckContainer'
 
 const App = props => {
 
-  let addToJSON = (formPayload) => {
+  let addCardToJSON = (formPayload) => {
     fetch("/api/v1/cards", {
       method: 'POST',
       body: JSON.stringify(formPayload)
@@ -26,25 +26,66 @@ const App = props => {
     .then(response => {
       return response.json()
     })
-    .then(body => {
-      // let newDeck = this.state.deck.concat(body)
-      // this.setState({
-      //   deck: newDeck,
-      //   cardData: {}
-      // })
+    .catch (error => {
+      console.log(`Error in fetch: ${error.message}`);
+    })
+  }
+
+  let addNameToJSON = (userName) => {
+    fetch("/api/v1/userName", {
+      method: 'POST',
+      body: JSON.stringify(userName)
+    })
+    .then (response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`
+        error = new Error(errorMessage);
+        throw (error);
+      }
+    })
+    .then(response => {
+      return response.json()
     })
     .catch (error => {
       console.log(`Error in fetch: ${error.message}`);
     })
   }
 
-  let handleAddCard = (formPayload) => addToJSON(formPayload)
+  let clearName = () => {
+    fetch("/api/v1/eraseUserName", {
+      method: 'POST',
+      body: JSON.stringify(userName)
+    })
+    .then (response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`
+        error = new Error(errorMessage);
+        throw (error);
+      }
+    })
+    .then(response => {
+      return response.json()
+    })
+    .catch (error => {
+      console.log(`Error in fetch: ${error.message}`);
+    })
+  }
+
+  let handleAddCard = (formPayload) => addCardToJSON(formPayload)
+
+  let handleAddName = (userName) =>
+  addNameToJSON(userName)
 
   return (
     <Router history={browserHistory}>
       <Route path='/' component={NavBar}>
         <IndexRoute
           component={HomePage}
+          addNameToJSON={handleAddName}
         />
         <Route
           path='/cardapp/designer'
