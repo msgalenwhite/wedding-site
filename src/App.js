@@ -7,6 +7,8 @@ import CardDesignPage from './containers/CardDesignPage'
 import HomePage from './containers/HomePage'
 import DeckContainer from './containers/DeckContainer'
 
+import '../public/home.css'
+
 const App = props => {
 
   let addCardToJSON = (formPayload) => {
@@ -81,7 +83,7 @@ const App = props => {
   addNameToJSON(userName)
 
   return (
-    <Router history={browserHistory}>
+    <Router history={browserHistory} className="all">
       <Route path='/' component={NavBar}>
         <IndexRoute
           component={HomePage}
