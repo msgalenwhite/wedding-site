@@ -8,7 +8,7 @@ const VerifyCard = (props) => {
   let onClickFunc = () => {
     props.addToJSON(props.cardData)
   }
-  
+
   return(
     <div>
       <h2>Card Preview:</h2>
@@ -21,16 +21,24 @@ const VerifyCard = (props) => {
         id={props.cardData.id}
       />
 
+      <span>
       <h2>Looks Good?</h2>
       <div onClick={onClickFunc}>
 
-        <Link
-          to='/cardapp/yourdeck'
-        >
-          <SubmitButton
-          />
+        <Link to='/cardapp/yourdeck'>
+          <SubmitButton/>
         </Link>
       </div>
+
+      <h2>Go Back</h2>
+      <div onClick={onClickFunc}>
+
+        <Link to='/cardapp/yourdeck'>
+          <SubmitButton/>
+        </Link>
+      </div>
+      </span>
+
     </div>
   )
 }
