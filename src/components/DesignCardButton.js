@@ -3,7 +3,7 @@ import {Link, browserHistory} from 'react-router'
 
 const DesignCardButton = (props) => {
   return (
-    <div>
+    <div className='navButton'>
       <Link to='/cardapp/designer'>
         Design New Card
       </Link>

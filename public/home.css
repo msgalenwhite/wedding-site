@@ -12,12 +12,43 @@ action: #DCD9BD
 duration: #C78543
 */
 
-
-
-
-body {
-  background-color: pink;
+.page {
+  padding: 10px;
+  border: solid #55412A 15px;
+  background: pink;
 }
+.pageTitle {
+  text-align: center;
+  color: #386298;
+  font-size: 35px;
+}
+
+/*
+Navigation Bar
+*/
+.navBarHeader {
+  background: #55412A;
+  color: #547A6F;
+  text-align: center;
+}
+.navBarFooter {
+  background: #55412A;
+  height: 15px;
+  color: #547A6F;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.navButtons {
+  display: inline-flex;
+}
+.navButton {
+  margin: 7px 3px;
+  font-size: 12px;
+}
+
+/*
+View Card Page
+*/
 .card {
   font-size: 80%;
   background-color: white;
@@ -33,4 +64,13 @@ body {
 }
 .displayCardImage {
   max-width: 100px;
+  margin: auto;
+}
+
+/*
+Design Card Page
+*/
+.textInput {
+  margin-left: 10px;
+  margin-right: 10px;
 }

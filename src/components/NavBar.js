@@ -8,17 +8,21 @@ const NavBar = props => {
 
   return(
     <div>
-      <span className="navBarButtons">
-        <DesignCardButton />
-        <input
-          className='button'
-          type='button'
-          onClick={browserHistory.goBack}
-          value='Back'
-        />
-        <ViewDeckButton />
-      </span>
+      <div className='navBarHeader'>
+        <span className='navButtons'>
+          <DesignCardButton />
+          <input
+            className='button navButton'
+            type='button'
+            onClick={browserHistory.goBack}
+            value='Back'
+          />
+          <ViewDeckButton />
+        </span>
+      </div>
       {props.children}
+      <div className='navBarFooter'>
+      </div>
     </div>
   )
 }

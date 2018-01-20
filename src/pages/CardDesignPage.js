@@ -17,7 +17,6 @@ class CardDesignPage extends Component {
       potions:'',
       genericError: "",
       submitted: false,
-      // makingEdits: false,
       cardDataToPass: {}
     }
 
@@ -91,7 +90,7 @@ class CardDesignPage extends Component {
     let booleanPotions;
     if (event.target.value === "yes"){
       booleanPotions = true;
-    } else {
+    } else if (event.target.value === "no") {
       booleanPotions = false;
     }
 
@@ -137,8 +136,8 @@ class CardDesignPage extends Component {
     }
 
     return(
-      <div>
-        <h1>Design a Card</h1>
+      <div className='page'>
+        <h1 className="pageTitle">Design a Card</h1>
         {renderedComponent}
       </div>
     )

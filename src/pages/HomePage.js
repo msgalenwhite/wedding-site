@@ -107,7 +107,9 @@ class HomePage extends Component {
     }
 
     return(
-      renderedComponent
+      <div className='page'>
+        {renderedComponent}
+      </div>
     )
   }
 

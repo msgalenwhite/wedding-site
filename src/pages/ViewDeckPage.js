@@ -51,8 +51,8 @@ class ViewDeckPage extends Component {
     })
 
     return(
-       <div>
-        <h3>Hello from the deck container!</h3>
+       <div className='page'>
+        <h3 className="pageTitle">Your Current Deck</h3>
         <div className="row">
           {displayDeck}
         </div>
