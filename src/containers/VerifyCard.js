@@ -9,6 +9,10 @@ const VerifyCard = (props) => {
     props.addToJSON(props.cardData)
   }
 
+  let handleEditClick = () => {
+    props.editCard(props.cardData)
+  }
+
   return(
     <div>
       <h2>Card Preview:</h2>
@@ -31,11 +35,11 @@ const VerifyCard = (props) => {
       </div>
 
       <h2>Go Back</h2>
-      <div onClick={onClickFunc}>
-
-        <Link to='/cardapp/yourdeck'>
-          <SubmitButton/>
-        </Link>
+      <div onClick={handleEditClick}>
+        <input
+          type="button"
+          value="Make a Change"
+        />
       </div>
       </span>
 

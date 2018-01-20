@@ -5,10 +5,6 @@ import SubmitButton from '../components/SubmitButton'
 
 const DesignContainer = props => {
 
-  //needed - a way to load the form with the old data in it.  If we pass props of cardData down, then populate the form with it - otherwise, it's blank.
-  //set it in ComponentDidMount?
-
-
   let labelObject = {
     cardName: "Name:",
     cardText: "Text:",
@@ -19,7 +15,7 @@ const DesignContainer = props => {
   let textInputs = Object.entries(labelObject).map((miniArray) => {
     let fieldName = miniArray[0]
     let fieldLabel = miniArray[1]
-    let fieldValue = props.cardData.fieldName
+    let fieldValue = props.cardData[fieldName]
 
     return (
       <TextInputField

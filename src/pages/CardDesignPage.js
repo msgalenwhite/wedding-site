@@ -17,6 +17,7 @@ class CardDesignPage extends Component {
       potions:'',
       genericError: "",
       submitted: false,
+      // makingEdits: false,
       cardDataToPass: {}
     }
 
@@ -25,6 +26,7 @@ class CardDesignPage extends Component {
     this.handleClearForm = this.handleClearForm.bind(this);
     this.handlePotionSelect = this.handlePotionSelect.bind(this);
     this.formIsComplete = this.formIsComplete.bind(this);
+    this.editCard = this.editCard.bind(this);
   }
 
   handleValueChange(event) {
@@ -98,6 +100,18 @@ class CardDesignPage extends Component {
     })
   }
 
+  editCard(cardData) {
+    this.setState({
+      cardName: cardData.cardName,
+      cardText: cardData.cardText,
+      cardCost: cardData.cardCost,
+      cardImageUrl: cardData.cardImageUrl,
+      potions: cardData.potions,
+      cardDataToPass: {},
+      submitted: false
+    })
+  }
+
   render(){
     console.log(this.state)
 
@@ -108,6 +122,7 @@ class CardDesignPage extends Component {
         <VerifyCard
           cardData={this.state.cardDataToPass}
           addToJSON={this.props.route.addToJSON}
+          editCard={this.editCard}
         />
 
     } else {
