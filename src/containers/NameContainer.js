@@ -1,6 +1,6 @@
 import React from 'react'
 
-import TitleDropDown from '../components/TitleDropDown'
+import DropDown from '../components/DropDown'
 import TextInputField from '../components/TextInputField'
 import SubmitButton from '../components/SubmitButton'
 
@@ -12,9 +12,10 @@ const NameContainer = props => {
       <h1>Welcome to the Card Designer!</h1>
       <form onSubmit={props.onSubmit}>
         {props.error}
-        <TitleDropDown
-          handleTitleClick={props.handleTitleClick}
-          titleOptions={titleOptions}
+        <DropDown
+          handleClick={props.handleTitleClick}
+          options={titleOptions}
+          label="Title: "
         />
         <TextInputField
           label="First Name:"
