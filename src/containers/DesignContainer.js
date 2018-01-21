@@ -34,24 +34,26 @@ const DesignContainer = props => {
         {props.cardData.genericError}
       </div>
       {textInputs}
-      <p>Require Potions?</p>
-      <div>
-        <input
-          type='radio'
-          id='potionChoice1'
-          name='potion'
-          value='yes'
-          onChange={props.handlePotionSelect}
-        />
-        <label htmlFor='potionChoice1'>Yes</label>
-        <input
-          type='radio'
-          id='potionChoice2'
-          name='potion'
-          value='no'
-          onChange={props.handlePotionSelect}
-        />
-        <label htmlFor='potionChoice2'>No</label>
+      <div className="potionsSelection">
+        <p>Require Potions?</p>
+        <div>
+          <input
+            type='radio'
+            id='potionChoice1'
+            name='potion'
+            value='yes'
+            onChange={props.handlePotionSelect}
+          />
+          <label htmlFor='potionChoice1'>Yes</label>
+          <input
+            type='radio'
+            id='potionChoice2'
+            name='potion'
+            value='no'
+            onChange={props.handlePotionSelect}
+          />
+          <label htmlFor='potionChoice2'>No</label>
+        </div>
       </div>
 
       <SubmitButton />

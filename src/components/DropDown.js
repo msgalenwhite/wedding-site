@@ -14,7 +14,7 @@ const DropDown = props => {
   })
 
   return(
-    <div>
+    <div className="dropDown">
       <label>{props.label}</label>
       <select onChange={handleClick}>
         <option defaultValue=""></option>

@@ -70,7 +70,10 @@ View Card Page
 /*
 Design Card Page
 */
-.textInput {
+.textInput .dropDown {
   margin-left: 10px;
   margin-right: 10px;
+}
+.potionsSelection {
+  text-align: center;
 }
