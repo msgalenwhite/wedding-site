@@ -4,19 +4,25 @@ const Card = (props) => {
 
   let potions;
   if (props.potions) {
-    potions = <p>Requires Potions</p>
+    potions = <div className='cardPotions'>Requires Potions</div>
   }
 
   return(
     <div className='card'>
-      <div className='cardTitle'>{props.cardName}</div>
-      <p>{props.cardText}</p>
-      <p>Cost: {props.cardCost}</p>
+      <div className='cardTitle'>
+        {props.cardName}
+      </div>
+      <div className='cardText'>
+        {props.cardText}
+      </div>
+      <div className='cardCost'>
+        Cost: {props.cardCost}
+      </div>
       {potions}
       <img
         className='displayCardImage'
         src={props.cardImageUrl}
-        alt='Image Chosen for Card'
+        alt='Card Image'
       />
     </div>
   )

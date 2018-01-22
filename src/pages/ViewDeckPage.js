@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-import Card from '../components/Card'
+import Deck from '../containers/Deck'
 
 class ViewDeckPage extends Component {
   constructor(props){
@@ -35,26 +35,15 @@ class ViewDeckPage extends Component {
   }
 
   render() {
-    let displayDeck = this.state.deck.map((indivCard) => {
-      return (
-        <div key={indivCard.id} className="small-6 medium-6 large-8 columns">
-          <Card
-            cardName={indivCard.cardName}
-            cardText={indivCard.cardText}
-            cardCost={indivCard.cardCost}
-            cardImageUrl={indivCard.cardImageUrl}
-            potions={indivCard.potions}
-            id={indivCard.id}
-          />
-        </div>
-      )
-    })
+
 
     return(
-       <div className='page'>
+      <div className='page deckPage'>
         <h3 className="pageTitle">Your Current Deck</h3>
-        <div className="row">
-          {displayDeck}
+        <div>
+          <Deck
+            cardData={this.state.deck}
+          />
         </div>
       </div>
     )

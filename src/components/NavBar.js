@@ -10,14 +10,14 @@ const NavBar = props => {
     <div>
       <div className='navBarHeader'>
         <span className='navButtons'>
-          <DesignCardButton />
-          <input
-            className='button navButton'
-            type='button'
-            onClick={browserHistory.goBack}
-            value='Back'
-          />
-          <ViewDeckButton />
+            <DesignCardButton />
+            <input
+              className='button navButton'
+              type='button'
+              onClick={browserHistory.goBack}
+              value='Back'
+            />
+            <ViewDeckButton />
         </span>
       </div>
       {props.children}

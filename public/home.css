@@ -17,6 +17,7 @@ duration: #C78543
   border: solid #55412A 15px;
   background: pink;
 }
+
 .pageTitle {
   text-align: center;
   color: #386298;
@@ -47,33 +48,50 @@ Navigation Bar
 }
 
 /*
-View Card Page
+Design Card Page
 */
+.potionsSelection {
+  text-align: center;
+}
+.upAndDownDiv {
+  overflow: hidden;
+  margin: 0 0 5px 0;
+  line-height: 50px;
+
+}
+.fa {
+  margin: 0 0 0 5px;
+  cursor: pointer;
+  width: 26px;
+  height: 26px;
+  float: left;
+  text-align: center;
+}
+/*
+Card Specifics
+*/
+.deck {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.cardInDeck {
+  margin: auto;
+}
 .card {
-  font-size: 80%;
+  width: 200px;
+  min-height: 250px;
   background-color: white;
   border: solid blue 2px;
-  padding: 10px;
-  margin: 5px 0px;
+  border-radius: 5%;
+  padding: 5px;
+  margin: 5px;
   text-align: center;
-  max-width: 200px;
 }
-.cardTitle {
-  font-size: 110%;
-  font-weight: bold;
+.cardText {
+  margin: 0px;
 }
 .displayCardImage {
   max-width: 100px;
   margin: auto;
-}
-
-/*
-Design Card Page
-*/
-.textInput .dropDown {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-.potionsSelection {
-  text-align: center;
 }

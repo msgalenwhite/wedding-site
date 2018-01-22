@@ -3,13 +3,14 @@ import React from 'react'
 import DropDown from '../components/DropDown'
 import TextInputField from '../components/TextInputField'
 import SubmitButton from '../components/SubmitButton'
+import UpAndDownButtons from '../components/UpAndDownButtons'
 
 const NameContainer = props => {
   let titleOptions = ["Poor Ol'", "Peasant", "Lady", "Sir"]
 
   return(
     <div>
-      <h1>Welcome to the Card Designer!</h1>
+      <h1 className='pageTitle'>Welcome to the Card Designer!</h1>
       <form onSubmit={props.onSubmit}>
         {props.error}
         <DropDown
@@ -30,6 +31,9 @@ const NameContainer = props => {
           name="lastName"
         />
         <SubmitButton />
+        <UpAndDownButtons
+          label="Test Label"
+        />
       </form>
     </div>
   )
