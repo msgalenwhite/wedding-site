@@ -80,24 +80,53 @@ Card Specifics
   justify-content: center;
 }
 .cardInDeck {
-  margin: auto;
+  position: relative;
+  margin: 2px;
 }
-.card {
+.cardTitleDiv {
+  position: absolute;
+  top: 6px;
   width: 200px;
-  min-height: 250px;
-  background-color: white;
-  border: solid #547A6F 2px;
-  border-radius: 5%;
-  padding: 5px;
-  margin: 5px;
-  text-align: center;
-}
-.cardTitle {
+
   color: #386298;
   font-size: 110%;
   font-weight: bold;
+  text-align: center;
 }
 .displayCardImage {
-  max-width: 100px;
-  margin: auto;
+  position: absolute;
+  top: 34px;
+  left: 12px;
+  width: 177px;
+  height: 127px;
+}
+.cardTextDiv {
+  position: absolute;
+  top: 167px;
+  left: 12px;
+  width: 88.5%;
+  height: 35%;
+  text-align: justify;
+  border-radius: 10%;
+  padding: 6px 9px;
+}
+.cardCost {
+  position: absolute;
+  top: 278px;
+  left: 13px;
+  width: 22px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 50%;
+}
+.potionsPic {
+  position: absolute;
+  top: 279px;
+  left: 39px;
+  height: 20px;
+}
+.actionCard {
+  width: 200px;
+  min-height: 250px;
+  border-radius: 2%;
 }

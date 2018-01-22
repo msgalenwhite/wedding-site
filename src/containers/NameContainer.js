@@ -31,9 +31,6 @@ const NameContainer = props => {
           name="lastName"
         />
         <SubmitButton />
-        <UpAndDownButtons
-          label="Test Label"
-        />
       </form>
     </div>
   )
