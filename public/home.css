@@ -3,6 +3,8 @@ Colors:
 turquoise : #547A6F
 brown border: #55412A
 blue title: #386298
+instructions background: #AA9468
+behind text instructions background: #C3B48D
 
 Backgrounds:
 treasure : #FADE6C
@@ -11,11 +13,13 @@ curse: #7F4D90
 action: #DCD9BD
 duration: #C78543
 */
-
+body {
+  background-color: #AA9468;
+}
 .page {
   padding: 10px;
-  border: solid #55412A 15px;
-  background: pink;
+  border: solid #AA9468 15px;
+  background: #C3B48D;
 }
 
 .pageTitle {
@@ -28,17 +32,17 @@ duration: #C78543
 Navigation Bar
 */
 .navBarHeader {
-  background: #55412A;
+  background: #AA9468;
   color: #547A6F;
   text-align: center;
 }
-.navBarFooter {
+/* .navBarFooter {
   background: #55412A;
   height: 15px;
   color: #547A6F;
   text-align: center;
   margin-bottom: 10px;
-}
+} */
 .navButtons {
   display: inline-flex;
 }
@@ -82,14 +86,16 @@ Card Specifics
   width: 200px;
   min-height: 250px;
   background-color: white;
-  border: solid blue 2px;
+  border: solid #547A6F 2px;
   border-radius: 5%;
   padding: 5px;
   margin: 5px;
   text-align: center;
 }
-.cardText {
-  margin: 0px;
+.cardTitle {
+  color: #386298;
+  font-size: 110%;
+  font-weight: bold;
 }
 .displayCardImage {
   max-width: 100px;
