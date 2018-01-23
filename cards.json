@@ -6,6 +6,7 @@
       "cardCost": "5",
       "cardImageUrl": "https://i.pinimg.com/736x/f1/03/c3/f103c3c8b80e7a8cc77958c0811f8853--team-unicorn-unicorns-art-drawing.jpg",
       "potions": false,
+      "type": "action",
       "id": 1
     },
     {
@@ -14,6 +15,7 @@
       "cardCost": "3",
       "cardImageUrl": "https://i.pinimg.com/736x/1d/2c/f8/1d2cf8a3bbafbe1e527c55f538a624e5--baby-princess-little-princess.jpg",
       "potions": false,
+      "type": "reaction",
       "id": 2
     },
     {
@@ -22,6 +24,7 @@
       "cardCost": "12",
       "cardImageUrl": "https://site-images.similarcdn.com/url?url=https%3A%2F%2Flh3.googleusercontent.com%2FgetWQc8gAUmT-76FULGvaTwu0Sm-DaScD4ij4IEcgBvROJf5Td_w-UZqXnlgLV0T4NDn%3Dw175&h=18159089147469879934",
       "potions": true,
+      "type": "victory",
       "id": 3
     }
   ]

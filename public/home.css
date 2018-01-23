@@ -87,6 +87,7 @@ Card Specifics
   position: absolute;
   top: 6px;
   width: 200px;
+  border-radius: 2%;
 
   color: #386298;
   font-size: 110%;
@@ -112,11 +113,12 @@ Card Specifics
 }
 .cardCost {
   position: absolute;
-  top: 278px;
-  left: 13px;
+  top: 279px;
+  left: 12px;
   width: 22px;
   text-align: center;
   font-weight: bold;
+  font-size: 90%;
   border-radius: 50%;
 }
 .potionsPic {
@@ -125,8 +127,10 @@ Card Specifics
   left: 39px;
   height: 20px;
 }
-.actionCard {
+/*
+Card Types
+ */
+.action, .victory, .reaction {
   width: 200px;
   min-height: 250px;
-  border-radius: 2%;
 }

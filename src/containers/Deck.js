@@ -13,6 +13,7 @@ const Deck = props => {
           cardCost={indivCard.cardCost}
           cardImageUrl={indivCard.cardImageUrl}
           potions={indivCard.potions}
+          type={indivCard.type}
           id={indivCard.id}
         />
       </span>

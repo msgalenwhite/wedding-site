@@ -27,6 +27,12 @@ Navigate to `localhost:4567`.
 ## To-Do:
 
 - Come up with overall aesthetic
+- Change px to % in CSS for Card
+
+- Have multiple card type options
+  - alter form
+  - alter CSS for each card type (they're close but not exact)
+
 - Work on Deck Container so it displays all of the cards
   - Clicking on a single card will take you to its page
     - Card's page will have its own route
