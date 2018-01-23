@@ -26,20 +26,31 @@ Navigate to `localhost:4567`.
 
 ## To-Do:
 
-- Come up with overall aesthetic
-- Change px to % in CSS for Card
+CHANGES TO DESIGN FORM:
+  - DROP-DOWN
+    - card type (have options pull from dataset)
 
-- Have multiple card type options
-  - alter form
-  - alter CSS for each card type (they're close but not exact)
+  - UP-AND-DOWN
+    - +Actions
+    - +Cards
+    - +Buys
+    - Cost
 
-- Work on Deck Container so it displays all of the cards
+  - PREVIEWS
+    - show what image the user has selected via Url
+    - MAYBE - instead of a preview page, the user could view the card immediately while they're designing it
+
+CHANGES TO SCSS:
+  - For Card display:
+    - Change px to %
+
+CHANGES TO DECK CONTAINER:
   - Clicking on a single card will take you to its page
-    - Card's page will have its own route
-    - Card's page will have a link to edit it
-      - fetch specific card from json
-      - function to remove old card and replace it
+      - Card's page will have its own route
+      - Card's page will have a link to edit it
+        - fetch specific card from json
+        - function to remove old card and replace it
 
-- Make forms more useable on mobile
-  - Change Cost to a field with +/- buttons
-  - Have Potions
+NEW THINGS TO LEAN:
+ - Jest
+    - learn and write tests 
