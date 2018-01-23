@@ -4,6 +4,7 @@ import DesignContainer from '../containers/DesignContainer'
 import VerifyCard from '../containers/VerifyCard'
 
 import ErrorMessages from '../constants/ErrorMessages'
+import CardImages from '../constants/CardImages'
 
 class CardDesignPage extends Component {
 
@@ -27,6 +28,7 @@ class CardDesignPage extends Component {
     this.handlePotionSelect = this.handlePotionSelect.bind(this);
     this.formIsComplete = this.formIsComplete.bind(this);
     this.editCard = this.editCard.bind(this);
+    this.handleDropDownClick = this.handleDropDownClick.bind(this);
   }
 
   handleValueChange(event) {
@@ -115,6 +117,21 @@ class CardDesignPage extends Component {
     })
   }
 
+  handleDropDownClick(result) {
+
+    let wantedValue;
+
+    Object.keys(CardImages).forEach ((key) => {
+      if (CardImages[key].label === result) {
+        wantedValue = key
+      }
+    })
+
+    this.setState({
+      type: wantedValue
+    })
+  }
+
   render(){
     console.log(this.state)
 
@@ -136,6 +153,7 @@ class CardDesignPage extends Component {
           handleFormSubmit={this.handleFormSubmit}
           handleValueChange={this.handleValueChange}
           handlePotionSelect={this.handlePotionSelect}
+          handleDropDownClick={this.handleDropDownClick}
         />
     }
 

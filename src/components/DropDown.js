@@ -8,8 +8,9 @@ const DropDown = props => {
   }
 
   let optionTags = props.options.map((value) => {
+
     return (
-      <option key={value} value={value}>{value}</option>
+      <option key={`${props.className} ${value}`} value={value}>{value}</option>
     )
   })
 

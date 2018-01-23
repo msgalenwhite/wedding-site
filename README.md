@@ -53,4 +53,4 @@ CHANGES TO DECK CONTAINER:
 
 NEW THINGS TO LEAN:
  - Jest
-    - learn and write tests 
+    - learn and write tests

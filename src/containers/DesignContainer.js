@@ -1,7 +1,10 @@
 import React from 'react';
 
+import DropDown from '../components/DropDown'
 import TextInputField from '../components/TextInputField'
 import SubmitButton from '../components/SubmitButton'
+
+import CardImages from '../constants/CardImages'
 
 const DesignContainer = props => {
 
@@ -9,31 +12,44 @@ const DesignContainer = props => {
     cardName: "Name:",
     cardText: "Text:",
     cardCost: "Cost:",
-    cardImageUrl: "Image URL:"
+    cardImageUrl: "Image URL:",
+    type: "What type of card would you like?"
   }
-
 
   let textInputs = Object.entries(labelObject).map((miniArray) => {
     let fieldName = miniArray[0]
     let fieldLabel = miniArray[1]
     let fieldValue = props.cardData[fieldName]
 
-    return (
-      <TextInputField
-        onChange={props.handleValueChange}
-        value={fieldValue}
-        name={fieldName}
-        label={fieldLabel}
-        key={fieldLabel}
-      />
-    )
+    if (fieldName !== "type") {
+      return (
+        <TextInputField
+          onChange={props.handleValueChange}
+          value={fieldValue}
+          name={fieldName}
+          label={fieldLabel}
+          key={fieldLabel}
+        />
+      )
+    }
   })
+
+  let typeOptions = Object.values(CardImages).map((valueObject) => {
+    return valueObject.label
+  })
+
 
   return(
     <form onSubmit={props.handleFormSubmit} >
       <div className="genericError">
         {props.cardData.genericError}
       </div>
+      <DropDown
+        className="typeDropDown"
+        label={labelObject.type}
+        options={typeOptions}
+        handleClick={props.handleDropDownClick}
+      />
 
       {textInputs}
 
@@ -58,7 +74,6 @@ const DesignContainer = props => {
           <label htmlFor='potionChoice2'>No</label>
         </div>
       </div>
-
       <SubmitButton />
     </form>
   )

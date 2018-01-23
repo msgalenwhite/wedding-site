@@ -5,6 +5,7 @@ import TextInputField from '../components/TextInputField'
 import SubmitButton from '../components/SubmitButton'
 
 const NameContainer = props => {
+
   let titleOptions = ["Poor Ol'", "Peasant", "Lady", "Sir"]
 
   return(
@@ -13,6 +14,7 @@ const NameContainer = props => {
       <form onSubmit={props.onSubmit}>
         {props.error}
         <DropDown
+          className="titleDropDown"
           handleClick={props.handleTitleClick}
           options={titleOptions}
           label="Title: "
