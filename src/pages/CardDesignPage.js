@@ -91,7 +91,6 @@ class CardDesignPage extends Component {
 
   handlePotionSelect(event) {
 
-    //change potion values to true/false so it can go through the other change function
     let booleanPotions;
     if (event.target.value === "yes"){
       booleanPotions = true;
@@ -118,12 +117,14 @@ class CardDesignPage extends Component {
   }
 
   handleDropDownClick(result) {
-
     let wantedValue;
 
-    Object.keys(CardImages).forEach ((key) => {
-      if (CardImages[key].label === result) {
-        wantedValue = key
+    Object.entries(CardImages).forEach ((miniArray) => {
+      let possibleWantedValue = miniArray[0]
+      let possibleResultMatch = miniArray[1].label
+
+      if (possibleResultMatch === result) {
+        wantedValue = possibleWantedValue
       }
     })
 

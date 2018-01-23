@@ -16,14 +16,17 @@ const VerifyCard = (props) => {
   return(
     <div>
       <h2>Card Preview:</h2>
-      <Card
-        cardName={props.cardData.cardName}
-        cardText={props.cardData.cardText}
-        cardCost={props.cardData.cardCost}
-        cardImageUrl={props.cardData.cardImageUrl}
-        potions={props.cardData.potions}
-        id={props.cardData.id}
-      />
+      <span className='cardInDeck' key={props.id}>
+        <Card
+          cardName={props.cardData.cardName}
+          cardText={props.cardData.cardText}
+          cardCost={props.cardData.cardCost}
+          cardImageUrl={props.cardData.cardImageUrl}
+          potions={props.cardData.potions}
+          type={props.cardData.type}
+          id={props.cardData.id}
+        />
+      </span>
 
       <span>
       <h2>Looks Good?</h2>

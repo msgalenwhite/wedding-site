@@ -53,6 +53,15 @@
       "potions": true,
       "type": "actionAndVictory",
       "id": 6
+    },
+    {
+      "cardName": "Cats",
+      "cardText": "I <3 Cats",
+      "cardCost": "5",
+      "cardImageUrl": "https://static.pexels.com/photos/326875/pexels-photo-326875.jpeg",
+      "potions": true,
+      "type": "victory",
+      "id": 7
     }
   ]
 }
