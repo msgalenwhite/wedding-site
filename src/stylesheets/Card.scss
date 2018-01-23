@@ -1,3 +1,5 @@
+// NOTE: I left card dimensions separated by type of card, even when all of the card types had the same placement.  This was to make it easier in the future to add more types of cards.
+
 // To Display Cards in the Deck:
 .deck {
   display: flex;
@@ -9,10 +11,10 @@
   margin: 2px;
 }
 
-// To Display Cards Always:
+
+//Card Name
 .cardTitleDiv {
   position: absolute;
-  top: 6px;
   width: 200px;
   border-radius: 2%;
 
@@ -21,43 +23,114 @@
   font-weight: bold;
   text-align: center;
 }
+.actioncardTitleDiv, .victorycardTitleDiv, .durationcardTitleDiv, .reactioncardTitleDiv {
+  top: 6px;
+}
+.victoryAndTreasurecardTitleDiv {
+  top: 7px;
+}
+.actionAndVictorycardTitleDiv {
+  top: 8px;
+}
+
+//Card Image
 .displayCardImage {
   position: absolute;
+}
+.actiondisplayCardImage, .victorydisplayCardImage {
   top: 34px;
   left: 12px;
   width: 178px;
   height: 127px;
 }
+.durationdisplayCardImage, .reactiondisplayCardImage {
+  top: 33px;
+  left: 9px;
+  width: 181px;
+  height: 130px;
+}
+.victoryAndTreasuredisplayCardImage {
+  top: 34px;
+  left: 11px;
+  width: 179px;
+  height: 129px;
+}
+.actionAndVictorydisplayCardImage {
+  top: 34px;
+  left: 10px;
+  width: 180px;
+  height: 129px;
+}
+
+//Card Text
 .cardTextDiv {
   position: absolute;
-  top: 167px;
-  left: 12px;
   width: 88.5%;
   height: 35%;
   text-align: justify;
   border-radius: 10%;
   padding: 6px 9px;
 }
+.actioncardTextDiv, .victorycardTextDiv, .durationcardTextDiv, .reactioncardTextDiv, .victoryAndTreasurecardTextDiv, .actionAndVictorycardTextDiv {
+  top: 167px;
+  left: 12px;
+}
+
+//Card Cost
 .displayCost {
   position: absolute;
-  top: 279px;
-  left: 12px;
   width: 22px;
   text-align: center;
   font-weight: bold;
   font-size: 90%;
   border-radius: 50%;
 }
+.actiondisplayCost, .victorydisplayCost {
+  top: 279px;
+  left: 12px;
+}
+.durationdisplayCost {
+  top: 283px;
+  left: 11px;
+}
+.reactiondisplayCost {
+  top: 280px;
+  left: 11px;
+}
+.victoryAndTreasuredisplayCost {
+  top: 281px;
+  left: 12px;
+}
+.actionAndVictorydisplayCost {
+  top: 282px;
+  left: 12px;
+}
+
+//Potions
 .potionsPic {
   position: absolute;
-  top: 279px;
-  left: 39px;
   height: 20px;
 }
-/*
-Card Types
- */
-.action, .victory, .reaction {
+.actionpotionsPic, .victorypotionsPic {
+  top: 279px;
+  left: 39px;
+}
+.durationpotionsPic {
+  top: 283px;
+  left: 38px;
+}
+.reactionpotionsPic {
+  top: 280px;
+  left: 38px;
+}
+.victoryAndTreasurepotionsPic, .actionAndVictorypotionsPic {
+  top: 281px;
+  left: 39px;
+}
+
+//Card Image Frame by Card Type
+.action, .victory, .duration, .reaction, .victoryAndTreasure, .actionAndVictory {
   width: 200px;
+  min-width: 200px;
   min-height: 250px;
 }
