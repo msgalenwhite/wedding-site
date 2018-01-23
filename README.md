@@ -25,10 +25,12 @@ $ npm start
 Navigate to `localhost:4567`.
 
 ## To-Do:
+ISSUES:
+When user "goes back" to edit a card, they lose their type choice and potions choice.  This isn't too big of an issue if I end up getting rid of the Verify page, but otherwise it's really annoying
 
 CHANGES TO DESIGN FORM:
-  - DROP-DOWN
-    - card type (have options pull from dataset)
+X  - DROP-DOWN
+X    - card type (have options pull from dataset)
 
   - UP-AND-DOWN
     - +Actions
