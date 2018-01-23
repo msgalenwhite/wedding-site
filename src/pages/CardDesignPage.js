@@ -15,6 +15,7 @@ class CardDesignPage extends Component {
       cardCost: '',
       cardImageUrl: '',
       potions:'',
+      type: '',
       genericError: "",
       submitted: false,
       cardDataToPass: {}
@@ -45,7 +46,8 @@ class CardDesignPage extends Component {
       cardText: this.state.cardText,
       cardCost: this.state.cardCost,
       cardImageUrl: this.state.cardImageUrl,
-      potions: this.state.potions
+      potions: this.state.potions,
+      type: this.state.type
     }
 
     if (this.formIsComplete(formPayload)) {
@@ -80,6 +82,7 @@ class CardDesignPage extends Component {
       cardCost: '',
       cardImageUrl: '',
       potions: '',
+      type: '',
       genericError: ''
     })
   }
@@ -106,6 +109,7 @@ class CardDesignPage extends Component {
       cardCost: cardData.cardCost,
       cardImageUrl: cardData.cardImageUrl,
       potions: cardData.potions,
+      type: cardData.type,
       cardDataToPass: {},
       submitted: false
     })

@@ -9,37 +9,29 @@ const Card = (props) => {
     src = 'http://wiki.dominionstrategy.com/images/7/7a/Potion.png' / >
   }
 
-  return ( <
-    div >
-    <
-    div className ='cardTitleDiv' > {
-      props.cardName
-    } <
-    /div> <
-    div >
-    <
-    img className = 'displayCardImage'
-    src = {
-      props.cardImageUrl
-    }
-    /> <
-    /div> <
-    div className = 'cardTextDiv' > {
-      props.cardText
-    } <
-    /div> <
-    div className = 'cardCost' > {
-      props.cardCost
-    } <
-    /div> {
-      potions
-    } <
-    img className = {props.type}
-    src={cardImages[props.type]} / >
-    <
-    /div>
+  return (
+    <div>
+      <div className ='cardTitleDiv' >
+        {props.cardName}
+      </div>
+      <div>
+        <img
+          className = 'displayCardImage'
+          src = {props.cardImageUrl}
+        />
+      </div>
+      <div className = 'cardTextDiv'>
+        {props.cardText}
+      </div>
+      <div className = 'displayCost' >
+        {props.cardCost}
+      </div>
+      {potions}
+      <img
+        className = {props.type}    src={cardImages[props.type]}
+      />
+    </div>
   )
 }
-
 
 export default Card

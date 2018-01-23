@@ -1,8 +1,8 @@
 import React from 'react'
 import {browserHistory} from 'react-router'
 
-import ViewDeckButton from './ViewDeckButton'
-import DesignCardButton from './DesignCardButton'
+import LinkButton from './LinkButton'
+
 
 const NavBar = props => {
 
@@ -10,14 +10,22 @@ const NavBar = props => {
     <div>
       <div className='navBarHeader'>
         <span className='navButtons'>
-            <DesignCardButton />
+            <LinkButton
+              className="navButton"
+              destination="/cardapp/yourdeck"
+              label="View Your Deck"
+            />
             <input
               className='button navButton'
               type='button'
               onClick={browserHistory.goBack}
               value='Back'
             />
-            <ViewDeckButton />
+            <LinkButton
+              className="navButton"
+              destination='/cardapp/designer'
+              label="Design New Card"
+            />
         </span>
       </div>
       {props.children}

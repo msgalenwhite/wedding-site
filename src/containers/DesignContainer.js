@@ -12,6 +12,7 @@ const DesignContainer = props => {
     cardImageUrl: "Image URL:"
   }
 
+
   let textInputs = Object.entries(labelObject).map((miniArray) => {
     let fieldName = miniArray[0]
     let fieldLabel = miniArray[1]
@@ -33,7 +34,9 @@ const DesignContainer = props => {
       <div className="genericError">
         {props.cardData.genericError}
       </div>
+
       {textInputs}
+
       <div className="potionsSelection">
         <p>Require Potions?</p>
         <div>

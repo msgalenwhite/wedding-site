@@ -98,7 +98,7 @@ Card Specifics
   position: absolute;
   top: 34px;
   left: 12px;
-  width: 177px;
+  width: 178px;
   height: 127px;
 }
 .cardTextDiv {
@@ -111,7 +111,7 @@ Card Specifics
   border-radius: 10%;
   padding: 6px 9px;
 }
-.cardCost {
+.displayCost {
   position: absolute;
   top: 279px;
   left: 12px;

@@ -3,7 +3,6 @@ import React from 'react'
 import DropDown from '../components/DropDown'
 import TextInputField from '../components/TextInputField'
 import SubmitButton from '../components/SubmitButton'
-import UpAndDownButtons from '../components/UpAndDownButtons'
 
 const NameContainer = props => {
   let titleOptions = ["Poor Ol'", "Peasant", "Lady", "Sir"]
