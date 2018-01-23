@@ -1,0 +1,22 @@
+/*
+Navigation Bar
+*/
+.navBarHeader {
+  background: $brown;
+  // color: $blueTitle;
+  text-align: center;
+}
+/* .navBarFooter {
+  background: #55412A;
+  height: 15px;
+  color: #547A6F;
+  text-align: center;
+  margin-bottom: 10px;
+} */
+.navButtons {
+  display: inline-flex;
+}
+.navButton {
+  margin: 7px 3px;
+  font-size: 12px;
+}

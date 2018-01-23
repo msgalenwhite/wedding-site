@@ -1,0 +1,63 @@
+// To Display Cards in the Deck:
+.deck {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.cardInDeck {
+  position: relative;
+  margin: 2px;
+}
+
+// To Display Cards Always:
+.cardTitleDiv {
+  position: absolute;
+  top: 6px;
+  width: 200px;
+  border-radius: 2%;
+
+  color: #386298;
+  font-size: 110%;
+  font-weight: bold;
+  text-align: center;
+}
+.displayCardImage {
+  position: absolute;
+  top: 34px;
+  left: 12px;
+  width: 178px;
+  height: 127px;
+}
+.cardTextDiv {
+  position: absolute;
+  top: 167px;
+  left: 12px;
+  width: 88.5%;
+  height: 35%;
+  text-align: justify;
+  border-radius: 10%;
+  padding: 6px 9px;
+}
+.displayCost {
+  position: absolute;
+  top: 279px;
+  left: 12px;
+  width: 22px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 90%;
+  border-radius: 50%;
+}
+.potionsPic {
+  position: absolute;
+  top: 279px;
+  left: 39px;
+  height: 20px;
+}
+/*
+Card Types
+ */
+.action, .victory, .reaction {
+  width: 200px;
+  min-height: 250px;
+}
