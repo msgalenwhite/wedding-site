@@ -7,7 +7,7 @@ import CardDesignPage from './pages/CardDesignPage'
 import HomePage from './pages/HomePage'
 import ViewDeckPage from './pages/ViewDeckPage'
 
-import '../public/home.css'
+import './main.scss'
 
 const App = props => {
 
