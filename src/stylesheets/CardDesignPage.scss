@@ -2,6 +2,22 @@
 .potionsSelection {
   text-align: center;
 }
+.designForm {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  min-width: 200px;
+}
+.spaceFillerPic {
+
+  float: right;
+  position: relative;
+  margin: 10px;
+  width: 200px;
+  min-width: 200px;
+  min-height: 250px;
+}
+
 // .upAndDownDiv {
 //   overflow: hidden;
 //   margin: 0 0 5px 0;

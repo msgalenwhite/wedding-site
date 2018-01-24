@@ -26,7 +26,9 @@ Navigate to `localhost:4567`.
 
 ## To-Do:
 ISSUES:
-When user "goes back" to edit a card, they lose their type choice and potions choice.  This isn't too big of an issue if I end up getting rid of the Verify page, but otherwise it's really annoying
+Verify Card Page is uneccessary now that there is a card preview on the form.
+
+HOWEVER, the user needs to be sent from the Card Design form to the Display Deck page after clicking submit.  Right now the user is being alerted that their card has been submitted, but they are still left on the Design Form
 
 CHANGES TO DESIGN FORM:
 X  - DROP-DOWN
@@ -38,9 +40,9 @@ X    - card type (have options pull from dataset)
     - +Buys
     - Cost
 
-  - PREVIEWS
-    - show what image the user has selected via Url
-    - MAYBE - instead of a preview page, the user could view the card immediately while they're designing it
+X  - PREVIEWS
+X    - show what image the user has selected via Url
+X    - MAYBE - instead of a preview page, the user could view the card immediately while they're designing it
 
 CHANGES TO SCSS:
   - For Card display:

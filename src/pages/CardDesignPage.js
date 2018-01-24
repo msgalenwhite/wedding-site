@@ -6,6 +6,8 @@ import VerifyCard from '../containers/VerifyCard'
 import ErrorMessages from '../constants/ErrorMessages'
 import CardImages from '../constants/CardImages'
 
+import Card from '../components/Card'
+
 class CardDesignPage extends Component {
 
   constructor(props) {
@@ -17,9 +19,7 @@ class CardDesignPage extends Component {
       cardImageUrl: '',
       potions:'',
       type: '',
-      genericError: "",
-      submitted: false,
-      cardDataToPass: {}
+      genericError: ""
     }
 
     this.handleValueChange = this.handleValueChange.bind(this);
@@ -27,7 +27,6 @@ class CardDesignPage extends Component {
     this.handleClearForm = this.handleClearForm.bind(this);
     this.handlePotionSelect = this.handlePotionSelect.bind(this);
     this.formIsComplete = this.formIsComplete.bind(this);
-    this.editCard = this.editCard.bind(this);
     this.handleDropDownClick = this.handleDropDownClick.bind(this);
   }
 
@@ -54,11 +53,9 @@ class CardDesignPage extends Component {
 
     if (this.formIsComplete(formPayload)) {
       this.handleClearForm()
+      this.props.route.addToJSON(formPayload)
+      alert("Your card has been submitted!")
 
-      this.setState({
-        cardDataToPass: formPayload,
-        submitted: true
-      })
     } else {
       this.setState({
         genericError: ErrorMessages.generic
@@ -103,19 +100,6 @@ class CardDesignPage extends Component {
     })
   }
 
-  editCard(cardData) {
-    this.setState({
-      cardName: cardData.cardName,
-      cardText: cardData.cardText,
-      cardCost: cardData.cardCost,
-      cardImageUrl: cardData.cardImageUrl,
-      potions: cardData.potions,
-      type: cardData.type,
-      cardDataToPass: {},
-      submitted: false
-    })
-  }
-
   handleDropDownClick(result) {
     let wantedValue;
 
@@ -136,32 +120,51 @@ class CardDesignPage extends Component {
   render(){
     console.log(this.state)
 
-    let renderedComponent;
-    if (this.state.submitted) {
+    let previewCard;
+    let image;
 
-      renderedComponent =
-        <VerifyCard
-          cardData={this.state.cardDataToPass}
-          addToJSON={this.props.route.addToJSON}
-          editCard={this.editCard}
-        />
-
+    //if they haven't chosen an image yet, use a test image.
+    if (this.state.cardImageUrl === ""){
+      image = "https://i.imgur.com/i110dBO.png"
     } else {
+      image = this.state.cardImageUrl
+    }
 
-      renderedComponent =
+    //if they haven't chosen a type yet, we can't show any card
+    if (this.state.type !== "") {
+      previewCard =
+      <span className="spaceFillerPic">
+        <Card
+          cardName={this.state.cardName}
+          cardText={this.state.cardText}
+          cardCost={this.state.cardCost}
+          cardImageUrl={image}
+          potions={this.state.potions}
+          type={this.state.type}
+          id={this.state.id}
+        />
+      </span>
+    } else {
+      previewCard =
+      <img
+        className="spaceFillerPic"
+        src="https://i.imgur.com/i110dBO.png"
+        alt="space-filler picture"
+      />
+    }
+
+    return(
+      <div className='page'>
+        <h1 className="pageTitle">Design a Card</h1>
+        {previewCard}
         <DesignContainer
+          className="designForm"
           cardData={this.state}
           handleFormSubmit={this.handleFormSubmit}
           handleValueChange={this.handleValueChange}
           handlePotionSelect={this.handlePotionSelect}
           handleDropDownClick={this.handleDropDownClick}
         />
-    }
-
-    return(
-      <div className='page'>
-        <h1 className="pageTitle">Design a Card</h1>
-        {renderedComponent}
       </div>
     )
   }

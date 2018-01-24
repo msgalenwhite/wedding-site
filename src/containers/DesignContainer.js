@@ -40,7 +40,10 @@ const DesignContainer = props => {
 
 
   return(
-    <form onSubmit={props.handleFormSubmit} >
+    <form
+      className="designForm"
+      onSubmit={props.handleFormSubmit}
+    >
       <div className="genericError">
         {props.cardData.genericError}
       </div>
