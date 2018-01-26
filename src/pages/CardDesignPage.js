@@ -10,6 +10,8 @@ import Card from '../components/Card'
 
 class CardDesignPage extends Component {
 
+  //NOTE: PROBLEM: I want to have the extraInfo value stored in cardDataToPass.  What if we DIDN'T clear the form until the json function happens, so we can store extraInfo just like normal?
+
   constructor(props) {
     super(props);
     this.state = {
@@ -19,6 +21,10 @@ class CardDesignPage extends Component {
       cardImageUrl: '',
       potions:'',
       type: '',
+      extraInfo: "",
+
+      submitted: false,
+      // cardDataToPass: {},
       genericError: ""
     }
 
@@ -28,9 +34,14 @@ class CardDesignPage extends Component {
     this.handlePotionSelect = this.handlePotionSelect.bind(this);
     this.formIsComplete = this.formIsComplete.bind(this);
     this.handleDropDownClick = this.handleDropDownClick.bind(this);
+
+    this.editCard = this.editCard.bind(this);
+    this.handleAddToJSON = this.handleAddToJSON.bind(this);
+    // this.handleNoteChange = this.handleNoteChange.bind(this);
   }
 
   handleValueChange(event) {
+
     let newValue = event.target.value;
     let target = event.target.className;
 
@@ -48,13 +59,17 @@ class CardDesignPage extends Component {
       cardCost: this.state.cardCost,
       cardImageUrl: this.state.cardImageUrl,
       potions: this.state.potions,
-      type: this.state.type
+      type: this.state.type,
+      extraInfo: ''
     }
 
     if (this.formIsComplete(formPayload)) {
-      this.handleClearForm()
-      this.props.route.addToJSON(formPayload)
-      alert("Your card has been submitted!")
+      // this.handleClearForm()
+      // this.props.route.addToJSON(formPayload)
+      this.setState({
+        // cardDataToPass: formPayload,
+        submitted: true
+      })
 
     } else {
       this.setState({
@@ -65,8 +80,12 @@ class CardDesignPage extends Component {
 
   formIsComplete(formPayload) {
     let formIsFull = true;
-    Object.values(formPayload).forEach ((userInputField) => {
-      if (userInputField === "") {
+
+    Object.entries(formPayload).forEach ((miniArray) => {
+      let key = miniArray[0]
+      let value = miniArray[1]
+
+      if (key !== "extraInfo" && value === "") {
         formIsFull = false;
         //this is where I could set a more specific error
       }
@@ -82,11 +101,15 @@ class CardDesignPage extends Component {
       cardImageUrl: '',
       potions: '',
       type: '',
-      genericError: ''
+      genericError: '',
+      submitted: false,
+      extraInfo: ""
+      // cardDataToPass: {}
     })
   }
 
   handlePotionSelect(event) {
+    //NEXT - clear this up so the saved data matches what the event uses
 
     let booleanPotions;
     if (event.target.value === "yes"){
@@ -101,6 +124,7 @@ class CardDesignPage extends Component {
   }
 
   handleDropDownClick(result) {
+    //NEXT - clear this up so the saved data matches what the event uses
     let wantedValue;
 
     Object.entries(CardImages).forEach ((miniArray) => {
@@ -117,12 +141,56 @@ class CardDesignPage extends Component {
     })
   }
 
+  handleAddToJSON(){
+    let formPayload = {
+      cardName: this.state.cardName,
+      cardText: this.state.cardText,
+      cardCost: this.state.cardCost,
+      cardImageUrl: this.state.cardImageUrl,
+      potions: this.state.potions,
+      type: this.state.type,
+      extraInfo: ''
+    }
+
+    this.handleClearForm()
+    this.props.route.addToJSON(formPayload)
+  }
+
+  editCard() {
+    this.setState({
+      submitted: false
+    })
+  }
+
+  // editCard(cardData) {
+  //   this.setState({
+  //     cardName: cardData.cardName,
+  //     cardText: cardData.cardText,
+  //     cardCost: cardData.cardCost,
+  //     cardImageUrl: cardData.cardImageUrl,
+  //     potions:cardData.potions,
+  //     type: cardData.type,
+  //     extraInfo: cardData.extraInfo,
+  //
+  //     submitted: false,
+  //     cardDataToPass: {},
+  //   })
+  // }
+
+  // handleNoteChange(event) {
+  //   let newValue = event.target.value;
+  //   let target = this.state.cardDataToPass.extraInfo
+  //
+  //   this.setState({
+  //     [target]: newValue
+  //   })
+  // }
+
   render(){
     console.log(this.state)
 
     let previewCard;
     let image;
-
     //if they haven't chosen an image yet, use a test image.
     if (this.state.cardImageUrl === ""){
       image = "https://i.imgur.com/i110dBO.png"
@@ -144,7 +212,7 @@ class CardDesignPage extends Component {
           id={this.state.id}
         />
       </span>
-    } else {
+    } else if (this.state.submitted === false) {
       previewCard =
       <img
         className="spaceFillerPic"
@@ -153,18 +221,33 @@ class CardDesignPage extends Component {
       />
     }
 
+    //when the user has submitted a card, show the Verify page rather than the form
+    let renderedComponent;
+    if (this.state.submitted) {
+      renderedComponent =
+      <VerifyCard
+        cardData={this.state}
+        addToJSON={this.handleAddToJSON}
+        handleChange={this.handleValueChange}
+        editCard={this.editCard}
+      />
+    } else {
+      renderedComponent =
+      <DesignContainer
+        className="designForm"
+        cardData={this.state}
+        handleFormSubmit={this.handleFormSubmit}
+        handleValueChange={this.handleValueChange}
+        handlePotionSelect={this.handlePotionSelect}
+        handleDropDownClick={this.handleDropDownClick}
+      />
+    }
+
     return(
       <div className='page'>
         <h1 className="pageTitle">Design a Card</h1>
         {previewCard}
-        <DesignContainer
-          className="designForm"
-          cardData={this.state}
-          handleFormSubmit={this.handleFormSubmit}
-          handleValueChange={this.handleValueChange}
-          handlePotionSelect={this.handlePotionSelect}
-          handleDropDownClick={this.handleDropDownClick}
-        />
+        {renderedComponent}
       </div>
     )
   }
