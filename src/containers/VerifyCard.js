@@ -18,19 +18,7 @@ const VerifyCard = (props) => {
 
   return(
     <div>
-      <h2>Card Preview:</h2>
-      <span className='cardInDeck' key="preview">
-        <Card
-          cardName={props.cardData.cardName}
-          cardText={props.cardData.cardText}
-          cardCost={props.cardData.cardCost}
-          cardImageUrl={props.cardData.cardImageUrl}
-          potions={props.cardData.potions}
-          type={props.cardData.type}
-          id="preview"
-        />
-      </span>
-      <div>
+      <div className="verifyForm">
         <h2>Add a Note</h2>
         <TextInputField
           onChange={props.handleChange}
@@ -40,7 +28,7 @@ const VerifyCard = (props) => {
           key="extraInfo"
         />
       </div>
-      <span className="verifyButtons">
+      <div className="verifyButtons">
         <h2>Add it to the Deck!</h2>
         <div onClick={props.addToJSON}>
           <Link to='/cardapp/yourdeck'>
@@ -55,7 +43,7 @@ const VerifyCard = (props) => {
             value="Make a Change"
           />
         </div>
-      </span>
+      </div>
 
     </div>
   )

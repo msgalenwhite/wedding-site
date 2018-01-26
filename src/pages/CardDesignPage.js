@@ -37,7 +37,6 @@ class CardDesignPage extends Component {
 
     this.editCard = this.editCard.bind(this);
     this.handleAddToJSON = this.handleAddToJSON.bind(this);
-    // this.handleNoteChange = this.handleNoteChange.bind(this);
   }
 
   handleValueChange(event) {
@@ -64,10 +63,8 @@ class CardDesignPage extends Component {
     }
 
     if (this.formIsComplete(formPayload)) {
-      // this.handleClearForm()
-      // this.props.route.addToJSON(formPayload)
+
       this.setState({
-        // cardDataToPass: formPayload,
         submitted: true
       })
 
@@ -104,7 +101,6 @@ class CardDesignPage extends Component {
       genericError: '',
       submitted: false,
       extraInfo: ""
-      // cardDataToPass: {}
     })
   }
 
@@ -161,30 +157,6 @@ class CardDesignPage extends Component {
       submitted: false
     })
   }
-
-  // editCard(cardData) {
-  //   this.setState({
-  //     cardName: cardData.cardName,
-  //     cardText: cardData.cardText,
-  //     cardCost: cardData.cardCost,
-  //     cardImageUrl: cardData.cardImageUrl,
-  //     potions:cardData.potions,
-  //     type: cardData.type,
-  //     extraInfo: cardData.extraInfo,
-  //
-  //     submitted: false,
-  //     cardDataToPass: {},
-  //   })
-  // }
-
-  // handleNoteChange(event) {
-  //   let newValue = event.target.value;
-  //   let target = this.state.cardDataToPass.extraInfo
-  //
-  //   this.setState({
-  //     [target]: newValue
-  //   })
-  // }
 
   render(){
     console.log(this.state)
