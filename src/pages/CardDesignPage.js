@@ -60,7 +60,7 @@ class CardDesignPage extends Component {
       cardImageUrl: this.state.cardImageUrl,
       potions: this.state.potions,
       type: this.state.type,
-      extraInfo: ''
+      extraInfo: this.state.extraInfo
     }
 
     if (this.formIsComplete(formPayload)) {
