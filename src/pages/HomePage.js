@@ -3,6 +3,8 @@ import React, {Component} from 'react'
 import NameContainer from '../containers/NameContainer'
 import WelcomeContainer from '../containers/WelcomeContainer'
 
+import UpAndDown from '../components/UpAndDown'
+
 class HomePage extends Component {
   constructor(props){
     super(props);
@@ -108,6 +110,8 @@ class HomePage extends Component {
 
     return(
       <div className='page'>
+        <UpAndDown />
+
         {renderedComponent}
       </div>
     )

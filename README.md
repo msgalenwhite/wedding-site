@@ -26,7 +26,7 @@ Navigate to `localhost:4567`.
 
 ## To-Do:
 ISSUES:
-Verify Card Page is uneccessary now that there is a card preview on the form.
+Verify Card Page is unnecessary now that there is a card preview on the form.
 
 HOWEVER, the user needs to be sent from the Card Design form to the Display Deck page after clicking submit.  Right now the user is being alerted that their card has been submitted, but they are still left on the Design Form
 

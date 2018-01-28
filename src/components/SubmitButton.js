@@ -4,7 +4,7 @@ const SubmitButton = props => {
 
   return(
     <input
-      className='submitButton'
+      className='submitButton button'
       type='submit'
       value='Submit'
     />

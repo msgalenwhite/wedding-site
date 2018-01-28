@@ -4,7 +4,7 @@ body {
 .page {
   padding: 10px;
   border: solid $brown 15px;
-  background: #C3B48D;
+  background: pink;
   min-height: 440px;
   min-width: 270px;
 }
@@ -13,4 +13,13 @@ body {
   text-align: center;
   color: #386298;
   font-size: 35px;
+}
+
+.button {
+  background-color: pink;
+  color: $brown;
+  text-decoration: none;
+}
+.button:hover {
+  background-color: yellow;
 }

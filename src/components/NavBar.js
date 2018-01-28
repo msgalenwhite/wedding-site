@@ -3,7 +3,6 @@ import {browserHistory} from 'react-router'
 
 import LinkButton from './LinkButton'
 
-
 const NavBar = props => {
 
   return(
@@ -16,7 +15,7 @@ const NavBar = props => {
               label="View Your Deck"
             />
             <input
-              className='button navButton'
+              className='navButton button'
               type='button'
               onClick={browserHistory.goBack}
               value='Back'
@@ -29,8 +28,6 @@ const NavBar = props => {
         </span>
       </div>
       {props.children}
-      <div className='navBarFooter'>
-      </div>
     </div>
   )
 }
