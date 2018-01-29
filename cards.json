@@ -7,7 +7,7 @@
       "cardImageUrl": "https://i.pinimg.com/736x/f1/03/c3/f103c3c8b80e7a8cc77958c0811f8853--team-unicorn-unicorns-art-drawing.jpg",
       "potions": true,
       "type": "actionAndVictory",
-      "extraInfo": "",
+      "extraInfo": "Test of info.",
       "id": 1
     },
     {
@@ -99,6 +99,16 @@
       "type": "action",
       "extraInfo": "",
       "id": 10
+    },
+    {
+      "cardName": "jnkbn",
+      "cardText": "n,nl,nkl",
+      "cardCost": "2",
+      "cardImageUrl": "https://ponycreator.hasbro.com/deploy/images/ponyparticon_bodybig.png",
+      "potions": false,
+      "type": "victory",
+      "extraInfo": "",
+      "id": 11
     }
   ]
 }
