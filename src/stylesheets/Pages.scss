@@ -1,10 +1,9 @@
 body {
-  background-color: $pink;
+  background-color: $dark-pink;
 }
 .page {
   padding: 10px;
-  border: solid $dark-pink 15px;
-  border-top: none;
+  margin: 2px;
   background: white;
   min-height: 440px;
   min-width: 270px;
@@ -17,12 +16,13 @@ body {
 }
 
 .button {
-  background-color: $light-pink;
+  background-color: $blue;
   color: white;
   text-decoration: none;
-  border-radius: 15%;
+  border-radius: 10%;
+  border: 1px $light-blue solid;
   margin: auto;
 }
 .button:hover {
-  background-color: $brighter-pink;
+  background-color: $light-blue;
 }

@@ -8,8 +8,11 @@
   flex-wrap: nowrap;
   min-width: 200px;
 }
-.spaceFillerPic {
-
+.verifyButtons {
+  display: flex;
+  justify-content: space-around;
+}
+.verifyCard, .spaceFillerPic {
   float: right;
   position: relative;
   margin: 10px;

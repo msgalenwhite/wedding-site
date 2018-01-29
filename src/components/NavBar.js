@@ -5,12 +5,16 @@ import NavButton from './NavButton'
 
 const NavBar = props => {
 
-  let cardIcon = <div className="rect"></div>
+  let cardIcon =
+  <div className="rect"></div>
 
-  let deckIcon = <div className="deck">
-    <div className="rect rotate rect1">
+  let deckIcon =
+  <div className="deck">
+    <div className="rect rotate rect3">
     </div>
-    <div className="rect rotate rect 2">
+    <div className="rect rotate rect2">
+    </div>
+    <div className="rect rotate rect1">
     </div>
   </div>
 

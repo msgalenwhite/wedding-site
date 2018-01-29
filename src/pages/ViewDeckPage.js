@@ -36,11 +36,10 @@ class ViewDeckPage extends Component {
 
   render() {
 
-
     return(
       <div className='page deckPage'>
-        <h3 className="pageTitle">Your Current Deck</h3>
-        <div>
+        <h3 className='pageTitle'>Your Current Deck</h3>
+        <div className='deckPageDiv'>
           <Deck
             cardData={this.state.deck}
           />

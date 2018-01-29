@@ -99,16 +99,6 @@
       "type": "action",
       "extraInfo": "",
       "id": 10
-    },
-    {
-      "cardName": "jnkbn",
-      "cardText": "n,nl,nkl",
-      "cardCost": "2",
-      "cardImageUrl": "https://ponycreator.hasbro.com/deploy/images/ponyparticon_bodybig.png",
-      "potions": false,
-      "type": "victory",
-      "extraInfo": "",
-      "id": 11
     }
   ]
 }

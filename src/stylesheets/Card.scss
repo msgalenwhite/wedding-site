@@ -1,21 +1,27 @@
 // NOTE: I left card dimensions separated by type of card, even when all of the card types had the same placement.  This was to make it easier in the future to add more types of cards.
 
 // To Display Cards in the Deck:
-.deck {
+.deckContainer {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
 }
 .cardInDeck {
   position: relative;
-  margin: 2px;
+  margin: 7px;
 }
-
+.cardDiv {
+  background-color: pink;
+  width: 200px;
+  height: 315px;
+}
 
 //Card Name
 .cardTitleDiv {
   position: absolute;
   width: 200px;
+  line-height: 25px;
   border-radius: 2%;
 
   color: #386298;
@@ -24,7 +30,7 @@
   text-align: center;
 }
 .actioncardTitleDiv, .victorycardTitleDiv, .durationcardTitleDiv, .reactioncardTitleDiv {
-  top: 6px;
+  top: 8px;
 }
 .victoryAndTreasurecardTitleDiv {
   top: 7px;
@@ -40,19 +46,19 @@
 .actiondisplayCardImage, .victorydisplayCardImage {
   top: 34px;
   left: 12px;
-  width: 178px;
+  width: 177px;
   height: 127px;
 }
 .durationdisplayCardImage, .reactiondisplayCardImage {
   top: 33px;
-  left: 9px;
-  width: 181px;
+  left: 10px;
+  width: 180px;
   height: 130px;
 }
 .victoryAndTreasuredisplayCardImage {
   top: 34px;
-  left: 11px;
-  width: 179px;
+  left: 12px;
+  width: 178px;
   height: 129px;
 }
 .actionAndVictorydisplayCardImage {
@@ -65,11 +71,12 @@
 //Card Text
 .cardTextDiv {
   position: absolute;
-  width: 88.5%;
-  height: 35%;
+  width: 158px;
+  height: 102px;
   text-align: justify;
   border-radius: 10%;
   padding: 6px 9px;
+  overflow: none;
 }
 .actioncardTextDiv, .victorycardTextDiv, .durationcardTextDiv, .reactioncardTextDiv, .victoryAndTreasurecardTextDiv, .actionAndVictorycardTextDiv {
   top: 167px;
@@ -86,23 +93,23 @@
   border-radius: 50%;
 }
 .actiondisplayCost, .victorydisplayCost {
-  top: 279px;
+  top: 282px;
   left: 12px;
 }
 .durationdisplayCost {
+  top: 286px;
+  left: 10px;
+}
+.reactiondisplayCost {
   top: 283px;
   left: 11px;
 }
-.reactiondisplayCost {
-  top: 280px;
-  left: 11px;
-}
 .victoryAndTreasuredisplayCost {
-  top: 281px;
+  top: 284px;
   left: 12px;
 }
 .actionAndVictorydisplayCost {
-  top: 282px;
+  top: 285px;
   left: 12px;
 }
 

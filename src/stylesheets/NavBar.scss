@@ -6,9 +6,9 @@ Navigation Bar
   text-align: center;
   display: flex;
   justify-content: space-between;
-  padding: 5px;
-  line-height: 20px;
-  height: 47px;
+  padding: 7px;
+  padding-top: 0px;
+  line-height: 30px;
 }
 
 /*
@@ -19,21 +19,31 @@ Icons
   width: 20px;
   height: 30px;
   border-radius: 10%;
-  border: 2px black solid;
+  border: 1px black solid;
 }
 .rect:hover {
-  border-color: $brighter-pink;
+  background-color: $light-blue;
+}
+.deck:hover {
+  .rect1, .rect2, .rect3 {
+    background-color: $light-blue;
+  }
 }
 .deck {
   position: relative;
   display: inline;
-  .rect1{
+  .rect1 {
     position: absolute;
-    top: 5px;
-    left: 5px;
   }
-  .rect2{
+  .rect2 {
     position: absolute;
+    top: 2px;
+    left: 2px;
+  }
+  .rect3 {
+    position: absolute;
+    top: 4px;
+    left: 4px;
   }
 }
 

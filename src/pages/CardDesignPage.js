@@ -10,8 +10,6 @@ import Card from '../components/Card'
 
 class CardDesignPage extends Component {
 
-  //NOTE: PROBLEM: I want to have the extraInfo value stored in cardDataToPass.  What if we DIDN'T clear the form until the json function happens, so we can store extraInfo just like normal?
-
   constructor(props) {
     super(props);
     this.state = {
@@ -24,7 +22,6 @@ class CardDesignPage extends Component {
       extraInfo: "",
 
       submitted: false,
-      // cardDataToPass: {},
       genericError: ""
     }
 
@@ -173,7 +170,7 @@ class CardDesignPage extends Component {
     //if they haven't chosen a type yet, we can't show any card
     if (this.state.type !== "") {
       previewCard =
-      <span className="spaceFillerPic">
+      <span className="verifyCard">
         <Card
           cardName={this.state.cardName}
           cardText={this.state.cardText}

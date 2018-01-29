@@ -22,13 +22,13 @@ const Card = (props) => {
   }
 
   let typePic = CardImages[props.type].url
-  
+
   return (
-    <div>
+    <div className='cardDiv'>
       <div className={tags.title} >
         {props.cardName}
       </div>
-      <div>
+      <div >
         <img
           className={tags.pic}
           src = {props.cardImageUrl}

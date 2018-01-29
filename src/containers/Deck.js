@@ -20,7 +20,7 @@ const Deck = props => {
     )
   })
   return(
-    <div className='deck'>
+    <div className='deckContainer'>
       {displayDeck}
     </div>
   )
