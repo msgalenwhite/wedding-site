@@ -25,10 +25,6 @@ $ npm start
 Navigate to `localhost:4567`.
 
 ## To-Do:
-ISSUES:
-Verify Card Page is unnecessary now that there is a card preview on the form.
-
-HOWEVER, the user needs to be sent from the Card Design form to the Display Deck page after clicking submit.  Right now the user is being alerted that their card has been submitted, but they are still left on the Design Form
 
 CHANGES TO DESIGN FORM:
 X  - DROP-DOWN
@@ -47,6 +43,7 @@ X    - MAYBE - instead of a preview page, the user could view the card immediate
 CHANGES TO SCSS:
   - For Card display:
     - Change px to %
+  - Incorporate UP-AND-Down
 
 CHANGES TO DECK CONTAINER:
   - Clicking on a single card will take you to its page
