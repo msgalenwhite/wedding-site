@@ -99,6 +99,16 @@
       "type": "action",
       "extraInfo": "",
       "id": 10
+    },
+    {
+      "cardName": "Test Card",
+      "cardText": "kjl",
+      "cardCost": "9",
+      "cardImageUrl": "https://static.pexels.com/photos/62321/kitten-cat-fluffy-cat-cute-62321.jpeg",
+      "potions": true,
+      "type": "reaction",
+      "extraInfo": "",
+      "id": 11
     }
   ]
 }

@@ -34,6 +34,7 @@ X    - card type (have options pull from dataset)
     - +Actions
     - +Cards
     - +Buys
+    - +Debt
     - Cost
 
 X  - PREVIEWS
