@@ -49,5 +49,4 @@ class ViewDeckPage extends Component {
   }
 }
 
-
 export default ViewDeckPage
