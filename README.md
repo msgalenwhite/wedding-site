@@ -6,6 +6,10 @@ NOTE: I do not own Dominion!  I am using a game that I love to help me learn mor
 
 ALSO NOTE: This is a practice project, and as such will contain comments/notes for my own knowledge. If I submit a finished/final version of this project, I will of course clean out my note-taking
 
+"npm start" is used to notify webpack to update bundle.js after any changes (and refreshes after changes using "sockets")
+
+
+
 ## Setup
 
 From your project directory, run the following:
