@@ -11,7 +11,7 @@ class ViewDeckPage extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:4567/api/v1/cards')
+    fetch('/api/v1/cards')
     .then (response => {
       if (response.ok) {
         return response;
