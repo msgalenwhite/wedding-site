@@ -48,7 +48,6 @@ const DesignContainer = props => {
       <div className="genericError">
         {props.cardData.genericError}
       </div>
-      <UpAndDown />
       <DropDown
         className="typeDropDown"
         label={labelObject.type}
