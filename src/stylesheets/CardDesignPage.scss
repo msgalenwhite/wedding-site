@@ -13,12 +13,16 @@
   justify-content: space-around;
 }
 .verifyCard, .spaceFillerPic {
-  float: right;
   position: relative;
   margin: 10px;
   width: 200px;
   min-width: 200px;
   min-height: 250px;
+}
+
+.previewCard {
+  display: flex;
+  justify-content: space-around;
 }
 
 
