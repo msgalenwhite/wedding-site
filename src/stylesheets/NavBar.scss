@@ -8,7 +8,34 @@ Navigation Bar
   justify-content: space-between;
   padding: 7px;
   align-content: space-around;
+  line-height: 35px;
 }
+
+/*
+Buttons and Labels
+*/
+.navButtonObject {
+  position: relative;
+}
+
+.navButtonLabelLeft, .navButtonLabelRight, .navButton {
+  font-size: 12px;
+  color: white;
+  vertical-align: middle;
+}
+.navButtonLabelLeft {
+  position: absolute;
+  left: 25px;
+  top: 0px;
+  width: 100px;
+}
+.navButtonLabelRight {
+  position: absolute;
+  right: 25px;
+  top: 0px;
+  width: 100px;
+}
+
 
 /*
 Icons
@@ -20,7 +47,7 @@ Icons
   border-radius: 10%;
   border: 1px black solid;
 }
-.rect:hover {
+.card:hover {
   background-color: $light-blue;
 }
 .deck:hover {
@@ -44,26 +71,4 @@ Icons
     top: 4px;
     left: 4px;
   }
-}
-
-.navButtonObject {
-  position: relative;
-}
-
-.navButtonLabelLeft, .navButtonLabelRight, .navButton {
-  font-size: 12px;
-  color: white;
-  vertical-align: middle;
-}
-.navButtonLabelLeft {
-  position: absolute;
-  left: 25px;
-  top: 0px;
-  width: 100px;
-}
-.navButtonLabelRight {
-  position: absolute;
-  right: 25px;
-  top: 0px;
-  width: 100px;
 }
