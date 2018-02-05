@@ -9,7 +9,7 @@ const TextInputField = props => {
         {props.label}
         <input
           type="text"
-          className="textInputBar"
+          className={props.name}
           value={props.value}
           onChange={props.onChange}
         />

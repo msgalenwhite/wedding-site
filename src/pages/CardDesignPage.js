@@ -215,8 +215,18 @@ class CardDesignPage extends Component {
     return(
       <div className='page'>
         <h1 className="pageTitle">Design a Card</h1>
-        {previewCard}
-        {renderedComponent}
+        <div className='row'>
+          <div
+            className='center column small-12 medium-4 large-2'
+          >
+            {previewCard}
+          </div>
+          <div
+            className='column small-12 medium-8 large-10'
+          >
+            {renderedComponent}
+          </div>
+        </div>
       </div>
     )
   }
