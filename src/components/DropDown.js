@@ -10,14 +10,22 @@ const DropDown = props => {
   let optionTags = props.options.map((value) => {
 
     return (
-      <option key={`${props.className} ${value}`} value={value}>{value}</option>
+      <option
+        key={`${props.className} ${value}`}
+        value={value}
+      >
+        {value}
+      </option>
     )
   })
 
   return(
     <div className="dropDown">
       <label>{props.label}</label>
-      <select onChange={handleClick}>
+      <select
+        onChange={handleClick}
+        className="dropDownOption"
+      >
         <option defaultValue=""></option>
         {optionTags}
       </select>

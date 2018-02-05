@@ -1,6 +1,7 @@
 import React from 'react'
 
 const TextInputField = props => {
+
   return(
     <div className='textInput'>
       <h6 className="error">{props.errorMessage}</h6>
@@ -8,7 +9,7 @@ const TextInputField = props => {
         {props.label}
         <input
           type="text"
-          className= {props.name}
+          className="textInputBar"
           value={props.value}
           onChange={props.onChange}
         />
