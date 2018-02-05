@@ -14,25 +14,8 @@ body {
   text-align: center;
 }
 
-.error, .genericError {
-  color: red;
-  font-style: italic;
-}
-
 .pageTitle {
   text-align: center;
   color: $dark-blue;
   font-size: 35px;
-}
-
-.button {
-  background-color: $blue;
-  color: white;
-  text-decoration: none;
-  border-radius: 10px;
-  border: 1px $light-blue solid;
-  margin: auto;
-}
-.button:hover {
-  background-color: $light-blue;
 }

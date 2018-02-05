@@ -1,0 +1,24 @@
+.error, .genericError {
+  color: red;
+  font-style: italic;
+}
+
+.dropDownOption {
+  background-color: $lighter-blue;
+}
+
+.textInputBar {
+  background-color: $lighter-blue;
+}
+
+.button {
+  background-color: $blue;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  border: 1px $light-blue solid;
+  margin: auto;
+}
+.button:hover {
+  background-color: $light-blue;
+}
