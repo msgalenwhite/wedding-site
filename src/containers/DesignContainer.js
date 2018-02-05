@@ -3,6 +3,7 @@ import React from 'react';
 import DropDown from '../components/DropDown'
 import TextInputField from '../components/TextInputField'
 import SubmitButton from '../components/SubmitButton'
+import UpAndDown from '../components/UpAndDown'
 
 import CardImages from '../constants/CardImages'
 
@@ -47,6 +48,7 @@ const DesignContainer = props => {
       <div className="genericError">
         {props.cardData.genericError}
       </div>
+      <UpAndDown />
       <DropDown
         className="typeDropDown"
         label={labelObject.type}

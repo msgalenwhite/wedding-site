@@ -2,11 +2,21 @@ body {
   background-color: $dark-pink;
 }
 .page {
+  border-radius: 3px;
   padding: 10px;
-  margin: 2px;
+  margin: 15px;
   background: white;
   min-height: 440px;
   min-width: 270px;
+}
+
+.homepage {
+  text-align: center;
+}
+
+.error, .genericError {
+  color: red;
+  font-style: italic;
 }
 
 .pageTitle {
@@ -19,7 +29,7 @@ body {
   background-color: $blue;
   color: white;
   text-decoration: none;
-  border-radius: 10%;
+  border-radius: 10px;
   border: 1px $light-blue solid;
   margin: auto;
 }
