@@ -1,8 +1,24 @@
 import React from 'react'
 
+import TextInputField from './TextInputField'
+
 const UpAndDown = props => {
+
+  //name, label, value, onChange
   return(
-    <h3>Up and down!</h3>
+    <div className="upAndDown">
+      <label className='upAndDownCost'>Cost:</label>
+      <div className='flexboxDiv'>
+        <i className="fa fa-arrow-circle-left"></i>
+        <input
+          type='text'
+          defaultValue='10'
+          className='upAndDownCost'
+        />
+        <i className="fa fa-arrow-circle-right"></i>
+
+      </div>
+    </div>
   )
 }
 

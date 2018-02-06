@@ -22,3 +22,29 @@
 .button:hover {
   background-color: $light-blue;
 }
+
+/*
+UP AND DOWN
+*/
+
+.flexboxDiv {
+  display: inline-flex;
+
+  .fa {
+    font-size: 1.8em;
+    margin: auto 0;
+    color: $blue;
+  }
+  .fa:hover {
+    color: $light-blue;
+  }
+
+}
+.flexboxDiv input {
+  width: 40px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+}
