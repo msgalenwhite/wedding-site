@@ -34,6 +34,7 @@ CHANGES TO DESIGN FORM:
 X  - DROP-DOWN
 X    - card type (have options pull from dataset)
 
+- maybe a tabbed set of options that displays the up and down?
   - UP-AND-DOWN
     - +Actions
     - +Cards
