@@ -58,6 +58,9 @@ CHANGES TO DECK CONTAINER:
         - fetch specific card from json
         - function to remove old card and replace it
 
+CHANGES TO VERIFY PAGE
+  - Make sure "submit" and "go back" buttons are on the same line
+
 NEW THINGS TO LEAN:
  - Jest
     - learn and write tests

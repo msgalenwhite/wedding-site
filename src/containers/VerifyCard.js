@@ -19,7 +19,7 @@ const VerifyCard = (props) => {
   return(
     <div>
       <div className="verifyForm">
-        <h2>Add a Note</h2>
+        <h2 className='noteDescription'>Notes are optional, but can help you remember what makes this card special.</h2>
         <TextInputField
           onChange={props.handleChange}
           value={props.cardData.extraInfo}
@@ -28,16 +28,15 @@ const VerifyCard = (props) => {
           key="extraInfo"
         />
       </div>
-
-      <div onClick={props.editCard}>
-        <input
-          className='button'
-          type="button"
-          value="Go Back"
-        />
-      </div>
-
       <div className="verifyButtons">
+        <div onClick={props.editCard}>
+          <input
+            className='button'
+            type="button"
+            value="Go Back"
+          />
+        </div>
+
         <div onClick={props.addToJSON}>
           <Link to='/cardapp/yourdeck'>
             <SubmitButton/>
