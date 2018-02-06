@@ -4,7 +4,6 @@ import TextInputField from './TextInputField'
 
 const UpAndDown = props => {
 
-  //name, label, value, onChange
   return(
     <div className="upAndDown">
       <label className='upAndDownCost'>Cost:</label>
