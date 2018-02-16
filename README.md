@@ -21,3 +21,13 @@ $ npm start
 Navigate to `localhost:4567`.
 
 ## To-Do:
+LIST OF INVITEES
+- group by family
+
+SIGN IN
+- firstName
+- lastName
+- 'password'
+-- error message if password is wrong
+-- error message if name is not on list
+  -- suggest alternative first names based on last name?
