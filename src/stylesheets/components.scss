@@ -1,0 +1,33 @@
+.fullPage {
+  background-color: $dark-sangria;
+}
+
+.NavBar {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.button {
+  background-color: $light-sangria;
+  border-radius: 5px;
+  font-weight: bold;
+  margin: 0px;
+}
+
+.button:hover {
+  background-color: $sangria;
+}
+
+.page {
+  padding: 10px;
+  margin: 10px;
+  margin-top: 0;
+  background-color: $light-nude;
+  min-height: 900px;
+}
+
+.title {
+  text-align: center;
+  font-size: 2em;
+}

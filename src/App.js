@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Router, Route, Redirect, IndexRoute, browserHistory } from 'react-router'
 
-
 import './main.scss'
+
+import NavBar from './containers/NavBar'
+import MainPage from './containers/MainPage'
 
 const App = props => {
 
@@ -10,17 +12,7 @@ const App = props => {
     <Router history={browserHistory} className="all">
       <Route path='/' component={NavBar}>
         <IndexRoute
-          component={HomePage}
-          addNameToJSON={handleAddName}
-        />
-        <Route
-          path='/cardapp/designer'
-          component={CardDesignPage}
-          addToJSON={handleAddCard}
-        />
-        <Route
-          path='/cardapp/yourdeck'
-          component={ViewDeckPage}
+          component={MainPage}
         />
       </Route>
     </Router>
