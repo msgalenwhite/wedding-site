@@ -1,18 +1,21 @@
-.fullPage {
+body {
   background-color: $dark-sangria;
 }
 
 .NavBar {
   display: flex;
   justify-content: center;
-  padding: 10px;
+  padding: 5px;
 }
 
 .button {
   background-color: $light-sangria;
   border-radius: 5px;
-  font-weight: bold;
   margin: 0px;
+  padding: 5px 10px;
+  border: none;
+  font-size: 18px;
+  color: $light-nude;
 }
 
 .button:hover {
@@ -22,7 +25,6 @@
 .page {
   padding: 10px;
   margin: 10px;
-  margin-top: 0;
   background-color: $light-nude;
   min-height: 900px;
 }
@@ -30,4 +32,14 @@
 .title {
   text-align: center;
   font-size: 2em;
+}
+
+.error {
+  font-style: italic;
+  color: $brick;
+}
+
+// TEXT INPUT FIELDS
+.textLabel {
+
 }
