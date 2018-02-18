@@ -5,19 +5,23 @@ import Errors from '../constants/Errors'
 
 const SignIn = props => {
 
-  //loop through the errors object and assign errors as necessary
-  let genericError;
-  let nameError;
-  let passwordError;
+  let currentErrors = {}
 
-  if (props.errors.generic) {
-    genericError = Errors.generic
-  }
+  Object.entries(props.errors).forEach((errorMessage) => {
+    let errorType = errorMessage[0]
+    let errorBoolean = errorMessage[1]
+
+    if (errorBoolean) {
+      let errorText = Errors[errorType]
+
+      currentErrors[errorType] = errorText
+    }
+  })
 
   return(
     <form className='SignIn' onSubmit={props.handleSubmit}>
       <div className='error'>
-        {genericError}
+        {currentErrors['generic']}
       </div>
 
       <TextInputField
@@ -25,14 +29,14 @@ const SignIn = props => {
         value={props.name}
         onChange={props.handleTextChange}
         label="Name: "
-        error={nameError}
+        error={currentErrors['name']}
       />
       <TextInputField
         name='password'
         value={props.password}
         onChange={props.handleTextChange}
         label="Password: "
-        error={passwordError}
+        error={currentErrors['password']}
       />
       <input
         type='submit'

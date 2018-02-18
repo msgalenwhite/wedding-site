@@ -2,32 +2,14 @@ body {
   background-color: $dark-sangria;
 }
 
-.NavBar {
-  display: flex;
-  justify-content: center;
-  padding: 5px;
-}
-
-.button {
-  background-color: $light-sangria;
-  border-radius: 5px;
-  margin: 0px;
-  padding: 5px 10px;
-  border: none;
-  font-size: 18px;
-  color: $light-nude;
-}
-
-.button:hover {
-  background-color: $sangria;
-}
-
 .page {
   padding: 10px;
   margin: 10px;
   background-color: $light-nude;
   min-height: 900px;
 }
+
+// TEXT
 
 .title {
   text-align: center;
@@ -40,6 +22,21 @@ body {
 }
 
 // TEXT INPUT FIELDS
-.textLabel {
+.textLabel, input {
+  font-size: 1.3em;
+}
 
+// CLICKABLE COMPONENTS
+.button {
+  background-color: $light-sangria;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 5px 10px;
+  border: none;
+  font-size: 18px;
+  color: $light-nude;
+}
+
+.button:hover {
+  background-color: $sangria;
 }

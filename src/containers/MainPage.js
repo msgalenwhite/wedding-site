@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 
 import SignIn from './SignIn'
+import RsvpForm from './RsvpForm'
 
 class MainPage extends Component {
   constructor(props){
@@ -12,8 +13,7 @@ class MainPage extends Component {
       dinnerResponse: "",
       dietaryRestriction: "",
 
-      signInComplete: false,
-      //error message here
+      signInComplete: true,
 
       signInErrors: {
         generic: false,
@@ -112,6 +112,11 @@ class MainPage extends Component {
           dietaryRestriction={this.state.dietaryRestriction}
           handleSubmit={this.handleSignInSubmit}
           errors={this.state.signInErrors}
+        />
+    } else {
+      renderedComponent =
+        <RsvpForm
+
         />
     }
 
