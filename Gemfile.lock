@@ -13,6 +13,10 @@ GEM
     rack (2.0.4)
     rack-protection (2.0.0)
       rack
+    ruby_http_client (3.3.0)
+    sendgrid-ruby (5.2.0)
+      ruby_http_client (~> 3.2)
+      sinatra (>= 1.4.7, < 3)
     sinatra (2.0.0)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -35,6 +39,7 @@ PLATFORMS
 DEPENDENCIES
   json
   pry
+  sendgrid-ruby
   sinatra (~> 2.0)
   sinatra-contrib
   sinatra-reloader

@@ -5,6 +5,8 @@ gem "sinatra-contrib"
 gem "sinatra-reloader"
 gem "json"
 
+gem "sendgrid-ruby"
+
 group :development, :test do
   gem 'pry'
 end
