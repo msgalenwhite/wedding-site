@@ -85,6 +85,7 @@ end
 #   status 201
 #   json userNameObj
 # end
+
 get "/testemail" do
   #
   # from = Email.new(email: 'test@example.com')
@@ -106,7 +107,12 @@ get "/testemail" do
   #
   # puts "======="
 
+  content_type :json
+    status 201
+    json '{}'
+
 end
+
 
 get '*' do
   erb :home
