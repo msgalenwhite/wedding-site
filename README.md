@@ -21,13 +21,11 @@ $ npm start
 Navigate to `localhost:4567`.
 
 ## To-Do:
-LIST OF INVITEES
-- group by family
 
-SIGN IN
-- firstName
-- lastName
-- 'password'
--- error message if password is wrong
--- error message if name is not on list
-  -- suggest alternative first names based on last name?
+-- make list of invitees! (include family units)
+
+-- (SignIn) fuzzy match names to a list of invitees (make sure to check the whole household, so anyone in the family can RSVP for all of them)
+
+-- (SignIn) Set error for incorrect password
+
+-- (SignIn) Set error for incorrect name

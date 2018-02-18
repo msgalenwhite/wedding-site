@@ -9,11 +9,14 @@ class MainPage extends Component {
     this.state = {
       name: "",
       password: "",
+      signInComplete: false,
+
+      //this is set to true so I can see the RSVP page easier for development
+      continueToRsvp: true,
+
       rsvpResponse: "",
       dinnerResponse: "",
       dietaryRestriction: "",
-
-      signInComplete: true,
 
       signInErrors: {
         generic: false,
@@ -40,6 +43,7 @@ class MainPage extends Component {
 
     if (this.state.name === "" || this.state.password === "") {
       this.setState({
+        signInComplete: false,
         signInErrors: {
           ...this.state.signInErrors,
           generic: true
@@ -49,6 +53,7 @@ class MainPage extends Component {
     //if both fields are filled in, but there is currently an error, get rid of the genericError
 
       this.setState({
+        signInComplete: true,
         signInErrors: {
           signInErrors: {
             ...this.state.signInErrors,
@@ -65,18 +70,32 @@ class MainPage extends Component {
     //are both name and password filled in?
     this.isSignInComplete();
 
-    //check if the name is on our list.  If not, suggest a fuzzy possibility - `I was unable to find ${userSubmission}. Did you mean ${fuzzy guess}?`
-    // -- right now in Errors this is 'Your name/your password are incorrect.  Please enter your name and the correct password to continue.'
+    if (this.state.signInComplete) {
+      //this means that BOTH FORM SECTIONS ARE FILLED OUT
+
+
+      //check if the name is on our list.  If not, suggest a fuzzy possibility - `I was unable to find ${userSubmission}. Did you mean ${fuzzy guess}?`
+      // -- right now in Errors this is 'Your name/your password are incorrect.  Please enter your name and the correct password to continue.'
+
+    }
 
 
 
     //If the name is correct, check the password.  If wrong, ask for the correct password - 'Please enter the correct password.'
 
-    //if name and password are correct, change this.state.signInComplete to true
 
+    //CORRECT PASSWORD IS: 'galenandchriswedding'
+    //if name and password are correct, continue to RSVP form
+    if (this.state.password === 'galenandchriswedding') {
+      this.setState({
+        continueToRsvp: true
+      })
+    }
   }
 
   sendEmail(formPayload) {
+    //THIS NEEDS TO BE TESTED!!!
+
     fetch('/testemail')
       .then ( response => {
         if ( response.ok ) {
@@ -101,7 +120,12 @@ class MainPage extends Component {
   render() {
     let renderedComponent;
 
-    if (!this.state.signInComplete) {
+    if (this.state.continueToRsvp) {
+      renderedComponent =
+        <RsvpForm
+
+        />
+    } else {
       renderedComponent =
         <SignIn
           handleTextChange={this.handleTextChange}
@@ -113,16 +137,11 @@ class MainPage extends Component {
           handleSubmit={this.handleSignInSubmit}
           errors={this.state.signInErrors}
         />
-    } else {
-      renderedComponent =
-        <RsvpForm
-
-        />
     }
 
     return (
       <div className='page'>
-        <div className='title'>
+        <div className='heading'>
           Galen and Chris<br/>
           are Getting Married!
         </div>
