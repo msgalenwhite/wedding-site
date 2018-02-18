@@ -25,6 +25,8 @@ class MainPage extends Component {
 
   this.isSignInComplete = this.isSignInComplete.bind(this)
   this.handleSignInSubmit = this.handleSignInSubmit.bind(this);
+
+  this.sendEmail = this.sendEmail.bind(this)
   }
 
   handleTextChange (event) {
@@ -66,12 +68,34 @@ class MainPage extends Component {
     //check if the name is on our list.  If not, suggest a fuzzy possibility - `I was unable to find ${userSubmission}. Did you mean ${fuzzy guess}?`
     // -- right now in Errors this is 'Your name/your password are incorrect.  Please enter your name and the correct password to continue.'
 
-    
+
 
     //If the name is correct, check the password.  If wrong, ask for the correct password - 'Please enter the correct password.'
 
     //if name and password are correct, change this.state.signInComplete to true
 
+  }
+
+  sendEmail(formPayload) {
+    fetch('/testemail')
+      .then ( response => {
+        if ( response.ok ) {
+          return response;
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`;
+          error = new Error(errorMessage);
+          throw(error);
+        }
+      })
+      .then ( response => response.json() )
+      .then ( response => {
+        console.log(response)
+        //right now we are just console logging, not doing anything else
+
+        //TEST NEEDED: are we sending an email from this fetch?  does the email contain the correct info?
+
+      })
+      .catch ( error => console.error(`Error in fetch: ${error.message}`) );
   }
 
   render() {
