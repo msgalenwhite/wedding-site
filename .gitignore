@@ -1,5 +1,6 @@
 .bundle
 .DS_store
 config/database.yml
+.env
 
 node_modules/*
