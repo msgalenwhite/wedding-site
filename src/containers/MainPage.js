@@ -12,7 +12,7 @@ class MainPage extends Component {
       signInComplete: false,
 
       //this is set to true so I can see the RSVP page easier for development
-      continueToRsvp: true,
+      continueToRsvp: false,
 
       rsvpResponse: "",
       dinnerResponse: "",
@@ -91,29 +91,39 @@ class MainPage extends Component {
         continueToRsvp: true
       })
     }
+
+    let formPayload = {
+      name: this.state.name
+    }
+
+    this.sendEmail(formPayload)
   }
 
   sendEmail(formPayload) {
     //THIS NEEDS TO BE TESTED!!!
 
-    fetch('/testemail')
+    fetch('/testemail', {
+      body: JSON.stringify(formPayload),
+      method: 'POST'
+    })
       .then ( response => {
         if ( response.ok ) {
+          console.log(response)
           return response;
         } else {
           let errorMessage = `${response.status} (${response.statusText})`;
-          error = new Error(errorMessage);
+          let error = new Error(errorMessage);
           throw(error);
         }
       })
-      .then ( response => response.json() )
-      .then ( response => {
-        console.log(response)
+      // .then ( response => response.json() )
+      // .then ( response => {
+      //   console.log(response)
         //right now we are just console logging, not doing anything else
 
         //TEST NEEDED: are we sending an email from this fetch?  does the email contain the correct info?
 
-      })
+      // })
       .catch ( error => console.error(`Error in fetch: ${error.message}`) );
   }
 

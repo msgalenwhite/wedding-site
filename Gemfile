@@ -9,4 +9,5 @@ gem "sendgrid-ruby"
 
 group :development, :test do
   gem 'pry'
+  gem 'dotenv'
 end
