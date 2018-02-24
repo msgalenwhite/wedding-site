@@ -5,7 +5,6 @@ import TextInputField from '../components/TextInputField'
 
 const RsvpForm = props => {
 
-  //shouldn't I be able to get the name of their Plus One to appear on the RSVP entry while they type it in?
   let plusOneParagraph;
 
   if (Object.keys(props.familyObject).includes("plusOne")) {
@@ -54,7 +53,7 @@ const RsvpForm = props => {
       </h3>
       {plusOneParagraph}
 
-      <form onSubmit={this.props.handleSubmit}>
+      <form onSubmit={props.handleSubmit}>
         {entries}
         <input
           type='submit'

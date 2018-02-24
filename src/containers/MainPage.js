@@ -65,14 +65,28 @@ class MainPage extends Component {
 
     if (this.isSignInComplete()) {
 
-      invitees.forEach((familyObject) => {
+      invitees.forEach((familyArray) => {
 
-        let nameIsCorrect = Object.keys(familyObject).includes(this.state.name);
+        let nameIsCorrect = familyArray.includes(this.state.name);
         let passwordIsCorrect = this.state.password === "galenandchriswedding"
 
         if (nameIsCorrect && passwordIsCorrect) {
+          let formPayload = {}
+
+          familyArray.forEach((familyMember) => {
+
+            if (familyMember === "plusOne") {
+              formPayload["plusOne"] = {
+                name: "",
+                attending: null
+              }
+            } else {
+              formPayload[familyMember] = null
+            }
+          })
+
           this.setState({
-            familyObject: familyObject,
+            familyObject: formPayload,
             continueToRsvp: true
           })
         } else if (nameIsCorrect) {
