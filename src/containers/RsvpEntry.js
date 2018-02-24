@@ -2,16 +2,13 @@ import React from 'react'
 
 const RsvpEntry = props => {
 
-  //this will be for each person.  They will be asked if they WILL or WILL NOT attend
+  let emptyBox = <i className="check fa fa-square"></i>
+  let checkedBox = <i className="check fa fa-check-square"></i>
 
-  let emptyBox = <i className="check fas fa-square"></i>
-  let checkedBox = <i className="check fas fa-check-square"></i>
-
-  // if it's simpler, this is another option:
-  // <input id='checkBox' type='checkbox'/>
-
+  let check = <i className="fa fa-check appearOnHover"></i>
   return(
     <div>
+      {check}
       <h2>{props.name}</h2>
 
       <span>

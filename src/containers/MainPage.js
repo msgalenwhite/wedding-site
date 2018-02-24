@@ -36,7 +36,10 @@ class MainPage extends Component {
 
   this.isSignInComplete = this.isSignInComplete.bind(this);
   this.handleSignInSubmit = this.handleSignInSubmit.bind(this);
-  this.handleRSVPSubmit = this.handleRSVPSubmit.bind(this)
+  this.handleRSVPSubmit = this.handleRSVPSubmit.bind(this);
+
+  this.handleCheckHover = this.handleCheckHover.bind(this)
+  this.handleBoxSelect = this.handleBoxSelect.bind(this)
 
   this.sendEmail = this.sendEmail.bind(this);
   }
@@ -123,6 +126,14 @@ class MainPage extends Component {
 
     console.log("An RSVP was submitted")
     console.log(this.state.familyObject)
+  }
+
+  handleCheckHover(event) {
+
+  }
+
+  handleBoxSelect(event) {
+
   }
 
   sendEmail(formPayload) {
