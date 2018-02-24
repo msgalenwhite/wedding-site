@@ -12,8 +12,15 @@ class MainPage extends Component {
       name: "",
       password: "",
 
-      continueToRsvp: false,
-      familyObject: {},
+      //filled in to work on RSVP page
+      continueToRsvp: true,
+      familyObject: {
+        "Galen White": null,
+        "plusOne": {
+          name: "",
+          attending: null
+        }
+      },
 
       rsvpResponse: "",
       dietaryRestriction: "",
