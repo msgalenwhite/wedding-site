@@ -6,4 +6,4 @@ config/database.yml
 
 node_modules/*
 
-constants/Invitees
+src/constants/Invitees
