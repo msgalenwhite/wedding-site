@@ -26,6 +26,10 @@ Navigate to `localhost:4567`.
 
 -- (SignIn) fuzzy match names to a list of invitees (make sure to check the whole household, so anyone in the family can RSVP for all of them)
 
--- (SignIn) Set error for incorrect password
-
 -- (SignIn) Set error for incorrect name
+
+-- (RSVP ENTRY) get checkboxes to check on hover, and on click
+
+-- (MainPage) fill in handleRSVPSubmit
+
+-- (RSVP FORM) add email section so we can email their responses
