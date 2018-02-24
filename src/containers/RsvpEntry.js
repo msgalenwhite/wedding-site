@@ -2,28 +2,30 @@ import React from 'react'
 
 const RsvpEntry = props => {
 
+  let yesBoxStyle;
+  let noBoxStyle;
+
+  if (props.attending) {
+    yesBoxStyle = "check fa fa-check-square"
+    noBoxStyle = "check fa fa-square"
+  } else {
+    yesBoxStyle = "check fa fa-square"
+    noBoxStyle = "check fa fa-check-square"
+  }
+
+  let check = <i className="fa fa-check appearOnHover"></i>
+
   let attending = <i
-    className="check fa fa-square"
+    className={`${yesBoxStyle} attending`}
     onClick={props.yesClick}
   >
   </i>
 
   let notAttending = <i
-    className="check fa fa-square"
+    className={`${noBoxStyle} notAttending`}
     onClick={props.noClick}
   >
   </i>
-
-  let emptyBox =
-      <i
-        className="check fa fa-square"
-        onClick={props.onClick}
-      >
-      </i>
-
-  let checkedBox = <i className="check fa fa-check-square"></i>
-
-  let check = <i className="fa fa-check appearOnHover"></i>
 
   return(
     <div>

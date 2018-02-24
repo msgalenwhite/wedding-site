@@ -28,7 +28,7 @@ Navigate to `localhost:4567`.
 
 -- (SignIn) Set error for incorrect name
 
--- (RSVP ENTRY) get checkboxes to check on hover, and on click
+-- (RSVP ENTRY) get checkboxes to behave correctly for PlusOnes!
 
 -- (MainPage) fill in handleRSVPSubmit
 

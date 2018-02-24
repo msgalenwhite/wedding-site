@@ -122,7 +122,7 @@ class MainPage extends Component {
 
   }
 
-  handleRSVPSubmit() {
+  handleRSVPSubmit(event) {
     event.preventDefault();
 
     console.log("An RSVP was submitted")
@@ -173,7 +173,6 @@ class MainPage extends Component {
 
   render() {
     let renderedComponent;
-    console.log(this.state)
 
     if (this.state.continueToRsvp) {
       renderedComponent =
@@ -182,6 +181,7 @@ class MainPage extends Component {
           handlePlusOneChange={this.handlePlusOneChange}
           handleSubmit={this.handleRSVPSubmit}
           onBoxClick={this.handleBoxSelect}
+          responses={this.state.responses}
         />
     } else {
       renderedComponent =

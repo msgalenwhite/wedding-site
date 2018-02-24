@@ -21,6 +21,7 @@ const RsvpForm = props => {
 
   let entries = Object.keys(props.familyObject).map((familyMember) => {
     let returnedComponent;
+    let attending;
 
     let attendingBoxClick = () => {
       props.onBoxClick({
@@ -28,11 +29,17 @@ const RsvpForm = props => {
         isAttending: true
       })
     }
-    let NotAttendingBoxClick = () => {
+    let notAttendingBoxClick = () => {
       props.onBoxClick({
         name: familyMember,
         isAttending: false
       })
+    }
+
+    if (props.responses[familyMember] === true) {
+      attending = true
+    } else {
+      attending = false
     }
 
     if (familyMember === "plusOne") {
@@ -47,7 +54,8 @@ const RsvpForm = props => {
           <RsvpEntry
             name=""
             yesClick={attendingBoxClick}
-            noClick={NotAttendingBoxClick}
+            noClick={notAttendingBoxClick}
+            attending={attending}
           />
         </div>
     } else {
@@ -56,7 +64,8 @@ const RsvpForm = props => {
         key={`RSVP-${familyMember}`}
         name={familyMember}
         yesClick={attendingBoxClick}
-        noClick={NotAttendingBoxClick}
+        noClick={notAttendingBoxClick}
+        attending={attending}
       />
     }
 
