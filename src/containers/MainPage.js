@@ -22,7 +22,8 @@ class MainPage extends Component {
         }
       },
 
-      rsvpResponse: "",
+      responses: {},
+
       dietaryRestriction: "",
 
       signInErrors: {
@@ -132,8 +133,22 @@ class MainPage extends Component {
 
   }
 
-  handleBoxSelect(event) {
-
+  handleBoxSelect(attendee) {
+    if (attendee.name === "plusOne") {
+      this.setState({
+        responses: {
+          ...this.state.responses,
+          [this.state.familyObject.plusOne.name]: attendee.isAttending
+        }
+      })
+    } else {
+      this.setState({
+        responses: {
+          ...this.state.responses,
+          [attendee.name]: attendee.isAttending
+        }
+      })
+    }
   }
 
   sendEmail(formPayload) {
@@ -158,6 +173,7 @@ class MainPage extends Component {
 
   render() {
     let renderedComponent;
+    console.log(this.state)
 
     if (this.state.continueToRsvp) {
       renderedComponent =
@@ -165,6 +181,7 @@ class MainPage extends Component {
           familyObject={this.state.familyObject}
           handlePlusOneChange={this.handlePlusOneChange}
           handleSubmit={this.handleRSVPSubmit}
+          onBoxClick={this.handleBoxSelect}
         />
     } else {
       renderedComponent =
