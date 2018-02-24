@@ -29,6 +29,7 @@ class MainPage extends Component {
 
   this.isSignInComplete = this.isSignInComplete.bind(this);
   this.handleSignInSubmit = this.handleSignInSubmit.bind(this);
+  this.handleRSVPSubmit = this.handleRSVPSubmit.bind(this)
 
   this.sendEmail = this.sendEmail.bind(this);
   }
@@ -96,6 +97,13 @@ class MainPage extends Component {
 
   }
 
+  handleRSVPSubmit() {
+    event.preventDefault();
+
+    console.log("An RSVP was submitted")
+    console.log(this.state.familyObject)
+  }
+
   sendEmail(formPayload) {
     //BEFORE THIS WILL WORK, jump through SENDGRID's hoops!
 
@@ -124,6 +132,7 @@ class MainPage extends Component {
         <RsvpForm
           familyObject={this.state.familyObject}
           handlePlusOneChange={this.handlePlusOneChange}
+          handleSubmit={this.handleRSVPSubmit}
         />
     } else {
       renderedComponent =

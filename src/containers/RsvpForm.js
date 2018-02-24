@@ -54,7 +54,7 @@ const RsvpForm = props => {
       </h3>
       {plusOneParagraph}
 
-      <form>
+      <form onSubmit={this.props.handleSubmit}>
         {entries}
         <input
           type='submit'
