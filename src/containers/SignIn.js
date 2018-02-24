@@ -29,14 +29,14 @@ const SignIn = props => {
         value={props.name}
         onChange={props.handleTextChange}
         label="Name: "
-        error={currentErrors['name']}
+        errorMessage={currentErrors['name']}
       />
       <TextInputField
         name='password'
         value={props.password}
         onChange={props.handleTextChange}
         label="Password: "
-        error={currentErrors['password']}
+        errorMessage={currentErrors['password']}
       />
       <input
         type='submit'

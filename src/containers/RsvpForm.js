@@ -1,28 +1,62 @@
 import React from 'react'
 
 import RsvpEntry from './RsvpEntry'
+import TextInputField from '../components/TextInputField'
 
 const RsvpForm = props => {
 
-  let entries;
+  //shouldn't I be able to get the name of their Plus One to appear on the RSVP entry while they type it in?
+  let plusOnePresent = Object.keys(props.familyObject).includes("plusOne")
+  let plusOneParagraph;
 
-  //I'll be getting a set of info from the previous page and going through it to create a set of RSVP entries for each person.  To start, I'm going to put a single one in the form
+  if (plusOnePresent) {
+    plusOneParagraph =
+      <div>
+        <p>
+          Please include the name of your Plus One.  This will help us organize their seating arrangement for dinner.
+        </p>
+        <p>
+          If you have decided that you would prefer to enjoy this wonderful occasion without an additional member in your party, please leave their name blank and select "Will Not Attend" beneath their section.
+        </p>
+      </div>
+  }
+
+  let entries = Object.keys(props.familyObject).map((familyMember) => {
+    let returnedComponent;
+
+    if (familyMember === "plusOne") {
+      returnedComponent =
+        <div key="RSVPlusOne">
+          <TextInputField
+            name="plusOne"
+            label="Name of your Plus One: "
+            value={props.familyObject["plusOne"].name}
+            onChange={props.handlePlusOneChange}
+          />
+          <RsvpEntry
+            name={familyMember.name}
+          />
+        </div>
+    } else {
+      returnedComponent =
+      <RsvpEntry
+        key={`RSVP-${familyMember}`}
+        name={familyMember}
+      />
+    }
+
+    return returnedComponent
+  })
 
   return(
     <div>
       <h3 className='title'>
-        Thank you for your RSVP!
-      </h3>
-      <h3 className='title'>
         Will we be seeing you in Gloucester, MA on October 13, 2018?
       </h3>
+      {plusOneParagraph}
 
       <form>
-
-        <RsvpEntry
-
-        />
-
+        {entries}
         <input
           type='submit'
           className='button'

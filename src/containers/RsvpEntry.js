@@ -4,9 +4,6 @@ const RsvpEntry = props => {
 
   //this will be for each person.  They will be asked if they WILL or WILL NOT attend
 
-  //logic: if object.include(enteredName) return object
-  let person = 'Brian Schwartz'
-
   let emptyBox = <i className="check fas fa-square"></i>
   let checkedBox = <i className="check fas fa-check-square"></i>
 
@@ -15,7 +12,7 @@ const RsvpEntry = props => {
 
   return(
     <div>
-      <div>{person}</div>
+      <h2>{props.name}</h2>
 
       <span>
         {checkedBox}
