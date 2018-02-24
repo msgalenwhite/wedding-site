@@ -6,17 +6,16 @@ import TextInputField from '../components/TextInputField'
 const RsvpForm = props => {
 
   //shouldn't I be able to get the name of their Plus One to appear on the RSVP entry while they type it in?
-  let plusOnePresent = Object.keys(props.familyObject).includes("plusOne")
   let plusOneParagraph;
 
-  if (plusOnePresent) {
+  if (Object.keys(props.familyObject).includes("plusOne")) {
     plusOneParagraph =
       <div>
         <p>
-          Please include the name of your Plus One.  This will help us organize their seating arrangement for dinner.
+          Please include the name of your Plus One.  This will help us organize their seating arrangement for dinner.  If you do not know the identity of your Plus One (yet!) but would still like to bring someone, please enter 'n/a' in the name field.
         </p>
         <p>
-          If you have decided that you would prefer to enjoy this wonderful occasion without an additional member in your party, please leave their name blank and select "Will Not Attend" beneath their section.
+          If you have decided that you would prefer to enjoy this wonderful occasion without an additional member in your party, please leave their name blank and select 'Will Not Attend' beneath their section.
         </p>
       </div>
   }
@@ -29,12 +28,12 @@ const RsvpForm = props => {
         <div key="RSVPlusOne">
           <TextInputField
             name="plusOne"
-            label="Name of your Plus One: "
+            label="Plus One: "
             value={props.familyObject["plusOne"].name}
             onChange={props.handlePlusOneChange}
           />
           <RsvpEntry
-            name={familyMember.name}
+            name=""
           />
         </div>
     } else {

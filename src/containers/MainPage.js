@@ -12,7 +12,7 @@ class MainPage extends Component {
       name: "",
       password: "",
 
-      continueToRsvp: true,
+      continueToRsvp: false,
       familyObject: {},
 
       rsvpResponse: "",
@@ -117,7 +117,6 @@ class MainPage extends Component {
   }
 
   render() {
-    console.log(this.state.familyObject)
     let renderedComponent;
 
     if (this.state.continueToRsvp) {
