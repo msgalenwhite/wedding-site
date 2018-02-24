@@ -3,4 +3,7 @@
 config/database.yml
 .env
 
+
 node_modules/*
+
+constants/Invitees
