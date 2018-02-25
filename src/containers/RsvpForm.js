@@ -45,7 +45,6 @@ const RsvpForm = props => {
     }
 
     if (familyMember === "plusOne") {
-      console.log(props.familyObject["plusOne"])
 
       if (props.familyObject["plusOne"].attending) {
         attending = true
@@ -96,7 +95,7 @@ const RsvpForm = props => {
       </h3>
       {babyParagraph}
       {plusOneParagraph}
-      
+
       <form onSubmit={props.handleSubmit}>
         {entries}
         <input
