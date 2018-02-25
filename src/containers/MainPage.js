@@ -33,13 +33,11 @@ class MainPage extends Component {
 
   this.handleRSVPSubmit = this.handleRSVPSubmit.bind(this);
 
-
-
-  this.handleCheckHover = this.handleCheckHover.bind(this)
   this.handleBoxSelect = this.handleBoxSelect.bind(this)
 
-  this.sendEmail = this.sendEmail.bind(this);
+  this.handleCheckHover = this.handleCheckHover.bind(this)
 
+  this.sendEmail = this.sendEmail.bind(this);
   }
 
   handleTextChange (event) {
@@ -115,6 +113,8 @@ class MainPage extends Component {
           name: "",
           attending: null
         }
+      } else if (person === "baby"){
+        familyObject["baby"] = true
       } else {
         familyObject[person] = null
       }
