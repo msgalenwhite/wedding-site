@@ -6,6 +6,7 @@ import TextInputField from '../components/TextInputField'
 const RsvpForm = props => {
 
   let plusOneParagraph;
+  let babyParagraph;
 
   if (Object.keys(props.familyObject).includes("plusOne")) {
     plusOneParagraph =
@@ -17,6 +18,13 @@ const RsvpForm = props => {
           If you have decided that you would prefer to enjoy this wonderful occasion without an additional member in your party, please leave their name blank and select 'Will Not Attend' beneath their section.
         </p>
       </div>
+  }
+
+  if (Object.keys(props.familyObject).includes("baby")) {
+    babyParagraph =
+    <p>
+    You are welcome to bring your child, but please let the hotel know if you require any additional sleeping accomodations.  There will not be childcare available.
+    </p>
   }
 
   let entries = Object.keys(props.familyObject).map((familyMember) => {
@@ -37,7 +45,6 @@ const RsvpForm = props => {
     }
 
     if (familyMember === "plusOne") {
-      console.log(props.familyObject["plusOne"])
 
       if (props.familyObject["plusOne"].attending) {
         attending = true
@@ -60,7 +67,7 @@ const RsvpForm = props => {
             attending={attending}
           />
         </div>
-    } else {
+    } else if (familyMember !== "baby"){
 
       if (props.familyObject[familyMember] === true) {
         attending = true
@@ -86,6 +93,7 @@ const RsvpForm = props => {
       <h3 className='title'>
         Will we be seeing you in Gloucester, MA on October 13, 2018?
       </h3>
+      {babyParagraph}
       {plusOneParagraph}
 
       <form onSubmit={props.handleSubmit}>

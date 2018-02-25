@@ -13,7 +13,7 @@ const RsvpEntry = props => {
     noBoxStyle = "check fa fa-check-square"
   }
 
-  let check = <i className="fa fa-check appearOnHover"></i>
+  let check = <i className="fa fa-check"></i>
 
   let attending = <i
     className={`${yesBoxStyle} attending`}
@@ -27,9 +27,10 @@ const RsvpEntry = props => {
   >
   </i>
 
+
+
   return(
     <div>
-      {check}
       <h2>{props.name}</h2>
 
       <span>

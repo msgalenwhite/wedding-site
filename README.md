@@ -22,14 +22,12 @@ Navigate to `localhost:4567`.
 
 ## To-Do:
 
--- make list of invitees! (include family units)
-
 -- (SignIn) fuzzy match names to a list of invitees (make sure to check the whole household, so anyone in the family can RSVP for all of them)
 
 -- (SignIn) Set error for incorrect name
 
--- (RSVP ENTRY) get checkboxes to behave correctly for PlusOnes!
-
 -- (MainPage) fill in handleRSVPSubmit
 
 -- (RSVP FORM) add email section so we can email their responses
+
+-- (RSVP FORM) add dietary restriction section and blurb at top of form
