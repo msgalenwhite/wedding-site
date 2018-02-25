@@ -88,6 +88,8 @@ const RsvpForm = props => {
     return returnedComponent
   })
 
+  let dietaryText = "Do you or anyone in your party have dietary restrictions?  Please let us know and we will do our best to accomodate you."
+
   return(
     <div>
       <h3 className='title'>
@@ -98,6 +100,16 @@ const RsvpForm = props => {
 
       <form onSubmit={props.handleSubmit}>
         {entries}
+
+        <br/>
+        {dietaryText}
+        <TextInputField
+          label=""
+          name="dietaryRestrictions"
+          value={props.dietaryRestrictions}
+          onChange={props.onChange}
+        />
+
         <input
           type='submit'
           className='button'

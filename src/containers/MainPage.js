@@ -16,7 +16,7 @@ class MainPage extends Component {
       continueToRsvp: false,
       familyObject: {},
 
-      dietaryRestriction: "",
+      dietaryRestrictions: "",
 
       signInErrors: {
         generic: false,
@@ -189,6 +189,8 @@ class MainPage extends Component {
           handlePlusOneChange={this.handlePlusOneChange}
           handleSubmit={this.handleRSVPSubmit}
           onBoxClick={this.handleBoxSelect}
+          dietaryRestrictions={this.state.dietaryRestrictions}
+          onChange={this.handleTextChange}
         />
     } else {
       renderedComponent =
