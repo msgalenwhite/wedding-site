@@ -13,16 +13,8 @@ class MainPage extends Component {
       password: "",
 
       //filled in to work on RSVP page
-      continueToRsvp: true,
-      familyObject: {
-        "Galen White": null,
-        "plusOne": {
-          name: "",
-          attending: null
-        }
-      },
-
-      responses: {},
+      continueToRsvp: false,
+      familyObject: {},
 
       dietaryRestriction: "",
 
@@ -37,12 +29,17 @@ class MainPage extends Component {
 
   this.isSignInComplete = this.isSignInComplete.bind(this);
   this.handleSignInSubmit = this.handleSignInSubmit.bind(this);
+  this.createFamilyObject = this.createFamilyObject.bind(this)
+
   this.handleRSVPSubmit = this.handleRSVPSubmit.bind(this);
+
+
 
   this.handleCheckHover = this.handleCheckHover.bind(this)
   this.handleBoxSelect = this.handleBoxSelect.bind(this)
 
   this.sendEmail = this.sendEmail.bind(this);
+
   }
 
   handleTextChange (event) {
@@ -52,15 +49,17 @@ class MainPage extends Component {
   }
 
   handlePlusOneChange (event) {
+    let plusOneName = event.target.value
+    let plusOneAttending = this.state.familyObject["plusOne"].attending
+
     this.setState({
       familyObject: {
         ...this.state.familyObject,
         "plusOne": {
-          name: event.target.value,
-          attending: null
+          name: plusOneName,
+          attending: plusOneAttending
         }
       }
-
     })
   }
 
@@ -82,24 +81,9 @@ class MainPage extends Component {
         let passwordIsCorrect = this.state.password === "galenandchriswedding"
 
         if (nameIsCorrect && passwordIsCorrect) {
-          let formPayload = {}
 
-          familyArray.forEach((familyMember) => {
+          this.createFamilyObject(familyArray);
 
-            if (familyMember === "plusOne") {
-              formPayload["plusOne"] = {
-                name: "",
-                attending: null
-              }
-            } else {
-              formPayload[familyMember] = null
-            }
-          })
-
-          this.setState({
-            familyObject: formPayload,
-            continueToRsvp: true
-          })
         } else if (nameIsCorrect) {
           this.setState({
             signInErrors: {
@@ -122,6 +106,26 @@ class MainPage extends Component {
 
   }
 
+  createFamilyObject(familyArray) {
+    let familyObject = {}
+
+    familyArray.forEach((person) => {
+      if (person === "plusOne") {
+        familyObject["plusOne"] = {
+          name: "",
+          attending: null
+        }
+      } else {
+        familyObject[person] = null
+      }
+    })
+
+    this.setState({
+      familyObject: familyObject,
+      continueToRsvp: true
+    })
+  }
+
   handleRSVPSubmit(event) {
     event.preventDefault();
 
@@ -136,15 +140,18 @@ class MainPage extends Component {
   handleBoxSelect(attendee) {
     if (attendee.name === "plusOne") {
       this.setState({
-        responses: {
-          ...this.state.responses,
-          [this.state.familyObject.plusOne.name]: attendee.isAttending
+        familyObject: {
+          ...this.state.familyObject,
+          "plusOne": {
+            ...this.state.familyObject["plusOne"],
+            attending: attendee.isAttending
+          }
         }
       })
     } else {
       this.setState({
-        responses: {
-          ...this.state.responses,
+        familyObject: {
+          ...this.state.familyObject,
           [attendee.name]: attendee.isAttending
         }
       })
@@ -172,6 +179,7 @@ class MainPage extends Component {
   }
 
   render() {
+
     let renderedComponent;
 
     if (this.state.continueToRsvp) {
@@ -181,7 +189,6 @@ class MainPage extends Component {
           handlePlusOneChange={this.handlePlusOneChange}
           handleSubmit={this.handleRSVPSubmit}
           onBoxClick={this.handleBoxSelect}
-          responses={this.state.responses}
         />
     } else {
       renderedComponent =

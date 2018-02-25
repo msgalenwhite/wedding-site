@@ -36,13 +36,15 @@ const RsvpForm = props => {
       })
     }
 
-    if (props.responses[familyMember] === true) {
-      attending = true
-    } else {
-      attending = false
-    }
-
     if (familyMember === "plusOne") {
+      console.log(props.familyObject["plusOne"])
+
+      if (props.familyObject["plusOne"].attending) {
+        attending = true
+      } else {
+        attending = false
+      }
+
       returnedComponent =
         <div key="RSVPlusOne">
           <TextInputField
@@ -59,6 +61,13 @@ const RsvpForm = props => {
           />
         </div>
     } else {
+
+      if (props.familyObject[familyMember] === true) {
+        attending = true
+      } else {
+        attending = false
+      }
+
       returnedComponent =
       <RsvpEntry
         key={`RSVP-${familyMember}`}
