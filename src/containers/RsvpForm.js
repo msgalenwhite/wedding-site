@@ -1,6 +1,6 @@
 import React from 'react'
 
-import RsvpEntry from './RsvpEntry'
+import RsvpEntry from '../components/RsvpEntry'
 import TextInputField from '../components/TextInputField'
 
 const RsvpForm = props => {
@@ -102,14 +102,17 @@ const RsvpForm = props => {
         {entries}
 
         <br/>
-        {dietaryText}
-        <TextInputField
-          label=""
-          name="dietaryRestrictions"
-          value={props.dietaryRestrictions}
-          onChange={props.onChange}
-        />
-
+        <div className="dietarydiv">
+          <p>
+            {dietaryText}
+          </p>
+          <textarea
+            value={props.dietaryRestrictions}
+            onChange={props.onChange}
+            className="dietaryRestrictions"
+          >
+          </textarea>
+        </div>
         <input
           type='submit'
           className='button'

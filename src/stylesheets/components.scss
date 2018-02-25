@@ -32,6 +32,11 @@ body {
   font-size: 1.3em;
 }
 
+textarea {
+  width: 50%;
+  min-height: 100px;
+}
+
 // CLICKABLE COMPONENTS
 .button {
   background-color: $light-sangria;
