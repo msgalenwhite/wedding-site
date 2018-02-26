@@ -27,6 +27,19 @@ body {
   color: $brick;
 }
 
+.invitation, .reception, .greeting {
+  color: $brick;
+  font-size: 30px;
+  text-align: center;
+}
+.brideandgroom, .greeting {
+  font-size: 40px;
+  font-weight: bold;
+}
+.hotel {
+  font-size: 40px;
+}
+
 // TEXT INPUT FIELDS
 .textLabel, input {
   font-size: 1.3em;
@@ -35,6 +48,7 @@ body {
 textarea {
   width: 50%;
   min-height: 100px;
+  font-size: 1em;
 }
 
 // CLICKABLE COMPONENTS

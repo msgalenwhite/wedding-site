@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 
 import SignIn from './SignIn'
 import RsvpForm from './RsvpForm'
+import StoryForm from './StoryForm'
 
 import invitees from '../constants/Invitees'
 
@@ -12,11 +13,13 @@ class MainPage extends Component {
       name: "",
       password: "",
 
-      //filled in to work on RSVP page
       continueToRsvp: false,
       familyObject: {},
-
       dietaryRestrictions: "",
+
+      continueToStory: false,
+      stories: [],
+      email: "",
 
       signInErrors: {
         generic: false,
@@ -34,8 +37,6 @@ class MainPage extends Component {
   this.handleRSVPSubmit = this.handleRSVPSubmit.bind(this);
 
   this.handleBoxSelect = this.handleBoxSelect.bind(this)
-
-  this.handleCheckHover = this.handleCheckHover.bind(this)
 
   this.sendEmail = this.sendEmail.bind(this);
   }
@@ -131,10 +132,11 @@ class MainPage extends Component {
 
     console.log("An RSVP was submitted")
     console.log(this.state.familyObject)
-  }
 
-  handleCheckHover(event) {
-
+    this.setState({
+      continueToStory: true,
+      continueToRsvp: false
+    })
   }
 
   handleBoxSelect(attendee) {
@@ -179,6 +181,7 @@ class MainPage extends Component {
   }
 
   render() {
+    console.log(this.state)
 
     let renderedComponent;
 
@@ -192,24 +195,31 @@ class MainPage extends Component {
           dietaryRestrictions={this.state.dietaryRestrictions}
           onChange={this.handleTextChange}
         />
+    } else if (this.state.continueToStory) {
+      renderedComponent =
+        <StoryForm
+
+        />
     } else {
       renderedComponent =
-        <SignIn
-          handleTextChange={this.handleTextChange}
-          name={this.state.name}
-          password={this.state.password}
-          email={this.state.email}
-          handleSubmit={this.handleSignInSubmit}
-          errors={this.state.signInErrors}
-        />
+        <div>
+          <div className='greeting'>
+            Galen and Chris<br/>
+            are Getting Married!
+          </div>
+          <SignIn
+            handleTextChange={this.handleTextChange}
+            name={this.state.name}
+            password={this.state.password}
+            email={this.state.email}
+            handleSubmit={this.handleSignInSubmit}
+            errors={this.state.signInErrors}
+          />
+        </div>
     }
 
     return (
       <div className='page'>
-        <div className='heading'>
-          Galen and Chris<br/>
-          are Getting Married!
-        </div>
         {renderedComponent}
       </div>
     )

@@ -7,3 +7,4 @@ config/database.yml
 node_modules/*
 
 Invitees.js
+Invitation.js

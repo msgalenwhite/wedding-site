@@ -3,11 +3,10 @@ import React from 'react'
 import RsvpEntry from '../components/RsvpEntry'
 import TextInputField from '../components/TextInputField'
 
+import invitationWording from '../constants/Invitation'
 const RsvpForm = props => {
 
   let plusOneParagraph;
-  let babyParagraph;
-
   if (Object.keys(props.familyObject).includes("plusOne")) {
     plusOneParagraph =
       <div>
@@ -20,6 +19,7 @@ const RsvpForm = props => {
       </div>
   }
 
+  let babyParagraph;
   if (Object.keys(props.familyObject).includes("baby")) {
     babyParagraph =
     <p>
@@ -92,9 +92,11 @@ const RsvpForm = props => {
 
   return(
     <div>
-      <h3 className='title'>
-        Will we be seeing you in Gloucester, MA on October 13, 2018?
-      </h3>
+      {invitationWording.invitation}
+      <br/>
+      <br/>
+      {invitationWording.reception}
+      <br/>
       {babyParagraph}
       {plusOneParagraph}
 
@@ -116,6 +118,7 @@ const RsvpForm = props => {
         <input
           type='submit'
           className='button'
+          value='Next'
         />
       </form>
     </div>
