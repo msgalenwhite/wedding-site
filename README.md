@@ -65,15 +65,10 @@ To get an 'uglified' version suitable for heroku, run 'npm build' instead of 'np
 
 -- (SignIn) Set error for incorrect name
 
--- (RSVP FORM) add email section so we can email their responses
-
 -- (StoryForm)
-  - summary of RSVP responses
-  - space for email
-  - blurb re: embarrassing stories
-  - textarea to enter stories
-  - button to add more stories
-  - button to return to their rsvp responses
-  - button to finally submit and email me AND THEM their responses
+  - button to return and change their rsvp responses
+
+-- (MainPage)
+  - fill in handleFullSubmit() function
 
 -- add a "Galen sounds like a great developer and I would love to check out her app's functionality but I wasn't invited to her wedding" button that will load a set of 'sample' invitees and invitation wording that they can play with.
