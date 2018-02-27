@@ -55,6 +55,10 @@ Navigate to `localhost:4567`.
 
 To get an 'uglified' version suitable for heroku, run 'npm build' instead of 'npm start'
 
+#### Needed Data:
+-- (RsvpForm/Invitation) Time of the ceremony
+-- (StoryForm) Deadline to submit new/changes to RSVP
+
 #### To-Do:
 
 -- (SignIn) fuzzy match names to a list of invitees (make sure to check the whole household, so anyone in the family can RSVP for all of them)

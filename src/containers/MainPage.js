@@ -2,9 +2,10 @@ import React, {Component} from 'react'
 
 import SignIn from './SignIn'
 import RsvpForm from './RsvpForm'
-import StoryForm from './StoryForm'
+import ReviewAndStoryPage from './ReviewAndStoryPage'
 
 import invitees from '../constants/Invitees'
+import passwords from '../constants/Passwords'
 
 class MainPage extends Component {
   constructor(props){
@@ -18,7 +19,10 @@ class MainPage extends Component {
       dietaryRestrictions: "",
 
       continueToStory: false,
-      stories: [],
+      stories: {
+        current: "",
+        saved: []
+      },
       email: "",
 
       signInErrors: {
@@ -29,25 +33,28 @@ class MainPage extends Component {
     }
   this.handleTextChange = this.handleTextChange.bind(this);
   this.handlePlusOneChange = this.handlePlusOneChange.bind(this);
+  this.handleStoryChange = this.handleStoryChange.bind(this);
 
   this.isSignInComplete = this.isSignInComplete.bind(this);
   this.handleSignInSubmit = this.handleSignInSubmit.bind(this);
   this.createFamilyObject = this.createFamilyObject.bind(this)
 
   this.handleRSVPSubmit = this.handleRSVPSubmit.bind(this);
+  this.handleStorySubmit = this.handleStorySubmit.bind(this);
+  this.handleFullSubmit = this.handleFullSubmit.bind(this)
 
-  this.handleBoxSelect = this.handleBoxSelect.bind(this)
+  this.handleBoxSelect = this.handleBoxSelect.bind(this);
 
   this.sendEmail = this.sendEmail.bind(this);
   }
 
-  handleTextChange (event) {
+  handleTextChange(event) {
     this.setState({
       [event.target.className]: event.target.value
     })
   }
 
-  handlePlusOneChange (event) {
+  handlePlusOneChange(event) {
     let plusOneName = event.target.value
     let plusOneAttending = this.state.familyObject["plusOne"].attending
 
@@ -58,6 +65,15 @@ class MainPage extends Component {
           name: plusOneName,
           attending: plusOneAttending
         }
+      }
+    })
+  }
+
+  handleStoryChange(event) {
+    this.setState({
+      stories: {
+        ...this.state.stories,
+        current: event.target.value
       }
     })
   }
@@ -77,7 +93,7 @@ class MainPage extends Component {
       invitees.forEach((familyArray) => {
 
         let nameIsCorrect = familyArray.includes(this.state.name);
-        let passwordIsCorrect = this.state.password === "galenandchriswedding"
+        let passwordIsCorrect = this.state.password === passwords.newRSVP
 
         if (nameIsCorrect && passwordIsCorrect) {
 
@@ -129,14 +145,30 @@ class MainPage extends Component {
 
   handleRSVPSubmit(event) {
     event.preventDefault();
-
-    console.log("An RSVP was submitted")
-    console.log(this.state.familyObject)
-
     this.setState({
       continueToStory: true,
       continueToRsvp: false
     })
+  }
+
+  handleStorySubmit() {
+    let newStory = this.state.stories.current
+    let allStories = this.state.stories.saved
+
+    if (newStory !== "") {
+      allStories.push(newStory)
+      this.setState({
+        stories: {
+          current: "",
+          saved: allStories
+        }
+      })
+    }
+  }
+
+  handleFullSubmit() {
+    //this is it, folks!
+    console.log("submit, full submit")
   }
 
   handleBoxSelect(attendee) {
@@ -181,8 +213,6 @@ class MainPage extends Component {
   }
 
   render() {
-    console.log(this.state)
-
     let renderedComponent;
 
     if (this.state.continueToRsvp) {
@@ -197,9 +227,15 @@ class MainPage extends Component {
         />
     } else if (this.state.continueToStory) {
       renderedComponent =
-        <StoryForm
-
-        />
+      <ReviewAndStoryPage
+        rsvpStatus={this.state.familyObject}
+        stories={this.state.stories}
+        onChange={this.handleStoryChange}
+        handleStorySubmit={this.handleStorySubmit}
+        handleEmailChange={this.handleTextChange}
+        email={this.state.email}
+        handleFullSubmit={this.handleFullSubmit}
+      />
     } else {
       renderedComponent =
         <div>
