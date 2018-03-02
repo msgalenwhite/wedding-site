@@ -68,6 +68,10 @@ textarea {
   background-color: $sangria;
 }
 
+.center {
+  text-align: center;
+}
+
 // CLICKABLE COMPONENTS on RSVP ENTRY
 
 .check {
@@ -79,8 +83,18 @@ textarea {
   color: $sangria;
 }
 
-// STORY
+// RSVP SUMMARY
+.diet {
+  text-align: center;
+}
 
+.rsvp-summary {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+// STORY
 .story {
   align-items: center;
   display: flex;

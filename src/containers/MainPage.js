@@ -18,7 +18,7 @@ class MainPage extends Component {
       familyObject: {},
       dietaryRestrictions: "",
 
-      continueToStory: true,
+      continueToStory: false,
       stories: {
         current: "",
         saved: []
@@ -34,12 +34,16 @@ class MainPage extends Component {
   this.handleTextChange = this.handleTextChange.bind(this);
   this.handlePlusOneChange = this.handlePlusOneChange.bind(this);
   this.handleStoryChange = this.handleStoryChange.bind(this);
+  this.handleEditStory = this.handleEditStory.bind(this)
+  this.storyInProgress = this.storyInProgress.bind(this)
+  this.resetStory = this.resetStory.bind(this)
 
   this.isSignInComplete = this.isSignInComplete.bind(this);
   this.handleSignInSubmit = this.handleSignInSubmit.bind(this);
   this.createFamilyObject = this.createFamilyObject.bind(this)
 
   this.handleRSVPSubmit = this.handleRSVPSubmit.bind(this);
+  this.changeRSVP = this.changeRSVP.bind(this)
   this.handleStorySubmit = this.handleStorySubmit.bind(this);
   this.handleFullSubmit = this.handleFullSubmit.bind(this)
 
@@ -76,6 +80,42 @@ class MainPage extends Component {
         current: event.target.value
       }
     })
+  }
+
+  storyInProgress() {
+    if (this.state.stories.current === "") {
+      return false
+    }
+    return true;
+  }
+
+  resetStory(index) {
+    let storyObject = this.state.stories
+    let targetStory = storyObject.saved[index]
+    storyObject.saved.splice(index, 1)
+    storyObject.current = targetStory
+
+    this.setState({
+      stories: storyObject
+    })
+  }
+
+  handleEditStory(index) {
+    if (this.storyInProgress()) {
+      /*
+      ////have alert appear?
+      //have div appear?
+      "It looks like you are in the middle of a story.  If you continue, this story will be lost.  Do you wish to continue or return to your current story?"
+
+        - need 2 buttons:
+          - return to story
+            - makes div disappear, nothing else changes
+          - continue
+            - see num 2
+      */
+    } else {
+      this.resetStory(index)
+    }
   }
 
   isSignInComplete () {
@@ -151,6 +191,13 @@ class MainPage extends Component {
     })
   }
 
+  changeRSVP() {
+    this.setState({
+      continueToStory: false,
+      continueToRsvp: true
+    })
+  }
+
   handleStorySubmit() {
     let newStory = this.state.stories.current
     let allStories = this.state.stories.saved
@@ -213,6 +260,7 @@ class MainPage extends Component {
   }
 
   render() {
+    console.log(this.state.stories)
     let renderedComponent;
 
     if (this.state.continueToRsvp) {
@@ -229,11 +277,14 @@ class MainPage extends Component {
       renderedComponent =
       <ReviewAndStoryPage
         rsvpStatus={this.state.familyObject}
+        changeRSVP={this.changeRSVP}
+        dietaryRestrictions={this.state.dietaryRestrictions}
         stories={this.state.stories}
         onChange={this.handleStoryChange}
         handleStorySubmit={this.handleStorySubmit}
         handleEmailChange={this.handleTextChange}
         email={this.state.email}
+        handleEditStory={this.handleEditStory}
         handleFullSubmit={this.handleFullSubmit}
       />
     } else {
@@ -247,7 +298,6 @@ class MainPage extends Component {
             handleTextChange={this.handleTextChange}
             name={this.state.name}
             password={this.state.password}
-            email={this.state.email}
             handleSubmit={this.handleSignInSubmit}
             errors={this.state.signInErrors}
           />

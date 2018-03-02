@@ -13,7 +13,7 @@ const RsvpSummary = props => {
     }
 
     return(
-      <div>
+      <div className='center'>
         <h3 className='title'>{heading}</h3>
         {list}
       </div>
@@ -58,16 +58,37 @@ const RsvpSummary = props => {
 
   let summary = "Here is a summary of your RSVP so far:"
   let nameLists =
-    <div>
+    <div className='rsvp-summary'>
       {makeListOfNames("Attending: ", willAttend)}
       {makeListOfNames("Not Attending: ", willNotAttend)}
     </div>
 
+  let dietaryRestrictions;
+  if (props.dietaryRestrictions) {
+    dietaryRestrictions =
+    <div className='diet'>
+      <h3 className='title'>Dietary Restrictions:</h3>
+      <div className='diet-text'>
+        {props.dietaryRestrictions}
+      </div>
+    </div>
+  }
+
   return(
     <div>
       {introPara}
-      <h3>{summary}</h3>
+      <h3 className='center'>{summary}</h3>
       {nameLists}
+      {dietaryRestrictions}
+      <br/>
+      <div className='center'>
+        <button
+          className='button center'
+          onClick={props.changeRSVP}
+        >
+          Change RSVP
+        </button>
+      </div>
     </div>
   )
 }

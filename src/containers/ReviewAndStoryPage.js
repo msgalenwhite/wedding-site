@@ -11,6 +11,8 @@ const ReviewAndStoryPage = props => {
     <div>
       <RsvpSummary
         rsvpStatus={props.rsvpStatus}
+        changeRSVP={props.changeRSVP}
+        dietaryRestrictions={props.dietaryRestrictions}
       />
       <StoryForm
         stories={props.stories}
