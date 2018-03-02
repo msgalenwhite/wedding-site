@@ -18,7 +18,7 @@ class MainPage extends Component {
       familyObject: {},
       dietaryRestrictions: "",
 
-      continueToStory: false,
+      continueToStory: true,
       stories: {
         current: "",
         saved: []

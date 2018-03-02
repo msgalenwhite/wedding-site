@@ -2,7 +2,7 @@ import React from 'react'
 
 const StoryInProgress = props => {
   return(
-    <div>
+    <div className='story'>
       <textarea
         value={props.storyText}
         onChange={props.onChange}

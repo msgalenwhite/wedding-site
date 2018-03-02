@@ -2,7 +2,12 @@ import React from 'react'
 
 const Story = props => {
   return(
-    <p>{props.storyText}</p>
+    <div className='story finished-story'>
+      <div className='finished-story-text'>
+        {props.storyText}
+      </div>
+      <button className='button'>Edit</button>
+    </div>
   )
 }
 
