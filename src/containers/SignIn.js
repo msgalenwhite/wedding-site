@@ -19,7 +19,7 @@ const SignIn = props => {
   })
 
   return(
-    <form className='SignIn' onSubmit={props.handleSubmit}>
+    <form className='SignIn center' onSubmit={props.handleSubmit}>
       <div className='error'>
         {currentErrors['generic']}
       </div>
