@@ -25,10 +25,14 @@ const StoryForm = props => {
 
   props.stories.saved.forEach((story, index) => {
     let key = `story-${index}`
+    let uniqueStoryEdit = () => {
+      props.handleEditStory(index)
+    }
     stories.push(
       <Story
         key={key}
         storyText={story}
+        handleEditStory={uniqueStoryEdit}
       />
     )
   })

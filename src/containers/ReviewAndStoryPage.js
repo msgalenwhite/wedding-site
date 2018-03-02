@@ -16,6 +16,7 @@ const ReviewAndStoryPage = props => {
         stories={props.stories}
         onChange={props.onChange}
         handleStorySubmit={props.handleStorySubmit}
+        handleEditStory={props.handleEditStory}
       />
       <TextInputField
         name='email'
