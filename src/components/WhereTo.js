@@ -16,6 +16,7 @@ const WhereTo = props => {
 
   // let registrySite = 'https://www.amazon.com/wedding/galen-white-chris-bimbo-gloucester-october-2018/registry/7ZDHYRQ9I313'
   let registrySite;
+
   return(
     <div className='page'>
       <h3 className='title center'>
