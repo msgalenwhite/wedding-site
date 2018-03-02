@@ -55,8 +55,8 @@ end
 
 
 get '*' do
-  puts '===='
-  puts ENV.to_h
-  puts '==='
+  # puts '===='
+  # puts ENV.to_h
+  # puts '==='
   erb :home
 end
