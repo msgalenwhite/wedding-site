@@ -6,7 +6,12 @@ const Story = props => {
       <div className='finished-story-text'>
         {props.storyText}
       </div>
-      <button className='button'>Edit</button>
+      <button
+        className='button'
+        onClick={props.handleEditStory}
+      >
+        Edit
+      </button>
     </div>
   )
 }
