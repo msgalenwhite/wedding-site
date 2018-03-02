@@ -13,8 +13,6 @@ const RsvpEntry = props => {
     noBoxStyle = "check fa fa-check-square"
   }
 
-  let check = <i className="fa fa-check"></i>
-
   let attending = <i
     className={`${yesBoxStyle} attending`}
     onClick={props.yesClick}
@@ -26,8 +24,6 @@ const RsvpEntry = props => {
     onClick={props.noClick}
   >
   </i>
-
-
 
   return(
     <div>

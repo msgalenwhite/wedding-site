@@ -11,10 +11,10 @@ const RsvpForm = props => {
     plusOneParagraph =
       <div>
         <p>
-          Please include the name of your Plus One.  This will help us organize their seating arrangement for dinner.  If you do not know the identity of your Plus One (yet!) but would still like to bring someone, please enter 'n/a' in the name field.
+          You are welcome to bring someone with you as your Plus One.  If you know the name of the person who will be joining you, please let us know so we can best organize their seating arrangement for dinner.
         </p>
         <p>
-          If you have decided that you would prefer to enjoy this wonderful occasion without an additional member in your party, please leave their name blank and select 'Will Not Attend' beneath their section.
+          If you have decided that you would prefer to celebrate with Galen and Chris without an additional member in your party, please leave the name field blank and select 'Will Not Attend' beneath their section.
         </p>
       </div>
   }
@@ -54,17 +54,17 @@ const RsvpForm = props => {
 
       returnedComponent =
         <div key="RSVPlusOne">
-          <TextInputField
-            name="plusOne"
-            label="Plus One: "
-            value={props.familyObject["plusOne"].name}
-            onChange={props.handlePlusOneChange}
-          />
           <RsvpEntry
-            name=""
+            name="Plus One"
             yesClick={attendingBoxClick}
             noClick={notAttendingBoxClick}
             attending={attending}
+          />
+          <TextInputField
+            name="plusOne"
+            label="Name: "
+            value={props.familyObject["plusOne"].name}
+            onChange={props.handlePlusOneChange}
           />
         </div>
     } else if (familyMember !== "baby"){

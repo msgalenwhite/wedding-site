@@ -67,12 +67,12 @@ textarea {
 }
 
 // CLICKABLE COMPONENTS on RSVP ENTRY
-.appearOnHover {
-  font-size: 2em;
-  color: $sangria;
-}
 
 .check {
   color: $light-sangria;
   margin: 10px;
+}
+
+.check:hover {
+  color: $sangria;
 }
