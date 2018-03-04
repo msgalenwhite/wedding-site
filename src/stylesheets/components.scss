@@ -53,6 +53,15 @@ textarea {
   background-color: $lighter-nude;
 }
 
+input:focus {
+  outline: none;
+}
+
+.textInputField {
+  background-color: $lighter-nude;
+  border: 2px solid $dark-sangria;
+}
+
 // CLICKABLE COMPONENTS
 .button {
   background-color: $light-sangria;

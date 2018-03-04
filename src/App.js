@@ -8,7 +8,7 @@ import HotelInfo from './components/HotelInfo'
 import WhereTo from './components/WhereTo'
 import DummyRSVP from './components/DummyRSVP'
 
-cont App = props => {
+const App = props => {
   return(
 
     <Router history={browserHistory}>
