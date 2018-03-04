@@ -1,5 +1,7 @@
 require "sinatra"
 require "sinatra/reloader" if development?
+require 'sinatra/activerecord'
+require 'sinatra/flash'
 
 require 'dotenv/load' if development?
 
@@ -15,7 +17,9 @@ set :bind, '0.0.0.0'  # bind to all interfaces
 
 set :public_folder, File.join(File.dirname(__FILE__), "public")
 
-set :views, File.dirname(__FILE__) + "/views"
+configure do
+  set :views, 'app/views'
+end
 
 Dir[File.join(File.dirname(__FILE__), 'app', '**', '*.rb')].each do |file|
   require file
@@ -52,7 +56,6 @@ post "/testemail" do
   # puts response.headers
 
 end
-
 
 get '*' do
   # puts '===='

@@ -2,7 +2,7 @@ let WriteFilePlugin = require('write-file-webpack-plugin');
 
 var config = {
  entry: {
-   path: './src/main.js',
+   path: './app/src/main.js',
  },
  output: {
    path: __dirname + '/public',
