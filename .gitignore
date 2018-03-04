@@ -3,7 +3,6 @@
 config/database.yml
 .env
 
-
 node_modules/*
 
 Invitees.js

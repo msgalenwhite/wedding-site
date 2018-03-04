@@ -8,7 +8,7 @@ gem "json"
 gem "sinatra-activerecord", "~> 2.0"
 gem "sinatra-flash"
 
-gem "activerecord", "~> 4.1"
+gem "activerecord", "~> 5.1"
 gem "pg", "~> 0.21"
 gem "rake"
 
