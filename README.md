@@ -77,6 +77,8 @@ To get an 'uglified' version suitable for heroku, run 'npm build' instead of 'np
 
 -- add a "Galen sounds like a great developer and I would love to check out her app's functionality but I wasn't invited to her wedding" button that will load a set of 'sample' invitees and invitation wording that they can play with.
 
+- Fix Attending/Not attending list so that it shows up as bullet points not a line of text
+
 # Info-Pages:
 WhereTo links to multiple pages that are simple informational components.  Some good ideas would be:
 

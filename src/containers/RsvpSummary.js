@@ -6,7 +6,7 @@ const RsvpSummary = props => {
 
     if (array.length > 0) {
       list = array.map((name) => {
-        return( <span key={name}>{name}</span>)
+        return( <span key={name}>{name}<br/></span>)
       })
     } else {
       list = <span key='n/a'>n/a</span>
