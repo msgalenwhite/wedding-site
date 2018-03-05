@@ -36,22 +36,6 @@ const StoryForm = props => {
       />
     )
   })
-
-  //there will be a "bride/groom/both" toggle for topics
-
-  //there will be a place to enter an email
-
-  //there will be a final submit button
-  //maybe this button takes you to a summary page?
-
-  //maybe a back button to change their RSVP?
-  //should there be a blurb to show what their RSVP was?
-    //make sure to account for Plus Ones being "tbd"
-
-
-  //props.rsvpStatus is an Object
-
-
   return(
     <div>
       {storyIntro}
