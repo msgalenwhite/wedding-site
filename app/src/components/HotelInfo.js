@@ -69,6 +69,8 @@ const HotelInfo = props => {
         <div className='hauntsList'>
           {haunts}
         </div>
+        <p>Of course, you don't have to leave the Inn to have fun!  The grounds are ours for the weekend - you're welcome to take a walk along the grass, enjoy a meal at the restaurant, or even participate in lawn games.</p>
+        <p>Have an idea for a fun activity?  Let us know!</p>
       </div>
       <ReturnButton />
     </div>
