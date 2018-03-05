@@ -68,7 +68,6 @@ To get an 'uglified' version suitable for heroku, run 'npm build' instead of 'np
 -- (SignIn) Set error for incorrect name
 
 -- (StoryForm)
-  - button to return and change their rsvp responses
   - button to edit a story previously submitted
     - FUNCTIONALITY - need to alert them if a partial story will be deleted
 
@@ -77,16 +76,15 @@ To get an 'uglified' version suitable for heroku, run 'npm build' instead of 'np
 
 -- add a "Galen sounds like a great developer and I would love to check out her app's functionality but I wasn't invited to her wedding" button that will load a set of 'sample' invitees and invitation wording that they can play with.
 
-- Fix Attending/Not attending list so that it shows up as bullet points not a line of text
-
-- GOAL: pull data from  
+- GOAL: pull data from Database, not files
 
 # Info-Pages:
 WhereTo links to multiple pages that are simple informational components.  Some good ideas would be:
 
-1. RSVP site (or Dummy Site before July 1st)
-2. Information about the wedding location
+XX 1. RSVP site (or Dummy Site before July 1st)
+XX 2. Information about the wedding location
 3. Link to registry
 4. "On the Day" breakdown of where to be and when
 5. Rehearsal Dinner info
 6. Link to page containing everyone's submitted stories?
+  -- currently: StorySummary -- requires database functionality to add fetch statement

@@ -4,13 +4,15 @@ import {Router, Route, Link, IndexRoute, browserHistory} from 'react-router'
 import './main.scss'
 
 import MainPage from './containers/MainPage'
+
 import HotelInfo from './components/HotelInfo'
 import WhereTo from './components/WhereTo'
 import DummyRSVP from './components/DummyRSVP'
+import StorySummary from './components/StorySummary'
 
 const App = props => {
   return(
-    
+
     <Router history={browserHistory}>
       <Route
         path='/'
@@ -27,6 +29,10 @@ const App = props => {
       <Route
         path='/wedding/location'
         component={HotelInfo}
+      />
+      <Route
+        path='/wedding/sharedstories'
+        component={StorySummary}
       />
     </Router>
   )
