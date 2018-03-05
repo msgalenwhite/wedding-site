@@ -10,7 +10,7 @@ import DummyRSVP from './components/DummyRSVP'
 
 const App = props => {
   return(
-
+    
     <Router history={browserHistory}>
       <Route
         path='/'
