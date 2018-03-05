@@ -10,6 +10,14 @@ body {
   min-height: 900px;
 }
 
+// CHANGE HIGHLIGHT COLOR FOR TEXT
+::selection {
+  background: lighten($light-sangria, 30%); /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: lighten($light-sangria, 30%); /* Gecko Browsers */
+}
+
 // TEXT
 
 .heading {
