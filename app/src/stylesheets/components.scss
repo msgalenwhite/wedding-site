@@ -1,13 +1,14 @@
 body {
   background-color: $dark-sangria;
   font-size: 1.3em;
+  font-family: 'Karma', serif;
 }
 
 .page {
   padding: 10px;
   margin: 10px;
   background-color: $light-nude;
-  min-height: 900px;
+  min-height: 100vh;
 }
 
 // CHANGE HIGHLIGHT COLOR FOR TEXT
@@ -39,9 +40,10 @@ body {
   color: $brick;
   font-size: 30px;
   text-align: center;
+  font-family: 'Merienda', cursive;
 }
 .brideandgroom, .greeting {
-  font-size: 40px;
+  font-size: 60px;
   font-weight: bold;
 }
 .hotel {
@@ -75,10 +77,11 @@ input[type=text] {
   background-color: $light-sangria;
   border-radius: 5px;
   margin: 10px;
-  padding: 5px 10px;
+  padding: 7px 10px 3px 10px;
   border: none;
   font-size: 18px;
   color: $light-nude;
+  font-family: 'Karma', serif;
 }
 
 .button:hover {
