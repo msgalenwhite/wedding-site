@@ -1,0 +1,36 @@
+// WORDING
+.invitation, .reception, .greeting {
+  color: $brick;
+  font-size: 30px;
+  text-align: center;
+  font-family: 'Merienda', cursive;
+}
+.brideandgroom, .greeting {
+  font-size: 60px;
+  font-weight: bold;
+}
+.hotel {
+  font-size: 40px;
+}.invitation, .reception, .greeting {
+  color: $brick;
+  font-size: 30px;
+  text-align: center;
+  font-family: 'Merienda', cursive;
+}
+.brideandgroom, .greeting {
+  font-size: 60px;
+  font-weight: bold;
+}
+.hotel {
+  font-size: 40px;
+}
+
+// CLICKABLE COMPONENTS on RSVP ENTRY
+.check {
+  color: $light-sangria;
+  margin: 10px;
+}
+
+.check:hover {
+  color: $sangria;
+}
