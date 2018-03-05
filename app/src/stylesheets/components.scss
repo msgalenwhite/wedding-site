@@ -57,7 +57,7 @@ input:focus {
   outline: none;
 }
 
-.textInputField {
+input[type=text] {
   background-color: $lighter-nude;
   border: 2px solid $dark-sangria;
 }

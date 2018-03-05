@@ -79,6 +79,8 @@ To get an 'uglified' version suitable for heroku, run 'npm build' instead of 'np
 
 - Fix Attending/Not attending list so that it shows up as bullet points not a line of text
 
+- GOAL: pull data from  
+
 # Info-Pages:
 WhereTo links to multiple pages that are simple informational components.  Some good ideas would be:
 

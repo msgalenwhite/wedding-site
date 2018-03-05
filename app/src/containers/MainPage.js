@@ -260,7 +260,6 @@ class MainPage extends Component {
   }
 
   render() {
-    console.log(this.state.stories)
     let renderedComponent;
 
     if (this.state.continueToRsvp) {
