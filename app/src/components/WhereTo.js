@@ -18,7 +18,7 @@ const WhereTo = props => {
   let registrySite;
 
   return(
-    <div className='page'>
+    <div className='page whereToPage'>
       <div className='title center'>October 13, 2018</div>
       <h3 className='heading'>
         Galen and Chris are Getting Married!
