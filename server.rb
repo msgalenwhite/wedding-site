@@ -26,6 +26,13 @@ Dir[File.join(File.dirname(__FILE__), 'app', '**', '*.rb')].each do |file|
   also_reload file
 end
 
+get "/api/v1/invitee_info" do
+  invitee = Invitee.where(name: params[:name])
+  stories = invitee.stories
+  info = { invitee: invitee, stories: stories }
+  json info
+end
+
 post "/testemail" do
   letter = request.body.read
 
@@ -41,12 +48,9 @@ post "/testemail" do
   response = sg.client.mail._('send').post(request_body: mail.to_json)
 
 
-
   content_type :json
   status 201
   json response.body
-
-
 
 
   # where are these being sent?  they don't show up in logs/console
