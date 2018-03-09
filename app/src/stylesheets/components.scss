@@ -105,3 +105,18 @@ input[type=text], input[type=textarea] {
   width: 50%;
   font-size: 0.8em;
 }
+
+// Links
+a {
+  color: $sangria;
+  font-weight: bold;
+  text-decoration: none;
+}
+a:hover {
+  font-size: 1.1em;
+}
+
+.fa-arrow-alt-left {
+  font-size: 50px;
+  color: black;
+}

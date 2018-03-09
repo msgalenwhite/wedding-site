@@ -5,34 +5,13 @@ import './main.scss'
 
 import MainPage from './containers/MainPage'
 
-import HotelInfo from './components/HotelInfo'
-import WhereTo from './components/WhereTo'
-import DummyRSVP from './components/DummyRSVP'
-import StorySummary from './components/StorySummary'
-
 const App = props => {
   return(
 
     <Router history={browserHistory}>
       <Route
         path='/'
-        component={WhereTo}
-      />
-      <Route
-        path='/wedding/checkbacksoon'
-        component={DummyRSVP}
-      />
-      <Route
-        path='/wedding/rsvp'
         component={MainPage}
-      />
-      <Route
-        path='/wedding/location'
-        component={HotelInfo}
-      />
-      <Route
-        path='/wedding/sharedstories'
-        component={StorySummary}
       />
     </Router>
   )

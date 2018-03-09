@@ -289,6 +289,15 @@ class MainPage extends Component {
     } else {
       renderedComponent =
         <div>
+          <div>
+            <a
+              href='https://whitebimbo.herokuapp.com/'
+            >
+            <button className='button'>
+              Back to Info
+            </button>
+            </a>
+          </div>
           <div className='greeting'>
             Galen and Chris<br/>
             are Getting Married!
