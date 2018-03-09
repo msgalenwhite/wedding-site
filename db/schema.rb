@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180309172731) do
+ActiveRecord::Schema.define(version: 20180309182138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,14 @@ ActiveRecord::Schema.define(version: 20180309172731) do
     t.datetime "updated_at", null: false
     t.bigint "response_group_id"
     t.boolean "allow_plus_one", null: false
+    t.boolean "using_plus_one"
     t.index ["response_group_id"], name: "index_invitees_on_response_group_id"
+  end
+
+  create_table "plus_ones", force: :cascade do |t|
+    t.string "name"
+    t.bigint "invitee_id", null: false
+    t.index ["invitee_id"], name: "index_plus_ones_on_invitee_id"
   end
 
   create_table "response_groups", force: :cascade do |t|
