@@ -11,7 +11,7 @@ const StoryForm = props => {
       <h3 className="heading">Stories</h3>
       <p>Do you have an embarrassing story of the Bride or Groom that you think would make an excellent wedding toast?</p>
       <p>Please, share it here instead.  We would like to keep our wedding a positive experience for all, and ask that all toasts or stories shared at the wedding be heart-felt or comical without embarrassing the Bride or Groom and ruining their experience.</p>
-      <p>Stories shared here will still make it to Galen and Chris, and will be curated into an album that they can enjoy for years to come.</p>
+      <p>Stories shared here will still make it to Anna and Kristof, and will be curated into an album that they can enjoy for years to come.</p>
     </div>
 
   let stories = [
