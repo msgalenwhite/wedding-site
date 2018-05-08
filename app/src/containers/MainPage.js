@@ -289,19 +289,26 @@ class MainPage extends Component {
     } else {
       renderedComponent =
         <div>
-          <div>
-            <a
-              href='https://whitebimbo.herokuapp.com/'
-            >
-            <button className='button'>
-              Back to Info
-            </button>
-            </a>
-          </div>
           <div className='greeting'>
-            Galen and Chris<br/>
-            are Getting Married!
+            It's a Frozen<br/>
+            Wedding!
           </div>
+          <br/>
+          <h3>If you would like to log in and see the site's functionality:</h3>
+          <ul>
+            <li>
+              To see invitation with more than one invitee, log in with:
+            <br/>
+              Name: Anna<br/>
+              Password: frozenWedding
+            </li>
+            <li>
+              To see an invitation with a plus one, log in with:
+            <br/>
+              Name: Elsa<br/>
+              Password: frozenWedding
+            </li>
+          </ul>
           <SignIn
             handleTextChange={this.handleTextChange}
             name={this.state.name}
