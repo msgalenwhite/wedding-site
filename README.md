@@ -8,14 +8,6 @@ In order for this project to work, I will need to include an array of invitees, 
 
 For my own protection as well as my guests', these will be included in gitignore files.  Please be aware that a cloned version of this project will not include this data, and therefore might not function as intended.  
 
-### Form of Invitees:
-
-Form of Invitees: Each family has its own array of strings.  If a +1 was included with the invitation, I have included "plusOne"
-
-let invitees = [
-  ["Mom's Name", "Dad's Name", "baby"],
-  ["Cousin's Name", "plusOne"]
-]
 
 ### Form of Invitation:
 
@@ -101,4 +93,4 @@ XX 2. Information about the wedding location
 6. Link to page containing everyone's submitted stories?
   -- currently: StorySummary -- requires database functionality to add fetch statement
 
-  - text in dietary restrictions isTINY / stories 
+  - text in dietary restrictions isTINY / stories
