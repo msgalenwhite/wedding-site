@@ -78,6 +78,18 @@ To get an 'uglified' version suitable for heroku, run 'npm build' instead of 'np
 
 - GOAL: pull data from Database, not files
 
+# TO-DO:
+if their attending is false, can't add a plus one
+allow plus one - decides if plus one block appears
+using plus one -
+  - also, only generate the plus one table IF they want one
+  if true, ask name
+
+
+- on rsvp form - can add name only if plusOne is yes
+OPTIONALS -
+when they enter name, a plus one is created, which has an id
+
 # Info-Pages:
 WhereTo links to multiple pages that are simple informational components.  Some good ideas would be:
 
@@ -88,3 +100,5 @@ XX 2. Information about the wedding location
 5. Rehearsal Dinner info
 6. Link to page containing everyone's submitted stories?
   -- currently: StorySummary -- requires database functionality to add fetch statement
+
+  - text in dietary restrictions isTINY / stories 

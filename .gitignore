@@ -4,6 +4,5 @@
 
 node_modules/*
 config/database.yml
-Invitees.js
+
 Invitation.js
-Passwords.js
