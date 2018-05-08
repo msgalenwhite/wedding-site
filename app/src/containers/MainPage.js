@@ -293,6 +293,13 @@ class MainPage extends Component {
             It's a Frozen<br/>
             Wedding!
           </div>
+          <SignIn
+            handleTextChange={this.handleTextChange}
+            name={this.state.name}
+            password={this.state.password}
+            handleSubmit={this.handleSignInSubmit}
+            errors={this.state.signInErrors}
+          />
           <br/>
           <h3>If you would like to log in and see the site's functionality:</h3>
           <ul>
@@ -309,13 +316,6 @@ class MainPage extends Component {
               Password: frozenWedding
             </li>
           </ul>
-          <SignIn
-            handleTextChange={this.handleTextChange}
-            name={this.state.name}
-            password={this.state.password}
-            handleSubmit={this.handleSignInSubmit}
-            errors={this.state.signInErrors}
-          />
         </div>
     }
 
